@@ -429,10 +429,10 @@
             font-size: 1.5rem;
         }
 
-        /* ===== TRENERZY ===== */
+        /* ===== TRENERZY – 6 osób z rzeczywistym zdjęciem Adama ===== */
         .trainers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 40px;
         }
         .trainer-card {
@@ -480,6 +480,12 @@
             font-size: 5rem;
             color: white;
             box-shadow: 0 20px 30px -10px #f97316;
+            overflow: hidden;
+        }
+        .trainer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .trainer-card h3 {
             font-size: 2rem;
@@ -942,7 +948,7 @@
             opacity: 1;
         }
         .sponsor-track img {
-            max-height: 120px;  /* Zwiększone z 60px na 120px */
+            max-height: 120px;
             width: auto;
             object-fit: contain;
             transition: transform 0.3s;
@@ -1213,7 +1219,7 @@
             color: var(--primary);
         }
 
-        /* ===== RESPONSYWNOŚĆ – DOSTOSOWANIE SPONSORÓW ===== */
+        /* ===== RESPONSYWNOŚĆ ===== */
         @media screen and (max-width: 1024px) {
             .stats-grid { grid-template-columns: repeat(2,1fr); }
             .about-wrapper { grid-template-columns: 1fr; }
@@ -1224,9 +1230,7 @@
             .video-grid { grid-template-columns: 1fr; }
             .facts-grid { grid-template-columns: 1fr; }
             .records-grid { grid-template-columns: repeat(2,1fr); }
-            .sponsor-track img {
-                max-height: 100px; /* Nieco mniejsze na tabletach */
-            }
+            .sponsor-track img { max-height: 100px; }
         }
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
@@ -1254,19 +1258,13 @@
             .fab { bottom: 20px; right: 20px; width: 60px; height: 60px; font-size: 2rem; }
             .share-btn { bottom: 100px; right: 20px; width: 45px; height: 45px; font-size: 1.2rem; }
             .records-grid { grid-template-columns: 1fr; }
-            .sponsor-track img {
-                max-height: 80px; /* Mniejsze na telefonach */
-            }
+            .sponsor-track img { max-height: 80px; }
         }
         @media screen and (max-width: 480px) {
             .hero h1 { font-size: 2.4rem; }
             .stats-grid { grid-template-columns: 1fr; }
-            .sponsor-track {
-                gap: 30px;
-            }
-            .sponsor-track img {
-                max-height: 70px;
-            }
+            .sponsor-track { gap: 30px; }
+            .sponsor-track img { max-height: 70px; }
         }
     </style>
 </head>
@@ -1294,7 +1292,7 @@
     <!-- FLOATING BUTTONS -->
     <a href="https://www.facebook.com/ukslabasketwarszawa" target="_blank" class="fab" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
     <a href="#" class="back-to-top" aria-label="Do góry"><i class="fas fa-arrow-up"></i></a>
-    <a href="'https://pzla.pl/" class="share-btn" aria-label="Udostępnij"><i class="fas fa-share-alt"></i></a>
+    <a href="#" class="share-btn" aria-label="Udostępnij" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href), '_blank'); return false;"><i class="fas fa-share-alt"></i></a>
 
     <!-- HERO z particle.js -->
     <section id="home" class="hero">
@@ -1412,14 +1410,16 @@
         </div>
     </section>
 
-    <!-- TRENERZY (z Adamem Boron) -->
+    <!-- TRENERZY – 6 osób (Adam ze zdjęciem, Aldona i Marek nowi) -->
     <section id="trainers">
         <div class="container">
             <h2 class="section-title" data-aos="fade-left"><span>👥</span> Nasza kadra</h2>
             <div class="trainers-grid">
-                <!-- Adam Boron – trener główny -->
+                <!-- Adam Boron – trener główny (ze zdjęciem) -->
                 <div class="trainer-card featured" data-aos="zoom-in-up">
-                    <div class="trainer-avatar"><i class="fas fa-user-crown"></i></div>
+                    <div class="trainer-avatar">
+                        <img src="Screenshot 2026-03-13 224814.png" alt="Adam Boron" loading="lazy">
+                    </div>
                     <h3>Adam Boron</h3>
                     <div class="specialty">Trener Główny / Sprinty</div>
                     <p>Były mistrz Polski, trener kadry narodowej. W UKS Basket od 2010 roku, wychował 10 medalistów MP.</p>
@@ -1463,6 +1463,30 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <!-- Aldona Boron (NOWA) -->
+                <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="400">
+                    <div class="trainer-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>Aldona Boron</h3>
+                    <div class="specialty">Biegi długie / Cross</div>
+                    <p>Była reprezentantka Polski w biegach przełajowych, trenerka z pasją. Prowadzi grupy wytrzymałościowe.</p>
+                    <div class="trainer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <!-- Marek Zając (NOWY) -->
+                <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="500">
+                    <div class="trainer-avatar"><i class="fas fa-user-cog"></i></div>
+                    <h3>Marek Zając</h3>
+                    <div class="specialty">Rzuty / Siła</div>
+                    <p>Specjalista od treningu siłowego i rzutów. Jego podopieczni zdobyli 8 medalistów MP.</p>
+                    <div class="trainer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -1562,7 +1586,7 @@
                         <i class="fas fa-quote-left" style="font-size: 2.5rem; color: var(--primary); opacity: 0.2;"></i>
                         <p style="font-style: italic; margin: 20px 0;">„Trenuję w UKS Basket od 10 lat. To miejsce dało mi nie tylko sukcesy sportowe, ale przede wszystkim przyjaciół i pasję na całe życie.”</p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Kasia">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Kasia" loading="lazy">
                             <div><h5>Katarzyna Nowicka</h5><p>mistrzyni Polski w skoku w dal</p></div>
                         </div>
                     </div>
@@ -1570,7 +1594,7 @@
                         <i class="fas fa-quote-left" style="font-size: 2.5rem; color: var(--primary); opacity: 0.2;"></i>
                         <p style="font-style: italic; margin: 20px 0;">„Profesjonalna kadra, świetna atmosfera, nowoczesny obiekt. Córka zrobiła ogromne postępy. Polecam każdemu!”</p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Robert">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Robert" loading="lazy">
                             <div><h5>Robert Malinowski</h5><p>rodzic zawodniczki</p></div>
                         </div>
                     </div>
@@ -1578,7 +1602,7 @@
                         <i class="fas fa-quote-left" style="font-size: 2.5rem; color: var(--primary); opacity: 0.2;"></i>
                         <p style="font-style: italic; margin: 20px 0;">„Najlepsza decyzja – przyprowadziłem syna na trening 5 lat temu. Dziś jest w kadrze Polski juniorów!”</p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Tomasz">
+                            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Tomasz" loading="lazy">
                             <div><h5>Tomasz Jankowski</h5><p>tata zawodnika</p></div>
                         </div>
                     </div>
