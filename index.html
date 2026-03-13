@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKS Basket Sekcja Lekkoatletyczna – energia, pasja, mistrzowie</title>
-    <!-- Font Awesome 6, Google Fonts, AOS, Lightbox2, Swiper, Particles -->
+    <title>UKS Basket – Kalendarz Imprez PZLA</title>
+    <!-- Font Awesome, Google Fonts, AOS, Lightbox2, Swiper, Particles (kept for consistency) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -96,7 +96,7 @@
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 35px;
             list-style: none;
             font-weight: 500;
             align-items: center;
@@ -131,55 +131,6 @@
             font-size: 2rem;
             color: var(--secondary);
             cursor: pointer;
-        }
-
-        /* ===== LANGUAGE SWITCHER ===== */
-        .lang-switcher {
-            position: relative;
-            display: inline-block;
-        }
-        .lang-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: 0.3s;
-        }
-        .lang-btn:hover {
-            background: var(--primary-dark);
-        }
-        .lang-dropdown {
-            display: none;
-            position: absolute;
-            right: 0;
-            background: white;
-            min-width: 160px;
-            box-shadow: var(--shadow-sm);
-            border-radius: 20px;
-            z-index: 1000;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .lang-switcher:hover .lang-dropdown {
-            display: block;
-        }
-        .lang-dropdown a {
-            color: var(--secondary);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-        .lang-dropdown a:hover {
-            background: var(--light-bg);
-            color: var(--primary);
         }
 
         /* ===== HERO Z PARTICLE.JS ===== */
@@ -916,69 +867,93 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ===== UPCOMING EVENTS (Swiper) ===== */
-        .events-swiper {
-            margin-top: 40px;
+        /* ===== NOWY KALENDARZ IMPREZ (MONTH ACCORDION) ===== */
+        .events-calendar {
+            background: var(--light-bg);
+            border-radius: 80px;
+            padding: 60px;
+            margin: 50px 0;
         }
-        .event-card {
-            background: white;
-            border-radius: 40px;
-            padding: 30px;
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-        }
-        .event-date {
-            background: var(--gradient);
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 40px;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        /* ===== NEWSLETTER ===== */
-        .newsletter {
-            background: var(--gradient);
-            border-radius: 70px;
-            padding: 70px 50px;
-            color: white;
-            text-align: center;
-        }
-        .newsletter h3 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .newsletter-form {
+        .calendar-months {
             display: flex;
-            max-width: 600px;
-            margin: 30px auto 0;
+            flex-wrap: wrap;
             gap: 15px;
+            margin-bottom: 40px;
+            justify-content: center;
         }
-        .newsletter-form input {
-            flex: 1;
-            padding: 18px 25px;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.1rem;
-            outline: none;
-        }
-        .newsletter-form button {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 0 45px;
-            border-radius: 60px;
-            font-weight: 700;
+        .month-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
+            font-size: 1.1rem;
         }
-        .newsletter-form button:hover {
-            background: black;
+        .month-btn.active, .month-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .calendar-panels {
+            position: relative;
+        }
+        .month-panel {
+            display: none;
+            background: white;
+            border-radius: 60px;
+            padding: 40px;
+            box-shadow: var(--shadow-xl);
+        }
+        .month-panel.active {
+            display: block;
+        }
+        .day-group {
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+        }
+        .day-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .event-row {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--gray-light);
+        }
+        .event-name {
+            flex: 1;
+            font-weight: 500;
+        }
+        .event-place {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            min-width: 120px;
+        }
+        .event-rank {
+            background: var(--gradient);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+            .events-calendar { padding: 30px; }
+            .event-row { flex-wrap: wrap; gap: 8px; }
+            .event-rank { min-width: auto; }
         }
 
-        /* ===== SPONSORZY – JESZCZE WIĘKSZE ZDJĘCIA ===== */
+        /* ===== SPONSORZY ===== */
         .sponsors {
             background: white;
             padding: 60px 0;
@@ -998,7 +973,7 @@
             opacity: 1;
         }
         .sponsor-track img {
-            max-height: 180px;  /* Zwiększone z 120px na 180px */
+            max-height: 180px;
             width: auto;
             object-fit: contain;
             transition: transform 0.3s;
@@ -1319,38 +1294,22 @@
     </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION (language switcher removed) -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">UKS BASKET <span>sekcja lekkoatletyczna</span></div>
             <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" data-i18n="nav_home">START</a></li>
-                <li><a href="#about" data-i18n="nav_about">O NAS</a></li>
-                <li><a href="#disciplines" data-i18n="nav_disciplines">DYSCYPLINY</a></li>
-                <li><a href="#schedule" data-i18n="nav_schedule">PLAN</a></li>
-                <li><a href="#trainers" data-i18n="nav_trainers">TRENERZY</a></li>
-                <li><a href="#records" data-i18n="nav_records">REKORDY</a></li>
-                <li><a href="#gallery" data-i18n="nav_gallery">GALERIA</a></li>
-                <li><a href="#video" data-i18n="nav_video">WIDEO</a></li>
-                <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
-                <li><a href="#contact" data-i18n="nav_contact">KONTAKT</a></li>
-                <!-- Language Switcher -->
-                <li class="lang-switcher">
-                    <button class="lang-btn"><i class="fas fa-globe"></i> <span data-i18n="lang">PL</span></button>
-                    <div class="lang-dropdown">
-                        <a href="#" data-lang="pl">Polski</a>
-                        <a href="#" data-lang="en">English</a>
-                        <a href="#" data-lang="de">Deutsch</a>
-                        <a href="#" data-lang="ru">Русский</a>
-                        <a href="#" data-lang="uk">Українська</a>
-                        <a href="#" data-lang="cs">Čeština</a>
-                        <a href="#" data-lang="zh">中文</a>
-                        <a href="#" data-lang="es">Español</a>
-                        <a href="#" data-lang="ar">العربية</a>
-                        <a href="#" data-lang="sk">Slovenčina</a>
-                    </div>
-                </li>
+                <li><a href="#home">START</a></li>
+                <li><a href="#about">O NAS</a></li>
+                <li><a href="#disciplines">DYSCYPLINY</a></li>
+                <li><a href="#schedule">PLAN</a></li>
+                <li><a href="#trainers">TRENERZY</a></li>
+                <li><a href="#records">REKORDY</a></li>
+                <li><a href="#gallery">GALERIA</a></li>
+                <li><a href="#video">WIDEO</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">KONTAKT</a></li>
             </ul>
         </div>
     </nav>
@@ -1360,19 +1319,19 @@
     <a href="#" class="back-to-top" aria-label="Do góry"><i class="fas fa-arrow-up"></i></a>
     <a href="#" class="share-btn" aria-label="Udostępnij" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href), '_blank'); return false;"><i class="fas fa-share-alt"></i></a>
 
-    <!-- HERO z particle.js -->
+    <!-- HERO -->
     <section id="home" class="hero">
         <div id="particles-js"></div>
         <div class="hero-content" data-aos="fade-down">
             <div class="rotating-quote" id="rotatingQuote">⚡ Szybkość, siła, precyzja ⚡</div>
-            <h1><span class="highlight">UKS Basket</span> <span data-i18n="hero_title">Sekcja Lekkoatletyczna</span></h1>
-            <p data-i18n="hero_desc">Od 1987 roku kształtujemy mistrzów i promujemy zdrowy styl życia</p>
+            <h1><span class="highlight">UKS Basket</span> Sekcja Lekkoatletyczna</h1>
+            <p>Od 1987 roku kształtujemy mistrzów i promujemy zdrowy styl życia</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn" data-i18n="hero_btn1">Dołącz do nas</a>
-                <a href="#about" class="btn btn-outline" data-i18n="hero_btn2">Poznaj nas</a>
+                <a href="#contact" class="btn">Dołącz do nas</a>
+                <a href="#about" class="btn btn-outline">Poznaj nas</a>
             </div>
             <div class="countdown" id="countdown">
-                <div data-i18n="countdown">Do zawodów: <span id="days">00</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s</div>
+                <div>Do zawodów: <span id="days">00</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s</div>
             </div>
         </div>
     </section>
@@ -1380,34 +1339,34 @@
     <!-- STATYSTYKI -->
     <div class="container">
         <div class="stats-grid" data-aos="fade-up">
-            <div class="stat-card"><i class="fas fa-medal"></i><h3>126</h3><p data-i18n="stat_medals">medali MP</p></div>
-            <div class="stat-card"><i class="fas fa-user-graduate"></i><h3>500+</h3><p data-i18n="stat_athletes">zawodników</p></div>
-            <div class="stat-card"><i class="fas fa-calendar-check"></i><h3>37</h3><p data-i18n="stat_years">lat tradycji</p></div>
-            <div class="stat-card"><i class="fas fa-person-walking"></i><h3>14</h3><p data-i18n="stat_disciplines">dyscyplin</p></div>
+            <div class="stat-card"><i class="fas fa-medal"></i><h3>126</h3><p>medali MP</p></div>
+            <div class="stat-card"><i class="fas fa-user-graduate"></i><h3>500+</h3><p>zawodników</p></div>
+            <div class="stat-card"><i class="fas fa-calendar-check"></i><h3>37</h3><p>lat tradycji</p></div>
+            <div class="stat-card"><i class="fas fa-person-walking"></i><h3>14</h3><p>dyscyplin</p></div>
         </div>
     </div>
 
     <!-- O NAS -->
     <section id="about">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-right"><span>#</span> <span data-i18n="about_title">Historia i wartości</span></h2>
+            <h2 class="section-title" data-aos="fade-right"><span>#</span> Historia i wartości</h2>
             <div class="about-wrapper">
                 <div class="about-text" data-aos="fade-right">
-                    <p data-i18n="about_p1"><strong>UKS Basket Sekcja Lekkoatletyczna</strong> to nie tylko sport – to społeczność ludzi zakochanych w lekkoatletyce. Nasza sekcja powstała w 1987 roku z inicjatywy grupy pasjonatów.</p>
+                    <p><strong>UKS Basket Sekcja Lekkoatletyczna</strong> to nie tylko sport – to społeczność ludzi zakochanych w lekkoatletyce. Nasza sekcja powstała w 1987 roku z inicjatywy grupy pasjonatów.</p>
                     <div class="about-highlight">
                         <i class="fas fa-quote-left" style="color: var(--primary); font-size: 2rem;"></i>
-                        <p style="font-weight: 600;" data-i18n="about_quote">Wychowaliśmy olimpijczyków, mistrzów Polski, ale przede wszystkim – dobrych ludzi.</p>
+                        <p style="font-weight: 600;">Wychowaliśmy olimpijczyków, mistrzów Polski, ale przede wszystkim – dobrych ludzi.</p>
                     </div>
-                    <p data-i18n="about_p2">Treningi odbywają się na nowoczesnym obiekcie przy <strong>Turmonckiej 2</strong> – mamy bieżnię tartanową, rzutnie, skocznie i halę. Prowadzimy grupy od 7 lat po mastersów. Stawiamy na indywidualne podejście i radość z biegania.</p>
+                    <p>Treningi odbywają się na nowoczesnym obiekcie przy <strong>Turmonckiej 2</strong> – mamy bieżnię tartanową, rzutnie, skocznie i halę. Prowadzimy grupy od 7 lat po mastersów. Stawiamy na indywidualne podejście i radość z biegania.</p>
                 </div>
                 <div class="timeline" data-aos="fade-left">
                     <ul style="list-style: none;">
-                        <li><strong>1987</strong> <span data-i18n="timeline1">Powstanie sekcji lekkoatletycznej przy UKS Basket</span></li>
-                        <li><strong>1995</strong> <span data-i18n="timeline2">Pierwszy medal Mistrzostw Polski juniorów</span></li>
-                        <li><strong>2004</strong> <span data-i18n="timeline3">Udział naszych zawodników w Igrzyskach Olimpijskich w Atenach</span></li>
-                        <li><strong>2015</strong> <span data-i18n="timeline4">Otwarcie zmodernizowanego stadionu na Turmonckiej</span></li>
-                        <li><strong>2023</strong> <span data-i18n="timeline5">5 medali na Mistrzostwach Europy U23</span></li>
-                        <li><strong>2025</strong> <span data-i18n="timeline6">Ponad 120 medali w kraju i za granicą</span></li>
+                        <li><strong>1987</strong> Powstanie sekcji lekkoatletycznej przy UKS Basket</li>
+                        <li><strong>1995</strong> Pierwszy medal Mistrzostw Polski juniorów</li>
+                        <li><strong>2004</strong> Udział naszych zawodników w Igrzyskach Olimpijskich w Atenach</li>
+                        <li><strong>2015</strong> Otwarcie zmodernizowanego stadionu na Turmonckiej</li>
+                        <li><strong>2023</strong> 5 medali na Mistrzostwach Europy U23</li>
+                        <li><strong>2025</strong> Ponad 120 medali w kraju i za granicą</li>
                     </ul>
                 </div>
             </div>
@@ -1417,25 +1376,25 @@
     <!-- SŁOWO OD TRENERA -->
     <div class="container">
         <div class="coach-message" data-aos="zoom-in">
-            <h3 data-i18n="coach_title">🏆 Słowo od trenera głównego</h3>
-            <p data-i18n="coach_text">„W UKS Basket stawiamy na rozwój każdego zawodnika – od najmłodszych po mistrzów. Moim celem jest, aby każdy czuł radość z treningu i osiągał swoje życiowe rekordy. Zapraszam do naszej rodziny!”</p>
-            <div class="coach-signature" data-i18n="coach_sign">— Adam Boron, Trener Główny</div>
+            <h3>🏆 Słowo od trenera głównego</h3>
+            <p>„W UKS Basket stawiamy na rozwój każdego zawodnika – od najmłodszych po mistrzów. Moim celem jest, aby każdy czuł radość z treningu i osiągał swoje życiowe rekordy. Zapraszam do naszej rodziny!”</p>
+            <div class="coach-signature">— Adam Boron, Trener Główny</div>
         </div>
     </div>
 
     <!-- DYSCYPLINY -->
     <section id="disciplines" style="background: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up"><span>⚡</span> <span data-i18n="disciplines_title">Trenujemy</span></h2>
+            <h2 class="section-title" data-aos="fade-up"><span>⚡</span> Trenujemy</h2>
             <div class="disciplines-grid">
-                <div class="discipline-card" data-aos="flip-left"><i class="fas fa-bolt"></i><h3 data-i18n="disc_sprint">Sprinty</h3><p data-i18n="disc_sprint_desc">60–400m, płotki</p></div>
-                <div class="discipline-card" data-aos="flip-left" data-aos-delay="50"><i class="fas fa-mountain"></i><h3 data-i18n="disc_jumps">Skoki</h3><p data-i18n="disc_jumps_desc">dal, wzwyż, tyczka, trójskok</p></div>
-                <div class="discipline-card" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-circle-radiation"></i><h3 data-i18n="disc_throws">Rzuty</h3><p data-i18n="disc_throws_desc">dysk, oszczep, kula, młot</p></div>
-                <div class="discipline-card" data-aos="flip-left" data-aos-delay="150"><i class="fas fa-road"></i><h3 data-i18n="disc_long">Biegi długie</h3><p data-i18n="disc_long_desc">800–5000m, przełaje</p></div>
-                <div class="discipline-card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-stopwatch"></i><h3 data-i18n="disc_hurdles">Płotki</h3><p data-i18n="disc_hurdles_desc">techniczne</p></div>
-                <div class="discipline-card" data-aos="flip-left" data-aos-delay="250"><i class="fas fa-people-group"></i><h3 data-i18n="disc_relay">Sztafety</h3><p data-i18n="disc_relay_desc">4x100, 4x400, szwedzkie</p></div>
-                <div class="discipline-card" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-person-walking"></i><h3 data-i18n="disc_walk">Chód sportowy</h3><p data-i18n="disc_walk_desc">na różnych dystansach</p></div>
-                <div class="discipline-card" data-aos="flip-left" data-aos-delay="350"><i class="fas fa-heart-pulse"></i><h3 data-i18n="disc_multi">Wieloboje</h3><p data-i18n="disc_multi_desc">dziesięciobój, siedmiobój</p></div>
+                <div class="discipline-card" data-aos="flip-left"><i class="fas fa-bolt"></i><h3>Sprinty</h3><p>60–400m, płotki</p></div>
+                <div class="discipline-card" data-aos="flip-left" data-aos-delay="50"><i class="fas fa-mountain"></i><h3>Skoki</h3><p>dal, wzwyż, tyczka, trójskok</p></div>
+                <div class="discipline-card" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-circle-radiation"></i><h3>Rzuty</h3><p>dysk, oszczep, kula, młot</p></div>
+                <div class="discipline-card" data-aos="flip-left" data-aos-delay="150"><i class="fas fa-road"></i><h3>Biegi długie</h3><p>800–5000m, przełaje</p></div>
+                <div class="discipline-card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-stopwatch"></i><h3>Płotki</h3><p>techniczne</p></div>
+                <div class="discipline-card" data-aos="flip-left" data-aos-delay="250"><i class="fas fa-people-group"></i><h3>Sztafety</h3><p>4x100, 4x400, szwedzkie</p></div>
+                <div class="discipline-card" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-person-walking"></i><h3>Chód sportowy</h3><p>na różnych dystansach</p></div>
+                <div class="discipline-card" data-aos="flip-left" data-aos-delay="350"><i class="fas fa-heart-pulse"></i><h3>Wieloboje</h3><p>dziesięciobój, siedmiobój</p></div>
             </div>
         </div>
     </section>
@@ -1443,34 +1402,34 @@
     <!-- PLAN TRENINGOWY (TABS) -->
     <section id="schedule">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up"><span>📅</span> <span data-i18n="schedule_title">Plan treningowy</span></h2>
+            <h2 class="section-title" data-aos="fade-up"><span>📅</span> Plan treningowy</h2>
             <div class="schedule-tabs">
-                <button class="tab-btn active" data-tab="dzieci" data-i18n="tab_kids">Dzieci (7-12 lat)</button>
-                <button class="tab-btn" data-tab="mlodziez" data-i18n="tab_youth">Młodzież (13-17 lat)</button>
-                <button class="tab-btn" data-tab="dorośli" data-i18n="tab_adults">Dorośli / Zaawansowani</button>
+                <button class="tab-btn active" data-tab="dzieci">Dzieci (7-12 lat)</button>
+                <button class="tab-btn" data-tab="mlodziez">Młodzież (13-17 lat)</button>
+                <button class="tab-btn" data-tab="dorośli">Dorośli / Zaawansowani</button>
             </div>
             <div class="tab-pane active" id="dzieci">
                 <table class="schedule-table">
-                    <tr><th data-i18n="day">Dzień</th><th data-i18n="time">Godzina</th><th data-i18n="place">Miejsce</th><th data-i18n="coach">Trener</th></tr>
-                    <tr><td data-i18n="monday">Poniedziałek</td><td>16:30-18:00</td><td data-i18n="hall">Hala / stadion</td><td>Anna Nowak</td></tr>
-                    <tr><td data-i18n="wednesday">Środa</td><td>16:30-18:00</td><td data-i18n="stadium">Stadion</td><td>Krzysztof Lubaszka</td></tr>
-                    <tr><td data-i18n="friday">Piątek</td><td>16:00-17:30</td><td data-i18n="hall">Hala</td><td>Anna Nowak</td></tr>
+                    <tr><th>Dzień</th><th>Godzina</th><th>Miejsce</th><th>Trener</th></tr>
+                    <tr><td>Poniedziałek</td><td>16:30-18:00</td><td>Hala / stadion</td><td>Anna Nowak</td></tr>
+                    <tr><td>Środa</td><td>16:30-18:00</td><td>Stadion</td><td>Krzysztof Lubaszka</td></tr>
+                    <tr><td>Piątek</td><td>16:00-17:30</td><td>Hala</td><td>Anna Nowak</td></tr>
                 </table>
             </div>
             <div class="tab-pane" id="mlodziez">
                 <table class="schedule-table">
-                    <tr><th data-i18n="day">Dzień</th><th data-i18n="time">Godzina</th><th data-i18n="place">Miejsce</th><th data-i18n="coach">Trener</th></tr>
-                    <tr><td data-i18n="monday">Poniedziałek</td><td>18:00-20:00</td><td data-i18n="stadium">Stadion</td><td>Adam Boron</td></tr>
-                    <tr><td data-i18n="tuesday">Wtorek</td><td>17:00-19:00</td><td data-i18n="gym">Siłownia</td><td>Krzysztof Lubaszka</td></tr>
-                    <tr><td data-i18n="thursday">Czwartek</td><td>18:00-20:00</td><td data-i18n="stadium">Stadion</td><td>Adam Boron</td></tr>
+                    <tr><th>Dzień</th><th>Godzina</th><th>Miejsce</th><th>Trener</th></tr>
+                    <tr><td>Poniedziałek</td><td>18:00-20:00</td><td>Stadion</td><td>Adam Boron</td></tr>
+                    <tr><td>Wtorek</td><td>17:00-19:00</td><td>Siłownia</td><td>Krzysztof Lubaszka</td></tr>
+                    <tr><td>Czwartek</td><td>18:00-20:00</td><td>Stadion</td><td>Adam Boron</td></tr>
                 </table>
             </div>
             <div class="tab-pane" id="dorośli">
                 <table class="schedule-table">
-                    <tr><th data-i18n="day">Dzień</th><th data-i18n="time">Godzina</th><th data-i18n="place">Miejsce</th><th data-i18n="coach">Trener</th></tr>
-                    <tr><td data-i18n="tuesday">Wtorek</td><td>19:00-21:00</td><td data-i18n="stadium">Stadion</td><td>Piotr Wiśniewski</td></tr>
-                    <tr><td data-i18n="thursday">Czwartek</td><td>19:00-21:00</td><td data-i18n="hall">Hala</td><td>Piotr Wiśniewski</td></tr>
-                    <tr><td data-i18n="saturday">Sobota</td><td>10:00-12:00</td><td data-i18n="stadium">Stadion</td><td>Adam Boron</td></tr>
+                    <tr><th>Dzień</th><th>Godzina</th><th>Miejsce</th><th>Trener</th></tr>
+                    <tr><td>Wtorek</td><td>19:00-21:00</td><td>Stadion</td><td>Piotr Wiśniewski</td></tr>
+                    <tr><td>Czwartek</td><td>19:00-21:00</td><td>Hala</td><td>Piotr Wiśniewski</td></tr>
+                    <tr><td>Sobota</td><td>10:00-12:00</td><td>Stadion</td><td>Adam Boron</td></tr>
                 </table>
             </div>
         </div>
@@ -1479,7 +1438,7 @@
     <!-- TRENERZY (6 osób) -->
     <section id="trainers">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-left"><span>👥</span> <span data-i18n="trainers_title">Nasza kadra</span></h2>
+            <h2 class="section-title" data-aos="fade-left"><span>👥</span> Nasza kadra</h2>
             <div class="trainers-grid">
                 <!-- Adam Boron (ze zdjęciem) -->
                 <div class="trainer-card featured" data-aos="zoom-in-up">
@@ -1487,8 +1446,8 @@
                         <img src="Screenshot 2026-03-13 224814.png" alt="Adam Boron" loading="lazy">
                     </div>
                     <h3>Adam Boron</h3>
-                    <div class="specialty" data-i18n="trainer_adam_spec">Trener Główny / Sprinty</div>
-                    <p data-i18n="trainer_adam_desc">Były mistrz Polski, trener kadry narodowej. W UKS Basket od 2010 roku, wychował 10 medalistów MP.</p>
+                    <div class="specialty">Trener Główny / Sprinty</div>
+                    <p>Były mistrz Polski, trener kadry narodowej. W UKS Basket od 2010 roku, wychował 10 medalistów MP.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1499,8 +1458,8 @@
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="100">
                     <div class="trainer-avatar"><i class="fas fa-user-nurse"></i></div>
                     <h3>Krzysztof Lubaszka</h3>
-                    <div class="specialty" data-i18n="trainer_krzysztof_spec">Przygotowanie motoryczne / Koszykówka</div>
-                    <p data-i18n="trainer_krzysztof_desc">Doświadczony trener, prowadził zespół w 3 Lidze Mazowieckiej. Odpowiada za koordynację ruchową.</p>
+                    <div class="specialty">Przygotowanie motoryczne / Koszykówka</div>
+                    <p>Doświadczony trener, prowadził zespół w 3 Lidze Mazowieckiej. Odpowiada za koordynację ruchową.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1511,8 +1470,8 @@
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="200">
                     <div class="trainer-avatar"><i class="fas fa-user-graduate"></i></div>
                     <h3>Anna Nowak</h3>
-                    <div class="specialty" data-i18n="trainer_anna_spec">Skoki (w dal/wzwyż)</div>
-                    <p data-i18n="trainer_anna_desc">Olimpijka z Sydney, wychowawczyni młodzieży. 20 lat doświadczenia.</p>
+                    <div class="specialty">Skoki (w dal/wzwyż)</div>
+                    <p>Olimpijka z Sydney, wychowawczyni młodzieży. 20 lat doświadczenia.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1523,8 +1482,8 @@
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="300">
                     <div class="trainer-avatar"><i class="fas fa-user-doctor"></i></div>
                     <h3>Piotr Wiśniewski</h3>
-                    <div class="specialty" data-i18n="trainer_piotr_spec">Rzuty / Wieloboje</div>
-                    <p data-i18n="trainer_piotr_desc">Były rekordzista Polski w rzucie dyskiem. Wyszkolił 5 medalistów MEJ.</p>
+                    <div class="specialty">Rzuty / Wieloboje</div>
+                    <p>Były rekordzista Polski w rzucie dyskiem. Wyszkolił 5 medalistów MEJ.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1535,8 +1494,8 @@
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="400">
                     <div class="trainer-avatar"><i class="fas fa-user-tie"></i></div>
                     <h3>Aldona Boron</h3>
-                    <div class="specialty" data-i18n="trainer_aldona_spec">Biegi długie / Cross</div>
-                    <p data-i18n="trainer_aldona_desc">Była reprezentantka Polski w biegach przełajowych, trenerka z pasją. Prowadzi grupy wytrzymałościowe.</p>
+                    <div class="specialty">Biegi długie / Cross</div>
+                    <p>Była reprezentantka Polski w biegach przełajowych, trenerka z pasją. Prowadzi grupy wytrzymałościowe.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1547,8 +1506,8 @@
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="500">
                     <div class="trainer-avatar"><i class="fas fa-user-cog"></i></div>
                     <h3>Marek Zając</h3>
-                    <div class="specialty" data-i18n="trainer_marek_spec">Rzuty / Siła</div>
-                    <p data-i18n="trainer_marek_desc">Specjalista od treningu siłowego i rzutów. Jego podopieczni zdobyli 8 medalistów MP.</p>
+                    <div class="specialty">Rzuty / Siła</div>
+                    <p>Specjalista od treningu siłowego i rzutów. Jego podopieczni zdobyli 8 medalistów MP.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1562,7 +1521,7 @@
     <!-- REKORDY KLUBU -->
     <section id="records" style="background: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-right"><span>📊</span> <span data-i18n="records_title">Rekordy klubu</span></h2>
+            <h2 class="section-title" data-aos="fade-right"><span>📊</span> Rekordy klubu</h2>
             <div class="records-grid">
                 <div class="record-card" data-aos="flip-up"><h4>100m mężczyzn</h4><div class="result">10.45</div><p>Adam Boron (2015)</p></div>
                 <div class="record-card" data-aos="flip-up" data-aos-delay="50"><h4>100m kobiet</h4><div class="result">11.82</div><p>Katarzyna Nowicka (2023)</p></div>
@@ -1575,11 +1534,11 @@
     <!-- OSIĄGNIĘCIA -->
     <section id="achievements">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-right"><span>🏅</span> <span data-i18n="achievements_title">Największe sukcesy</span></h2>
+            <h2 class="section-title" data-aos="fade-right"><span>🏅</span> Największe sukcesy</h2>
             <div class="achievements-grid">
-                <div class="achievement-item" data-aos="flip-up"><i class="fas fa-medal"></i><h4>126</h4><p data-i18n="achiev_medals">medali Mistrzostw Polski</p></div>
-                <div class="achievement-item" data-aos="flip-up" data-aos-delay="100"><i class="fas fa-globe-europe"></i><h4>12</h4><p data-i18n="achiev_represent">reprezentantów na ME i MŚ</p></div>
-                <div class="achievement-item" data-aos="flip-up" data-aos-delay="200"><i class="fas fa-crown"></i><h4>3</h4><p data-i18n="achiev_olympians">olimpijczyków</p></div>
+                <div class="achievement-item" data-aos="flip-up"><i class="fas fa-medal"></i><h4>126</h4><p>medali Mistrzostw Polski</p></div>
+                <div class="achievement-item" data-aos="flip-up" data-aos-delay="100"><i class="fas fa-globe-europe"></i><h4>12</h4><p>reprezentantów na ME i MŚ</p></div>
+                <div class="achievement-item" data-aos="flip-up" data-aos-delay="200"><i class="fas fa-crown"></i><h4>3</h4><p>olimpijczyków</p></div>
             </div>
         </div>
     </section>
@@ -1587,11 +1546,11 @@
     <!-- FUN FACTS -->
     <div class="container">
         <div class="fun-facts" data-aos="fade-up">
-            <h2 class="section-title" style="color: white; margin-bottom: 40px;"><span>🔍</span> <span data-i18n="funfacts_title">Czy wiesz, że...</span></h2>
+            <h2 class="section-title" style="color: white; margin-bottom: 40px;"><span>🔍</span> Czy wiesz, że...</h2>
             <div class="facts-grid">
-                <div class="fact-item"><i class="fas fa-trophy"></i><h4>1987</h4><p data-i18n="fact_year">rok założenia klubu</p></div>
-                <div class="fact-item"><i class="fas fa-running"></i><h4>14</h4><p data-i18n="fact_disciplines">dyscyplin lekkoatletycznych</p></div>
-                <div class="fact-item"><i class="fas fa-globe"></i><h4>3</h4><p data-i18n="fact_continents">kontynenty z naszymi zawodnikami</p></div>
+                <div class="fact-item"><i class="fas fa-trophy"></i><h4>1987</h4><p>rok założenia klubu</p></div>
+                <div class="fact-item"><i class="fas fa-running"></i><h4>14</h4><p>dyscyplin lekkoatletycznych</p></div>
+                <div class="fact-item"><i class="fas fa-globe"></i><h4>3</h4><p>kontynenty z naszymi zawodnikami</p></div>
             </div>
         </div>
     </div>
@@ -1599,77 +1558,293 @@
     <!-- RESULTS TICKER -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span class="ticker-item"><i class="fas fa-medal"></i> <span data-i18n="ticker1">Mistrzostwa Mazowsza: 5 złotych medali!</span></span>
-            <span class="ticker-item"><i class="fas fa-medal"></i> <span data-i18n="ticker2">Kasia Nowicka wicemistrzynią Polski juniorów</span></span>
-            <span class="ticker-item"><i class="fas fa-medal"></i> <span data-i18n="ticker3">Rekord klubu w sztafecie 4x100m – 41.2s</span></span>
-            <span class="ticker-item"><i class="fas fa-medal"></i> <span data-i18n="ticker4">Nowa grupa naborowa – zapraszamy!</span></span>
-            <span class="ticker-item"><i class="fas fa-medal"></i> <span data-i18n="ticker1">Mistrzostwa Mazowsza: 5 złotych medali!</span></span>
-            <span class="ticker-item"><i class="fas fa-medal"></i> <span data-i18n="ticker2">Kasia Nowicka wicemistrzynią Polski juniorów</span></span>
-            <span class="ticker-item"><i class="fas fa-medal"></i> <span data-i18n="ticker3">Rekord klubu w sztafecie 4x100m – 41.2s</span></span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Mistrzostwa Mazowsza: 5 złotych medali!</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Kasia Nowicka wicemistrzynią Polski juniorów</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Rekord klubu w sztafecie 4x100m – 41.2s</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Nowa grupa naborowa – zapraszamy!</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Mistrzostwa Mazowsza: 5 złotych medali!</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Kasia Nowicka wicemistrzynią Polski juniorów</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Rekord klubu w sztafecie 4x100m – 41.2s</span>
         </div>
     </div>
 
-    <!-- NADCHODZĄCE WYDARZENIA (Swiper) -->
-    <section class="events">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up"><span>📆</span> <span data-i18n="events_title">Nadchodzące wydarzenia</span></h2>
-            <div class="swiper eventsSwiper events-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="event-card">
-                            <div class="event-date">12-13 KWI 2025</div>
-                            <h4 data-i18n="event1_title">Halowe Mistrzostwa Juniorów</h4>
-                            <p data-i18n="event1_place">Spała</p>
-                        </div>
+    <!-- ===== NOWY KALENDARZ IMPREZ PZLA (MONTH ACCORDION) ===== -->
+    <div class="container">
+        <div class="events-calendar" data-aos="fade-up">
+            <h2 class="section-title" style="margin-bottom: 40px;"><span>📆</span> Kalendarz Imprez PZLA 2026</h2>
+            
+            <!-- Month buttons -->
+            <div class="calendar-months">
+                <button class="month-btn active" data-month="jan">Styczeń</button>
+                <button class="month-btn" data-month="feb">Luty</button>
+                <button class="month-btn" data-month="mar">Marzec</button>
+                <button class="month-btn" data-month="apr">Kwiecień</button>
+            </div>
+
+            <!-- Month panels (data from PZLA site) -->
+            <div class="calendar-panels">
+                <!-- Styczeń 2026 -->
+                <div class="month-panel active" id="jan">
+                    <div class="day-group">
+                        <div class="day-title">3 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">1. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="event-card">
-                            <div class="event-date">20 KWI 2025</div>
-                            <h4 data-i18n="event2_title">Trening otwarty dla nowych</h4>
-                            <p data-i18n="event2_place">Stadion Turmoncka, 16:00</p>
-                        </div>
+                    <div class="day-group">
+                        <div class="day-title">10 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">1. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Łódź</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">4. Halowy Memoriał Piotra Surowca</span><span class="event-place">Mielec</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">46. Mistrzostwa Świata w Biegach Przełajowych</span><span class="event-place">Tallahassee</span><span class="event-rank">MŚ</span></div>
+                        <div class="event-row"><span class="event-name">2. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="event-card">
-                            <div class="event-date">1 MAJ 2025</div>
-                            <h4 data-i18n="event3_title">Międzynarodowy miting LOTTO</h4>
-                            <p data-i18n="event3_place">Wrocław</p>
-                        </div>
+                    <div class="day-group">
+                        <div class="day-title">11 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">1. Halowy Mityng KS Dynamic Łódź 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Halowy Mityng MKL Szczecin 2026</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">17 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">1. Mityng Ogólnopolski Zawiszy Bydgoszcz 2026</span><span class="event-place">Bydgoszcz</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Wielkopolski U12 i U14 2026. Mityng ogólnopolski</span><span class="event-place">Kalisz</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">2. Ogólnopolski Halowy Mityng ŁOZLA 2026. Mistrzostwa Woj. Łódzkiego...</span><span class="event-place">Łódź</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">1. Ogólnopolski Halowy Mityng POZLA 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Ogólnopolski Mityng Lekkoatletyczny Wałcz 2026</span><span class="event-place">Wałcz</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">3. Koleje Dolnośląskie Halowy Mityng DZLA 2026. Mistrzostwa Dolnego...</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">18 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">3. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Łódź</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Ogólnopolski Mityng Lekkoatletyczny Szczecin 2026</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">1. Ogólnopolski Mityng Lekkoatletyczny MKL Toruń 2026</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">24 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">Indoor Jumping</span><span class="event-place">Bydgoszcz</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">2. Ogólnopolski Halowy Mityng POZLA 2026. Mistrzostwa Woj. Podkarpackiego...</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">4. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Zachodniopomorskiego U16, U18, U20, S 2026 (Wałcz)</span><span class="event-place">Wałcz</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">24-25 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">4. Koleje Dolnośląskie Halowy Mityng DZLA 2026. Mistrzostwa Dolnego Śląska...</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">25 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">2. Mityng Ogólnopolski Zawiszy Bydgoszcz 2026</span><span class="event-place">Bydgoszcz</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">ORLEN Cup Łódź 2026</span><span class="event-place">Łódź</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Zachodniopomorskiego U16, U18, U20, S 2026...</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Wielkopolski U16, U18 i U20 2026. Mityng</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">28 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Śląskiego U18, U20, S 2026</span><span class="event-place">Ostrawa</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">31 stycznia 2026</div>
+                        <div class="event-row"><span class="event-name">Gorzów Jump Festival 2026</span><span class="event-place">Gorzów Wielkopolski</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">3. Ogólnopolski Halowy Mityng POZLA 2026. Mistrzostwa Woj. Podkarpackiego...</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">PZLA Halowe Mistrzostwa Polski w Chodzie Sportowym 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">2. Halowy Mityng KS Dynamic Łódź 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">8. Mityng Pamięci Ireny Szewińskiej</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">5. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
+
+                <!-- Luty 2026 -->
+                <div class="month-panel" id="feb">
+                    <div class="day-group">
+                        <div class="day-title">1 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">1. Halowy Mityng POZLA Białystok 2026</span><span class="event-place">Białystok</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">5. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">48. Memoriał Grzegorza Duneckiego</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">7 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Województwa Lubuskiego 2026</span><span class="event-place">Cottbus</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">4. Ogólnopolski Halowy Mityng POZLA 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">6. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">2. Ogólnopolski Mityng Lekkoatletyczny MKL Toruń 2026</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">6. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">7-8 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">Warszawskie Halowe Zawody Kontrolne WMOZLA 2026</span><span class="event-place">Warszawa</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">8 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">2. Halowy Mityng POZLA Białystok 2026</span><span class="event-place">Białystok</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Warszawy i Mazowsza U16 2026</span><span class="event-place">Warszawa</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">13-15 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">PZLA Halowe Mistrzostwa Polski U18 i U20 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">14 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">35. Halowe Mistrzostwa PZLAM</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">19 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">Jump Challenge KS AZS-AWF Warszawa 2026</span><span class="event-place">Warszawa (AWF)</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">21 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Małopolski U14, U16. Mityng MZLA</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">22 lutego 2026</div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Podlaskiego U16 2026</span><span class="event-place">Białystok</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">12. ORLEN Copernicus Cup</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Dolnego Śląska U10, U12, U14 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">28 lutego - 1 marca 2026</div>
+                        <div class="event-row"><span class="event-name">70. PZLA Halowe Mistrzostwa Polski</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
+                    </div>
+                </div>
+
+                <!-- Marzec 2026 -->
+                <div class="month-panel" id="mar">
+                    <div class="day-group">
+                        <div class="day-title">8 marca 2026</div>
+                        <div class="event-row"><span class="event-name">22. Bieg Recordowa Dziesiątka</span><span class="event-place">Poznań</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">14 marca 2026</div>
+                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Gniezno</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Wielkopolski w Biegach Przełajowych 2026</span><span class="event-place">Gniezno</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Woj. Łódzkiego w Biegach Przełajowych 2026</span><span class="event-place">Łódź</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 - Łódzkie</span><span class="event-place">Łódź</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Dolnego Śląska w Biegach Przełajowych 2026. Grand Prix DZLA</span><span class="event-place">Olszyna</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Podkarpackiego U12, U14, U16 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Zachodniopomorskiego U10, U12, U14 2026</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Tomaszów Lubelski</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Woj. Lubelskiego w Biegach Przełajowych 2026</span><span class="event-place">Tomaszów Lubelski</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Warszawa</span><span class="event-rank"></span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">14-15 marca 2026</div>
+                        <div class="event-row"><span class="event-name">25. Puchar Europy w Rzutach</span><span class="event-place">Nikozja</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">5. IAU Mistrzostwa Świata w Biegu na 50 km / NOWY TERMIN</span><span class="event-place">Nowe Delhi</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">15 marca 2026</div>
+                        <div class="event-row"><span class="event-name">Bieg uliczny „BeMore5K – Bemowo 2026”</span><span class="event-place">Warszawa</span><span class="event-rank"></span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">20 marca 2026</div>
+                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Ostrowiec Świętokrzyski</span><span class="event-rank"></span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">20-22 marca 2026</div>
+                        <div class="event-row"><span class="event-name">21. Halowe Mistrzostwa Świata</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">21 marca 2026</div>
+                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 - Opolskie</span><span class="event-place">Głogówek</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Województwa Opolskiego w Biegach Przełajowych 2026</span><span class="event-place">Głogówek</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Wiosenny Mityng Rzutowy Kielce 2026</span><span class="event-place">Kielce</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (WLP-ZPM)</span><span class="event-place">Koszalin</span><span class="event-rank">MMU16</span></div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (DŚL-LBU)</span><span class="event-place">Olszyna</span><span class="event-rank">MMU16</span></div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (MAZ-WMZ)</span><span class="event-place">Pasłęk</span><span class="event-rank">MMU16</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">22 marca 2026</div>
+                        <div class="event-row"><span class="event-name">20. Półmaraton Warszawski</span><span class="event-place">Warszawa</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">New Balance Bieg na Piątkę 2026</span><span class="event-place">Warszawa</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">25. PKO Półmaraton Dookoła Jeziora Żywieckiego</span><span class="event-place">Żywiec</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">27-29 marca 2026</div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Świata w Biegu 48-godzinnym 2026</span><span class="event-place">Cinisello Balsamo</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">27 marca - 2 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">15. Halowe Mistrzostwa Europy Masters</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">28 marca 2026</div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (LUB-PDL)</span><span class="event-place">Biała Podlaska</span><span class="event-rank">MMU16</span></div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (OPO-ŚL)</span><span class="event-place">Bytom</span><span class="event-rank">MMU16</span></div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (ŁDZ-ŚWI)</span><span class="event-place">Skarżysko-Kamienna</span><span class="event-rank">I</span></div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (MŁP-PDK)</span><span class="event-place">Stalowa Wola</span><span class="event-rank">MMU16</span></div>
+                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (KPO-POM)</span><span class="event-place">Włocławek</span><span class="event-rank">MMU16</span></div>
+                    </div>
+                </div>
+
+                <!-- Kwiecień 2026 -->
+                <div class="month-panel" id="apr">
+                    <div class="day-group">
+                        <div class="day-title">1 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">4x100 MIX Challenge</span><span class="event-place">Lublin</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">11 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">Wiosenny Mityng Rzutowy Rybnik 2026</span><span class="event-place">Rybnik</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">12 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">5. Drużynowe Mistrzostwa Świata w Chodzie Sportowym</span><span class="event-place">Brasília</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">DOZ Maraton Łódź 2026</span><span class="event-place">Łódź</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">46. PZLA Mistrzostwa Polski Kobiet i 96. PZLA Mistrzostwa Polski Mężczyzn w...</span><span class="event-place">Łódź</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Polski U18 i U20 w Biegach Górskich 2026</span><span class="event-place">Szczyrk</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">18 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">OSHEE Bieg Nocny 2026</span><span class="event-place">Kraków</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Pasłęk</span><span class="event-rank"></span></div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Polski w Biegu 6-godz. 2026</span><span class="event-place">Warszawa (OSiR Targówek)</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">19 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">PZLA Mistrzostwa Polski w Biegu na 10 000 metrów 2026</span><span class="event-place">Augustów</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">Energa Gdańsk Maraton 2026</span><span class="event-place">Gdańsk</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">TAURON 23. Cracovia Maraton</span><span class="event-place">Kraków</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">18. PKO Poznań Półmaraton</span><span class="event-place">Poznań</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">1. Festiwal Rzutów Słubice 2026</span><span class="event-place">Słubice</span><span class="event-rank">I</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">24-25 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">Mistrzostwa Polski w Biegach Górskich 2026 (uphill, up&down, trail)</span><span class="event-place">Szczawnica</span><span class="event-rank">MM</span></div>
+                    </div>
+                    <div class="day-group">
+                        <div class="day-title">25 kwietnia 2026</div>
+                        <div class="event-row"><span class="event-name">35. PZLA Mistrzostwa Polski w Półmaratonie</span><span class="event-place">Gdynia</span><span class="event-rank">MM</span></div>
+                        <div class="event-row"><span class="event-name">1. PZLA Mistrzostwa Polski w Chodzie na Dystansie Półmaratonu. 5....</span><span class="event-place">Warszawa</span><span class="event-rank">MM</span></div>
+                    </div>
+                </div>
             </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-light);">Źródło: Polski Związek Lekkiej Atletyki (pzla.pl)</p>
         </div>
-    </section>
+    </div>
 
     <!-- TESTIMONIALS (Swiper) -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up"><span>💬</span> <span data-i18n="testimonials_title">Co mówią o nas</span></h2>
+            <h2 class="section-title" data-aos="fade-up"><span>💬</span> Co mówią o nas</h2>
             <div class="swiper testimonialSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <i class="fas fa-quote-left" style="font-size: 2.5rem; color: var(--primary); opacity: 0.2;"></i>
-                        <p style="font-style: italic; margin: 20px 0;" data-i18n="testimonial1">„Trenuję w UKS Basket od 10 lat. To miejsce dało mi nie tylko sukcesy sportowe, ale przede wszystkim przyjaciół i pasję na całe życie.”</p>
+                        <p style="font-style: italic; margin: 20px 0;">„Trenuję w UKS Basket od 10 lat. To miejsce dało mi nie tylko sukcesy sportowe, ale przede wszystkim przyjaciół i pasję na całe życie.”</p>
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Kasia" loading="lazy">
-                            <div><h5>Katarzyna Nowicka</h5><p data-i18n="testimonial1_title">mistrzyni Polski w skoku w dal</p></div>
+                            <div><h5>Katarzyna Nowicka</h5><p>mistrzyni Polski w skoku w dal</p></div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <i class="fas fa-quote-left" style="font-size: 2.5rem; color: var(--primary); opacity: 0.2;"></i>
-                        <p style="font-style: italic; margin: 20px 0;" data-i18n="testimonial2">„Profesjonalna kadra, świetna atmosfera, nowoczesny obiekt. Córka zrobiła ogromne postępy. Polecam każdemu!”</p>
+                        <p style="font-style: italic; margin: 20px 0;">„Profesjonalna kadra, świetna atmosfera, nowoczesny obiekt. Córka zrobiła ogromne postępy. Polecam każdemu!”</p>
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Robert" loading="lazy">
-                            <div><h5>Robert Malinowski</h5><p data-i18n="testimonial2_title">rodzic zawodniczki</p></div>
+                            <div><h5>Robert Malinowski</h5><p>rodzic zawodniczki</p></div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <i class="fas fa-quote-left" style="font-size: 2.5rem; color: var(--primary); opacity: 0.2;"></i>
-                        <p style="font-style: italic; margin: 20px 0;" data-i18n="testimonial3">„Najlepsza decyzja – przyprowadziłem syna na trening 5 lat temu. Dziś jest w kadrze Polski juniorów!”</p>
+                        <p style="font-style: italic; margin: 20px 0;">„Najlepsza decyzja – przyprowadziłem syna na trening 5 lat temu. Dziś jest w kadrze Polski juniorów!”</p>
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Tomasz" loading="lazy">
-                            <div><h5>Tomasz Jankowski</h5><p data-i18n="testimonial3_title">tata zawodnika</p></div>
+                            <div><h5>Tomasz Jankowski</h5><p>tata zawodnika</p></div>
                         </div>
                     </div>
                 </div>
@@ -1681,7 +1856,7 @@
     <!-- GALERIA Z LIGHTBOXEM (LOKALNE ZDJĘCIA) -->
     <section id="gallery">
         <div class="container">
-            <h2 class="section-title" data-aos="zoom-in"><span>📷</span> <span data-i18n="gallery_title">Galeria</span></h2>
+            <h2 class="section-title" data-aos="zoom-in"><span>📷</span> Galeria</h2>
             <div class="gallery-grid">
                 <a href="Screenshot 2026-03-11 223959.png" data-lightbox="gallery" data-title="Sochacka Wrocław 2025" class="gallery-item" data-aos="fade-up">
                     <img src="Screenshot 2026-03-11 223959.png" alt="Sochacka Wrocław 2025" loading="lazy">
@@ -1722,7 +1897,7 @@
     <!-- GALERIA WIDEO -->
     <section id="video" style="background: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title" data-aos="zoom-in"><span>🎥</span> <span data-i18n="video_title">Zobacz nas w akcji</span></h2>
+            <h2 class="section-title" data-aos="zoom-in"><span>🎥</span> Zobacz nas w akcji</h2>
             <div class="video-grid">
                 <div class="video-item" data-aos="fade-right">
                     <iframe src="https://www.youtube.com/embed/AzitGNsa-3Q" title="Motywacja" allowfullscreen loading="lazy"></iframe>
@@ -1737,32 +1912,32 @@
     <!-- FAQ (ACCORDION) -->
     <section id="faq">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-right"><span>❓</span> <span data-i18n="faq_title">Częste pytania</span></h2>
+            <h2 class="section-title" data-aos="fade-right"><span>❓</span> Częste pytania</h2>
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span data-i18n="faq_q1">Jak mogę zapisać dziecko na trening?</span>
+                        <span>Jak mogę zapisać dziecko na trening?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer" data-i18n="faq_a1">
+                    <div class="faq-answer">
                         Wystarczy przyjść na trening otwarty (zobacz harmonogram) lub skontaktować się z nami przez formularz.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span data-i18n="faq_q2">Jaki jest koszt treningów?</span>
+                        <span>Jaki jest koszt treningów?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer" data-i18n="faq_a2">
+                    <div class="faq-answer">
                         Pierwszy miesiąc jest bezpłatny. Następnie składka członkowska wynosi 120 zł/mies.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span data-i18n="faq_q3">Czy mogę trenować amatorsko?</span>
+                        <span>Czy mogę trenować amatorsko?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer" data-i18n="faq_a3">
+                    <div class="faq-answer">
                         Tak! Mamy grupy dla amatorów i mastersów. Treningi dostosowujemy do poziomu.
                     </div>
                 </div>
@@ -1773,11 +1948,11 @@
     <!-- NEWSLETTER -->
     <div class="container">
         <div class="newsletter" data-aos="flip-up">
-            <h3 data-i18n="newsletter_title">Bądź na bieżąco</h3>
-            <p data-i18n="newsletter_desc">Zapisz się do newslettera i otrzymuj informacje o treningach, zawodach i obozach.</p>
+            <h3>Bądź na bieżąco</h3>
+            <p>Zapisz się do newslettera i otrzymuj informacje o treningach, zawodach i obozach.</p>
             <form class="newsletter-form">
                 <input type="email" placeholder="Twój e-mail" required>
-                <button type="submit" data-i18n="newsletter_btn">Zapisz się</button>
+                <button type="submit">Zapisz się</button>
             </form>
         </div>
     </div>
@@ -1785,43 +1960,43 @@
     <!-- AKTUALNOŚCI -->
     <section id="news" style="margin-top: 80px;">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-left"><span>📰</span> <span data-i18n="news_title">Ostatnie wieści</span></h2>
+            <h2 class="section-title" data-aos="fade-left"><span>📰</span> Ostatnie wieści</h2>
             <div class="news-grid">
                 <div class="news-card" data-aos="fade-right">
                     <div class="news-img"><img src="https://images.unsplash.com/photo-1532387484008-9e6652abb2c4?q=80&w=1974&auto=format&fit=crop" alt="zawody" loading="lazy"></div>
                     <div class="news-content">
                         <div class="news-date">15 lutego 2025</div>
-                        <h4 data-i18n="news1_title">Dwa złota na Halowych Mistrzostwach Mazowsza</h4>
-                        <p data-i18n="news1_desc">Nasi juniorzy wygrali w sprintach i skoku w dal. Gratulujemy!</p>
-                        <a href="#" class="read-more" data-i18n="read_more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
+                        <h4>Dwa złota na Halowych Mistrzostwach Mazowsza</h4>
+                        <p>Nasi juniorzy wygrali w sprintach i skoku w dal. Gratulujemy!</p>
+                        <a href="#" class="read-more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="news-card" data-aos="fade-up">
                     <div class="news-img"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop" alt="nabór" loading="lazy"></div>
                     <div class="news-content">
                         <div class="news-date">1 marca 2025</div>
-                        <h4 data-i18n="news2_title">Rusza nabór do grupy dziecięcej (7-10 lat)</h4>
-                        <p data-i18n="news2_desc">Zapraszamy na bezpłatny trening pokazowy 10 marca.</p>
-                        <a href="#" class="read-more" data-i18n="read_more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
+                        <h4>Rusza nabór do grupy dziecięcej (7-10 lat)</h4>
+                        <p>Zapraszamy na bezpłatny trening pokazowy 10 marca.</p>
+                        <a href="#" class="read-more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="news-card" data-aos="fade-left">
                     <div class="news-img"><img src="https://images.unsplash.com/photo-1579126038974-437b4686a9b5?q=80&w=1974&auto=format&fit=crop" alt="obóz" loading="lazy"></div>
                     <div class="news-content">
                         <div class="news-date">10 marca 2025</div>
-                        <h4 data-i18n="news3_title">Obóz sportowy w Spale – zapisy</h4>
-                        <p data-i18n="news3_desc">Wyjazd w terminie 20-30 czerwca. Czekamy na chętnych.</p>
-                        <a href="#" class="read-more" data-i18n="read_more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
+                        <h4>Obóz sportowy w Spale – zapisy</h4>
+                        <p>Wyjazd w terminie 20-30 czerwca. Czekamy na chętnych.</p>
+                        <a href="#" class="read-more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SPONSORZY – JESZCZE WIĘKSZE ZDJĘCIA -->
+    <!-- SPONSORZY -->
     <section class="sponsors">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up"><span>🤝</span> <span data-i18n="sponsors_title">Partnerzy</span></h2>
+            <h2 class="section-title" data-aos="fade-up"><span>🤝</span> Partnerzy</h2>
             <div class="sponsor-track">
                 <img src="Screenshot 2026-03-13 222945.png" alt="sponsor" loading="lazy">
                 <img src="Screenshot 2026-03-13 223145.png" alt="sponsor" loading="lazy">
@@ -1834,7 +2009,7 @@
     <!-- KONTAKT -->
     <section id="contact" style="background: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-right"><span>📞</span> <span data-i18n="contact_title">Kontakt</span></h2>
+            <h2 class="section-title" data-aos="fade-right"><span>📞</span> Kontakt</h2>
             <div class="contact-grid">
                 <div class="contact-info" data-aos="fade-right">
                     <div class="contact-item"><i class="fas fa-map-pin"></i><p><strong>Turmoncka 2, 03-254 Warszawa</strong> (stadion lekkoatletyczny)</p></div>
@@ -1849,11 +2024,11 @@
                 </div>
                 <div class="contact-form" data-aos="fade-left">
                     <form action="#" method="post">
-                        <div class="form-group"><input type="text" placeholder="Imię i nazwisko" required data-i18n-placeholder="contact_name"></div>
-                        <div class="form-group"><input type="email" placeholder="Adres e-mail" required data-i18n-placeholder="contact_email"></div>
-                        <div class="form-group"><input type="text" placeholder="Temat" data-i18n-placeholder="contact_subject"></div>
-                        <div class="form-group"><textarea placeholder="Treść wiadomości" required data-i18n-placeholder="contact_message"></textarea></div>
-                        <button type="submit" data-i18n="contact_send">Wyślij wiadomość</button>
+                        <div class="form-group"><input type="text" placeholder="Imię i nazwisko" required></div>
+                        <div class="form-group"><input type="email" placeholder="Adres e-mail" required></div>
+                        <div class="form-group"><input type="text" placeholder="Temat"></div>
+                        <div class="form-group"><textarea placeholder="Treść wiadomości" required></textarea></div>
+                        <button type="submit">Wyślij wiadomość</button>
                     </form>
                 </div>
             </div>
@@ -1869,33 +2044,33 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo" style="color:white;">UKS BASKET <span style="color:var(--primary);">sekcja LA</span></div>
-                    <p data-i18n="footer_desc">Najstarsza i najbardziej utytułowana sekcja lekkoatletyczna w Warszawie. Trenuj z nami!</p>
+                    <p>Najstarsza i najbardziej utytułowana sekcja lekkoatletyczna w Warszawie. Trenuj z nami!</p>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_shortcuts">Na skróty</h4>
+                    <h4>Na skróty</h4>
                     <ul>
-                        <li><a href="#about" data-i18n="nav_about">O nas</a></li>
-                        <li><a href="#trainers" data-i18n="nav_trainers">Trenerzy</a></li>
-                        <li><a href="#gallery" data-i18n="nav_gallery">Galeria</a></li>
-                        <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+                        <li><a href="#about">O nas</a></li>
+                        <li><a href="#trainers">Trenerzy</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_support">Wsparcie</h4>
+                    <h4>Wsparcie</h4>
                     <ul>
-                        <li><a href="#" data-i18n="footer_rules">Regulamin</a></li>
-                        <li><a href="#" data-i18n="footer_privacy">Polityka prywatności</a></li>
-                        <li><a href="#" data-i18n="footer_sponsors">Sponsorzy</a></li>
+                        <li><a href="#">Regulamin</a></li>
+                        <li><a href="#">Polityka prywatności</a></li>
+                        <li><a href="#">Sponsorzy</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_contact">Kontakt</h4>
+                    <h4>Kontakt</h4>
                     <p>📞 0048 694 066 808<br>📧 aaaa.boron@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 UKS Basket Sekcja Lekkoatletyczna | <span data-i18n="footer_project">Projekt z pompą!</span></p>
-                <p><a href="#home" data-i18n="back_top">Powrót na górę ↑</a></p>
+                <p>&copy; 2025 UKS Basket Sekcja Lekkoatletyczna | Projekt z pompą!</p>
+                <p><a href="#home">Powrót na górę ↑</a></p>
             </div>
         </div>
     </footer>
@@ -1941,7 +2116,7 @@
             const now = new Date().getTime();
             const distance = countdownDate - now;
             if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "<div data-i18n='event_ongoing'>Wydarzenie trwa! 🎉</div>";
+                document.getElementById('countdown').innerHTML = "<div>Wydarzenie trwa! 🎉</div>";
                 return;
             }
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -1956,7 +2131,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Tabs
+        // Tabs for training schedule
         const tabBtns = document.querySelectorAll('.tab-btn');
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1964,6 +2139,17 @@
                 btn.classList.add('active');
                 document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
                 document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Month buttons for PZLA calendar
+        const monthBtns = document.querySelectorAll('.month-btn');
+        monthBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                monthBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.month-panel').forEach(panel => panel.classList.remove('active'));
+                document.getElementById(btn.dataset.month).classList.add('active');
             });
         });
 
@@ -1982,19 +2168,6 @@
             spaceBetween: 30,
             breakpoints: {
                 768: { slidesPerView: 2 }
-            }
-        });
-
-        // Swiper events
-        new Swiper('.eventsSwiper', {
-            loop: true,
-            autoplay: { delay: 4000 },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            spaceBetween: 30,
-            slidesPerView: 1,
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
             }
         });
 
@@ -2020,385 +2193,6 @@
                 detect_on: 'canvas',
                 events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } }
             }
-        });
-
-        // Language translations
-        const translations = {
-            pl: {
-                nav_home: "START", nav_about: "O NAS", nav_disciplines: "DYSCYPLINY", nav_schedule: "PLAN", nav_trainers: "TRENERZY", nav_records: "REKORDY", nav_gallery: "GALERIA", nav_video: "WIDEO", nav_faq: "FAQ", nav_contact: "KONTAKT", lang: "PL",
-                hero_title: "Sekcja Lekkoatletyczna", hero_desc: "Od 1987 roku kształtujemy mistrzów i promujemy zdrowy styl życia", hero_btn1: "Dołącz do nas", hero_btn2: "Poznaj nas",
-                countdown: "Do zawodów: <span id='days'>00</span>d <span id='hours'>00</span>h <span id='minutes'>00</span>m <span id='seconds'>00</span>s",
-                stat_medals: "medali MP", stat_athletes: "zawodników", stat_years: "lat tradycji", stat_disciplines: "dyscyplin",
-                about_title: "Historia i wartości", about_p1: "<strong>UKS Basket Sekcja Lekkoatletyczna</strong> to nie tylko sport – to społeczność ludzi zakochanych w lekkoatletyce. Nasza sekcja powstała w 1987 roku z inicjatywy grupy pasjonatów.", about_quote: "Wychowaliśmy olimpijczyków, mistrzów Polski, ale przede wszystkim – dobrych ludzi.", about_p2: "Treningi odbywają się na nowoczesnym obiekcie przy <strong>Turmonckiej 2</strong> – mamy bieżnię tartanową, rzutnie, skocznie i halę. Prowadzimy grupy od 7 lat po mastersów. Stawiamy na indywidualne podejście i radość z biegania.",
-                timeline1: "Powstanie sekcji lekkoatletycznej przy UKS Basket", timeline2: "Pierwszy medal Mistrzostw Polski juniorów", timeline3: "Udział naszych zawodników w Igrzyskach Olimpijskich w Atenach", timeline4: "Otwarcie zmodernizowanego stadionu na Turmonckiej", timeline5: "5 medali na Mistrzostwach Europy U23", timeline6: "Ponad 120 medali w kraju i za granicą",
-                coach_title: "🏆 Słowo od trenera głównego", coach_text: "„W UKS Basket stawiamy na rozwój każdego zawodnika – od najmłodszych po mistrzów. Moim celem jest, aby każdy czuł radość z treningu i osiągał swoje życiowe rekordy. Zapraszam do naszej rodziny!”", coach_sign: "— Adam Boron, Trener Główny",
-                disciplines_title: "Trenujemy",
-                disc_sprint: "Sprinty", disc_sprint_desc: "60–400m, płotki", disc_jumps: "Skoki", disc_jumps_desc: "dal, wzwyż, tyczka, trójskok", disc_throws: "Rzuty", disc_throws_desc: "dysk, oszczep, kula, młot", disc_long: "Biegi długie", disc_long_desc: "800–5000m, przełaje", disc_hurdles: "Płotki", disc_hurdles_desc: "techniczne", disc_relay: "Sztafety", disc_relay_desc: "4x100, 4x400, szwedzkie", disc_walk: "Chód sportowy", disc_walk_desc: "na różnych dystansach", disc_multi: "Wieloboje", disc_multi_desc: "dziesięciobój, siedmiobój",
-                schedule_title: "Plan treningowy", tab_kids: "Dzieci (7-12 lat)", tab_youth: "Młodzież (13-17 lat)", tab_adults: "Dorośli / Zaawansowani", day: "Dzień", time: "Godzina", place: "Miejsce", coach: "Trener", monday: "Poniedziałek", wednesday: "Środa", friday: "Piątek", tuesday: "Wtorek", thursday: "Czwartek", saturday: "Sobota", hall: "Hala", stadium: "Stadion", gym: "Siłownia",
-                trainers_title: "Nasza kadra",
-                trainer_adam_spec: "Trener Główny / Sprinty", trainer_adam_desc: "Były mistrz Polski, trener kadry narodowej. W UKS Basket od 2010 roku, wychował 10 medalistów MP.",
-                trainer_krzysztof_spec: "Przygotowanie motoryczne / Koszykówka", trainer_krzysztof_desc: "Doświadczony trener, prowadził zespół w 3 Lidze Mazowieckiej. Odpowiada za koordynację ruchową.",
-                trainer_anna_spec: "Skoki (w dal/wzwyż)", trainer_anna_desc: "Olimpijka z Sydney, wychowawczyni młodzieży. 20 lat doświadczenia.",
-                trainer_piotr_spec: "Rzuty / Wieloboje", trainer_piotr_desc: "Były rekordzista Polski w rzucie dyskiem. Wyszkolił 5 medalistów MEJ.",
-                trainer_aldona_spec: "Biegi długie / Cross", trainer_aldona_desc: "Była reprezentantka Polski w biegach przełajowych, trenerka z pasją. Prowadzi grupy wytrzymałościowe.",
-                trainer_marek_spec: "Rzuty / Siła", trainer_marek_desc: "Specjalista od treningu siłowego i rzutów. Jego podopieczni zdobyli 8 medalistów MP.",
-                records_title: "Rekordy klubu",
-                achievements_title: "Największe sukcesy", achiev_medals: "medali Mistrzostw Polski", achiev_represent: "reprezentantów na ME i MŚ", achiev_olympians: "olimpijczyków",
-                funfacts_title: "Czy wiesz, że...", fact_year: "rok założenia klubu", fact_disciplines: "dyscyplin lekkoatletycznych", fact_continents: "kontynenty z naszymi zawodnikami",
-                ticker1: "Mistrzostwa Mazowsza: 5 złotych medali!", ticker2: "Kasia Nowicka wicemistrzynią Polski juniorów", ticker3: "Rekord klubu w sztafecie 4x100m – 41.2s", ticker4: "Nowa grupa naborowa – zapraszamy!",
-                events_title: "Nadchodzące wydarzenia", event1_title: "Halowe Mistrzostwa Juniorów", event1_place: "Spała", event2_title: "Trening otwarty dla nowych", event2_place: "Stadion Turmoncka, 16:00", event3_title: "Międzynarodowy miting LOTTO", event3_place: "Wrocław",
-                testimonials_title: "Co mówią o nas", testimonial1: "„Trenuję w UKS Basket od 10 lat. To miejsce dało mi nie tylko sukcesy sportowe, ale przede wszystkim przyjaciół i pasję na całe życie.”", testimonial1_title: "mistrzyni Polski w skoku w dal", testimonial2: "„Profesjonalna kadra, świetna atmosfera, nowoczesny obiekt. Córka zrobiła ogromne postępy. Polecam każdemu!”", testimonial2_title: "rodzic zawodniczki", testimonial3: "„Najlepsza decyzja – przyprowadziłem syna na trening 5 lat temu. Dziś jest w kadrze Polski juniorów!”", testimonial3_title: "tata zawodnika",
-                gallery_title: "Galeria",
-                video_title: "Zobacz nas w akcji",
-                faq_title: "Częste pytania", faq_q1: "Jak mogę zapisać dziecko na trening?", faq_a1: "Wystarczy przyjść na trening otwarty (zobacz harmonogram) lub skontaktować się z nami przez formularz.", faq_q2: "Jaki jest koszt treningów?", faq_a2: "Pierwszy miesiąc jest bezpłatny. Następnie składka członkowska wynosi 120 zł/mies.", faq_q3: "Czy mogę trenować amatorsko?", faq_a3: "Tak! Mamy grupy dla amatorów i mastersów. Treningi dostosowujemy do poziomu.",
-                newsletter_title: "Bądź na bieżąco", newsletter_desc: "Zapisz się do newslettera i otrzymuj informacje o treningach, zawodach i obozach.", newsletter_btn: "Zapisz się",
-                news_title: "Ostatnie wieści", news1_title: "Dwa złota na Halowych Mistrzostwach Mazowsza", news1_desc: "Nasi juniorzy wygrali w sprintach i skoku w dal. Gratulujemy!", news2_title: "Rusza nabór do grupy dziecięcej (7-10 lat)", news2_desc: "Zapraszamy na bezpłatny trening pokazowy 10 marca.", news3_title: "Obóz sportowy w Spale – zapisy", news3_desc: "Wyjazd w terminie 20-30 czerwca. Czekamy na chętnych.", read_more: "Czytaj więcej",
-                sponsors_title: "Partnerzy",
-                contact_title: "Kontakt", contact_name: "Imię i nazwisko", contact_email: "Adres e-mail", contact_subject: "Temat", contact_message: "Treść wiadomości", contact_send: "Wyślij wiadomość",
-                footer_desc: "Najstarsza i najbardziej utytułowana sekcja lekkoatletyczna w Warszawie. Trenuj z nami!", footer_shortcuts: "Na skróty", footer_support: "Wsparcie", footer_rules: "Regulamin", footer_privacy: "Polityka prywatności", footer_sponsors: "Sponsorzy", footer_contact: "Kontakt", footer_project: "Projekt z pompą!", back_top: "Powrót na górę ↑",
-                event_ongoing: "Wydarzenie trwa! 🎉"
-            },
-            en: {
-                nav_home: "HOME", nav_about: "ABOUT", nav_disciplines: "DISCIPLINES", nav_schedule: "SCHEDULE", nav_trainers: "COACHES", nav_records: "RECORDS", nav_gallery: "GALLERY", nav_video: "VIDEO", nav_faq: "FAQ", nav_contact: "CONTACT", lang: "EN",
-                hero_title: "Athletics Section", hero_desc: "Since 1987 we shape champions and promote a healthy lifestyle", hero_btn1: "Join us", hero_btn2: "Learn more",
-                countdown: "To the event: <span id='days'>00</span>d <span id='hours'>00</span>h <span id='minutes'>00</span>m <span id='seconds'>00</span>s",
-                stat_medals: "MP medals", stat_athletes: "athletes", stat_years: "years of tradition", stat_disciplines: "disciplines",
-                about_title: "History & Values", about_p1: "<strong>UKS Basket Athletics Section</strong> is not just sport – it's a community of people in love with athletics. Our section was founded in 1987 by a group of enthusiasts.", about_quote: "We have raised Olympians, Polish champions, but above all – good people.", about_p2: "Trainings take place at the modern facility at <strong>Turmoncka 2</strong> – we have a tartan track, throwing areas, jumping pits and a hall. We run groups from 7 years old to masters. We focus on individual approach and the joy of running.",
-                timeline1: "Foundation of the athletics section at UKS Basket", timeline2: "First medal at the Polish Junior Championships", timeline3: "Our athletes' participation in the Olympic Games in Athens", timeline4: "Opening of the modernized stadium at Turmoncka", timeline5: "5 medals at the European U23 Championships", timeline6: "Over 120 medals at home and abroad",
-                coach_title: "🏆 Head Coach's Word", coach_text: "„At UKS Basket we focus on the development of every athlete – from the youngest to champions. My goal is for everyone to feel the joy of training and achieve their life records. I invite you to our family!”", coach_sign: "— Adam Boron, Head Coach",
-                disciplines_title: "We train",
-                disc_sprint: "Sprints", disc_sprint_desc: "60–400m, hurdles", disc_jumps: "Jumps", disc_jumps_desc: "long, high, pole vault, triple", disc_throws: "Throws", disc_throws_desc: "discus, javelin, shot put, hammer", disc_long: "Long distance", disc_long_desc: "800–5000m, cross country", disc_hurdles: "Hurdles", disc_hurdles_desc: "technical", disc_relay: "Relays", disc_relay_desc: "4x100, 4x400, Swedish", disc_walk: "Race walking", disc_walk_desc: "various distances", disc_multi: "Combined events", disc_multi_desc: "decathlon, heptathlon",
-                schedule_title: "Training schedule", tab_kids: "Kids (7-12 years)", tab_youth: "Youth (13-17 years)", tab_adults: "Adults / Advanced", day: "Day", time: "Time", place: "Place", coach: "Coach", monday: "Monday", wednesday: "Wednesday", friday: "Friday", tuesday: "Tuesday", thursday: "Thursday", saturday: "Saturday", hall: "Hall", stadium: "Stadium", gym: "Gym",
-                trainers_title: "Our staff",
-                trainer_adam_spec: "Head Coach / Sprints", trainer_adam_desc: "Former Polish champion, national team coach. At UKS Basket since 2010, trained 10 MP medalists.",
-                trainer_krzysztof_spec: "Motor preparation / Basketball", trainer_krzysztof_desc: "Experienced coach, led a team in the 3rd Mazovian League. Responsible for movement coordination.",
-                trainer_anna_spec: "Jumps (long/high)", trainer_anna_desc: "Olympian from Sydney, youth educator. 20 years of experience.",
-                trainer_piotr_spec: "Throws / Combined events", trainer_piotr_desc: "Former Polish record holder in discus throw. Trained 5 European Junior Championships medalists.",
-                trainer_aldona_spec: "Long distance / Cross", trainer_aldona_desc: "Former Polish representative in cross-country running, passionate coach. Leads endurance groups.",
-                trainer_marek_spec: "Throws / Strength", trainer_marek_desc: "Specialist in strength training and throws. His pupils have won 8 Polish Championship medals.",
-                records_title: "Club records",
-                achievements_title: "Biggest successes", achiev_medals: "Polish Championship medals", achiev_represent: "representatives at European and World Championships", achiev_olympians: "Olympians",
-                funfacts_title: "Did you know...", fact_year: "year the club was founded", fact_disciplines: "athletics disciplines", fact_continents: "continents with our athletes",
-                ticker1: "Mazovia Championships: 5 gold medals!", ticker2: "Kasia Nowicka runner-up at Polish Junior Championships", ticker3: "Club record in 4x100m relay – 41.2s", ticker4: "New recruitment group – join us!",
-                events_title: "Upcoming events", event1_title: "Indoor Junior Championships", event1_place: "Spała", event2_title: "Open training for new members", event2_place: "Turmoncka Stadium, 4:00 PM", event3_title: "International LOTTO Meeting", event3_place: "Wrocław",
-                testimonials_title: "What they say about us", testimonial1: "„I've been training at UKS Basket for 10 years. This place gave me not only sports success, but above all friends and a lifelong passion.”", testimonial1_title: "Polish champion in long jump", testimonial2: "„Professional staff, great atmosphere, modern facility. My daughter has made huge progress. I recommend it to everyone!”", testimonial2_title: "athlete's parent", testimonial3: "„The best decision – I brought my son to training 5 years ago. Today he is in the Polish junior national team!”", testimonial3_title: "athlete's dad",
-                gallery_title: "Gallery",
-                video_title: "See us in action",
-                faq_title: "Frequently asked questions", faq_q1: "How can I sign up my child for training?", faq_a1: "Just come to an open training (see schedule) or contact us via the form.", faq_q2: "What is the cost of training?", faq_a2: "The first month is free. Then the membership fee is 120 PLN/month.", faq_q3: "Can I train as an amateur?", faq_a3: "Yes! We have groups for amateurs and masters. We adjust training to the level.",
-                newsletter_title: "Stay updated", newsletter_desc: "Sign up for the newsletter and receive information about training, competitions and camps.", newsletter_btn: "Subscribe",
-                news_title: "Latest news", news1_title: "Two golds at the Mazovia Indoor Championships", news1_desc: "Our juniors won in sprints and long jump. Congratulations!", news2_title: "Recruitment for the children's group (7-10 years) starts", news2_desc: "We invite you to a free trial training on March 10.", news3_title: "Sports camp in Spała – sign up", news3_desc: "Departure on June 20-30. We are waiting for you.", read_more: "Read more",
-                sponsors_title: "Partners",
-                contact_title: "Contact", contact_name: "First and last name", contact_email: "Email address", contact_subject: "Subject", contact_message: "Message", contact_send: "Send message",
-                footer_desc: "The oldest and most decorated athletics section in Warsaw. Train with us!", footer_shortcuts: "Shortcuts", footer_support: "Support", footer_rules: "Regulations", footer_privacy: "Privacy policy", footer_sponsors: "Sponsors", footer_contact: "Contact", footer_project: "Project with flair!", back_top: "Back to top ↑",
-                event_ongoing: "Event ongoing! 🎉"
-            },
-            de: {
-                nav_home: "START", nav_about: "ÜBER UNS", nav_disciplines: "DISZIPLINEN", nav_schedule: "PLAN", nav_trainers: "TRAINER", nav_records: "REKORDE", nav_gallery: "GALERIE", nav_video: "VIDEO", nav_faq: "FAQ", nav_contact: "KONTAKT", lang: "DE",
-                hero_title: "Leichtathletik-Sektion", hero_desc: "Seit 1987 formen wir Meister und fördern einen gesunden Lebensstil", hero_btn1: "Mach mit", hero_btn2: "Erfahre mehr",
-                countdown: "Bis zum Wettkampf: <span id='days'>00</span>T <span id='hours'>00</span>Std <span id='minutes'>00</span>Min <span id='seconds'>00</span>Sek",
-                stat_medals: "MP-Medaillen", stat_athletes: "Athleten", stat_years: "Jahre Tradition", stat_disciplines: "Disziplinen",
-                about_title: "Geschichte & Werte", about_p1: "<strong>UKS Basket Leichtathletik-Sektion</strong> ist nicht nur Sport – es ist eine Gemeinschaft von Menschen, die die Leichtathletik lieben. Unsere Sektion wurde 1987 von einer Gruppe Enthusiasten gegründet.", about_quote: "Wir haben Olympioniken, polnische Meister, aber vor allem – gute Menschen hervorgebracht.", about_p2: "Die Trainings finden in der modernen Anlage in der <strong>Turmoncka 2</strong> statt – wir haben eine Tartanbahn, Wurf- und Sprunganlagen sowie eine Halle. Wir bieten Gruppen ab 7 Jahren bis zu Masters an. Wir legen Wert auf individuelle Betreuung und Freude am Laufen.",
-                timeline1: "Gründung der Leichtathletik-Sektion bei UKS Basket", timeline2: "Erste Medaille bei den polnischen Juniorenmeisterschaften", timeline3: "Teilnahme unserer Athleten an den Olympischen Spielen in Athen", timeline4: "Eröffnung des modernisierten Stadions an der Turmoncka", timeline5: "5 Medaillen bei den U23-Europameisterschaften", timeline6: "Über 120 Medaillen im In- und Ausland",
-                coach_title: "🏆 Wort des Cheftrainers", coach_text: "„Bei UKS Basket setzen wir auf die Entwicklung jedes Athleten – von den Jüngsten bis zu den Meistern. Mein Ziel ist es, dass jeder Freude am Training hat und seine persönlichen Rekorde erreicht. Ich lade Sie in unsere Familie ein!”", coach_sign: "— Adam Boron, Cheftrainer",
-                disciplines_title: "Wir trainieren",
-                disc_sprint: "Sprints", disc_sprint_desc: "60–400m, Hürden", disc_jumps: "Sprünge", disc_jumps_desc: "Weit, Hoch, Stab, Dreisprung", disc_throws: "Würfe", disc_throws_desc: "Diskus, Speer, Kugel, Hammer", disc_long: "Langstrecke", disc_long_desc: "800–5000m, Cross", disc_hurdles: "Hürden", disc_hurdles_desc: "technisch", disc_relay: "Staffeln", disc_relay_desc: "4x100, 4x400, schwedisch", disc_walk: "Gehen", disc_walk_desc: "verschiedene Distanzen", disc_multi: "Mehrkämpfe", disc_multi_desc: "Zehnkampf, Siebenkampf",
-                schedule_title: "Trainingsplan", tab_kids: "Kinder (7-12 Jahre)", tab_youth: "Jugend (13-17 Jahre)", tab_adults: "Erwachsene / Fortgeschrittene", day: "Tag", time: "Zeit", place: "Ort", coach: "Trainer", monday: "Montag", wednesday: "Mittwoch", friday: "Freitag", tuesday: "Dienstag", thursday: "Donnerstag", saturday: "Samstag", hall: "Halle", stadium: "Stadion", gym: "Fitnessraum",
-                trainers_title: "Unser Team",
-                trainer_adam_spec: "Cheftrainer / Sprints", trainer_adam_desc: "Ehemaliger polnischer Meister, Trainer der Nationalmannschaft. Seit 2010 bei UKS Basket, hat 10 MP-Medaillengewinner ausgebildet.",
-                trainer_krzysztof_spec: "Motorische Vorbereitung / Basketball", trainer_krzysztof_desc: "Erfahrener Trainer, leitete ein Team in der 3. Masowischen Liga. Verantwortlich für Bewegungskoordination.",
-                trainer_anna_spec: "Sprünge (Weit/Hoch)", trainer_anna_desc: "Olympionikin von Sydney, Jugendbildnerin. 20 Jahre Erfahrung.",
-                trainer_piotr_spec: "Würfe / Mehrkämpfe", trainer_piotr_desc: "Ehemaliger polnischer Rekordhalter im Diskuswurf. Trainierte 5 Medaillengewinner der Junioren-EM.",
-                trainer_aldona_spec: "Langstrecke / Cross", trainer_aldona_desc: "Ehemalige polnische Crosslauf-Vertreterin, leidenschaftliche Trainerin. Leitet Ausdauergruppen.",
-                trainer_marek_spec: "Würfe / Kraft", trainer_marek_desc: "Spezialist für Krafttraining und Würfe. Seine Schützlinge gewannen 8 polnische Meistertitel.",
-                records_title: "Vereinsrekorde",
-                achievements_title: "Größte Erfolge", achiev_medals: "Medaillen bei polnischen Meisterschaften", achiev_represent: "Vertreter bei EM und WM", achiev_olympians: "Olympioniken",
-                funfacts_title: "Wussten Sie, dass...", fact_year: "Gründungsjahr des Vereins", fact_disciplines: "Leichtathletik-Disziplinen", fact_continents: "Kontinente mit unseren Athleten",
-                ticker1: "Masowische Meisterschaften: 5 Goldmedaillen!", ticker2: "Kasia Nowicka Vizemeisterin der polnischen Junioren", ticker3: "Vereinsrekord in der 4x100m-Staffel – 41,2s", ticker4: "Neue Aufnahmegruppe – wir laden ein!",
-                events_title: "Anstehende Veranstaltungen", event1_title: "Hallen-Juniorenmeisterschaften", event1_place: "Spała", event2_title: "Offenes Training für Neue", event2_place: "Stadion Turmoncka, 16:00 Uhr", event3_title: "Internationales LOTTO-Meeting", event3_place: "Breslau",
-                testimonials_title: "Was man über uns sagt", testimonial1: "„Ich trainiere seit 10 Jahren bei UKS Basket. Dieser Ort hat mir nicht nur sportliche Erfolge, sondern vor allem Freunde und eine lebenslange Leidenschaft gegeben.”", testimonial1_title: "Polnische Meisterin im Weitsprung", testimonial2: "„Professionelles Team, tolle Atmosphäre, moderne Anlage. Meine Tochter hat enorme Fortschritte gemacht. Ich empfehle es jedem!”", testimonial2_title: "Elternteil einer Athletin", testimonial3: "„Die beste Entscheidung – ich habe meinen Sohn vor 5 Jahren zum Training gebracht. Heute ist er in der polnischen Junioren-Nationalmannschaft!”", testimonial3_title: "Vater eines Athleten",
-                gallery_title: "Galerie",
-                video_title: "Sehen Sie uns in Aktion",
-                faq_title: "Häufige Fragen", faq_q1: "Wie kann ich mein Kind zum Training anmelden?", faq_a1: "Kommen Sie einfach zu einem offenen Training (siehe Plan) oder kontaktieren Sie uns über das Formular.", faq_q2: "Was kostet das Training?", faq_a2: "Der erste Monat ist kostenlos. Danach beträgt der Mitgliedsbeitrag 120 PLN/Monat.", faq_q3: "Kann ich als Amateur trainieren?", faq_a3: "Ja! Wir haben Gruppen für Amateure und Masters. Wir passen das Training an das Niveau an.",
-                newsletter_title: "Bleiben Sie auf dem Laufenden", newsletter_desc: "Melden Sie sich für den Newsletter an und erhalten Sie Informationen über Training, Wettkämpfe und Camps.", newsletter_btn: "Anmelden",
-                news_title: "Neueste Nachrichten", news1_title: "Zwei Goldmedaillen bei den Hallenmeisterschaften von Masowien", news1_desc: "Unsere Junioren gewannen in Sprints und Weitsprung. Herzlichen Glückwunsch!", news2_title: "Aufnahme für die Kindergruppe (7-10 Jahre) startet", news2_desc: "Wir laden Sie zu einem kostenlosen Probetraining am 10. März ein.", news3_title: "Sportcamp in Spała – Anmeldung", news3_desc: "Abfahrt vom 20.-30. Juni. Wir warten auf euch.", read_more: "Weiterlesen",
-                sponsors_title: "Partner",
-                contact_title: "Kontakt", contact_name: "Vor- und Nachname", contact_email: "E-Mail-Adresse", contact_subject: "Betreff", contact_message: "Nachricht", contact_send: "Nachricht senden",
-                footer_desc: "Die älteste und erfolgreichste Leichtathletik-Sektion in Warschau. Trainiere mit uns!", footer_shortcuts: "Abkürzungen", footer_support: "Unterstützung", footer_rules: "Regelwerk", footer_privacy: "Datenschutzerklärung", footer_sponsors: "Sponsoren", footer_contact: "Kontakt", footer_project: "Projekt mit Elan!", back_top: "Zurück nach oben ↑",
-                event_ongoing: "Veranstaltung läuft! 🎉"
-            },
-            ru: {
-                nav_home: "ГЛАВНАЯ", nav_about: "О НАС", nav_disciplines: "ДИСЦИПЛИНЫ", nav_schedule: "РАСПИСАНИЕ", nav_trainers: "ТРЕНЕРЫ", nav_records: "РЕКОРДЫ", nav_gallery: "ГАЛЕРЕЯ", nav_video: "ВИДЕО", nav_faq: "ЧАВО", nav_contact: "КОНТАКТЫ", lang: "RU",
-                hero_title: "Легкоатлетическая секция", hero_desc: "С 1987 года мы формируем чемпионов и пропагандируем здоровый образ жизни", hero_btn1: "Присоединяйся", hero_btn2: "Узнать больше",
-                countdown: "До соревнований: <span id='days'>00</span>д <span id='hours'>00</span>ч <span id='minutes'>00</span>м <span id='seconds'>00</span>с",
-                stat_medals: "медалей ЧП", stat_athletes: "спортсменов", stat_years: "лет традиций", stat_disciplines: "дисциплин",
-                about_title: "История и ценности", about_p1: "<strong>UKS Basket Легкоатлетическая секция</strong> – это не просто спорт, это сообщество людей, влюбленных в легкую атлетику. Наша секция была основана в 1987 году группой энтузиастов.", about_quote: "Мы воспитали олимпийцев, чемпионов Польши, но прежде всего – хороших людей.", about_p2: "Тренировки проходят на современном объекте по адресу <strong>Турмонцка 2</strong> – у нас есть тартановая дорожка, секторы для метания и прыжков, а также зал. Мы ведем группы от 7 лет до мастеров. Мы делаем ставку на индивидуальный подход и радость от бега.",
-                timeline1: "Основание легкоатлетической секции при UKS Basket", timeline2: "Первая медаль на чемпионате Польши среди юниоров", timeline3: "Участие наших спортсменов в Олимпийских играх в Афинах", timeline4: "Открытие модернизированного стадиона на Турмонцкой", timeline5: "5 медалей на чемпионате Европы U23", timeline6: "Более 120 медалей в стране и за рубежом",
-                coach_title: "🏆 Слово главного тренера", coach_text: "„В UKS Basket мы делаем ставку на развитие каждого спортсмена – от самых маленьких до чемпионов. Моя цель – чтобы каждый получал радость от тренировок и достигал своих жизненных рекордов. Приглашаю в нашу семью!”", coach_sign: "— Адам Борон, главный тренер",
-                disciplines_title: "Мы тренируем",
-                disc_sprint: "Спринт", disc_sprint_desc: "60–400 м, барьеры", disc_jumps: "Прыжки", disc_jumps_desc: "в длину, высоту, с шестом, тройной", disc_throws: "Метания", disc_throws_desc: "диск, копье, ядро, молот", disc_long: "Длинные дистанции", disc_long_desc: "800–5000 м, кросс", disc_hurdles: "Барьерный бег", disc_hurdles_desc: "технический", disc_relay: "Эстафеты", disc_relay_desc: "4x100, 4x400, шведская", disc_walk: "Спортивная ходьба", disc_walk_desc: "разные дистанции", disc_multi: "Многоборья", disc_multi_desc: "десятиборье, семиборье",
-                schedule_title: "Расписание тренировок", tab_kids: "Дети (7-12 лет)", tab_youth: "Юноши (13-17 лет)", tab_adults: "Взрослые / Продвинутые", day: "День", time: "Время", place: "Место", coach: "Тренер", monday: "Понедельник", wednesday: "Среда", friday: "Пятница", tuesday: "Вторник", thursday: "Четверг", saturday: "Суббота", hall: "Зал", stadium: "Стадион", gym: "Тренажерный зал",
-                trainers_title: "Наш состав",
-                trainer_adam_spec: "Главный тренер / Спринт", trainer_adam_desc: "Бывший чемпион Польши, тренер национальной сборной. В UKS Basket с 2010 года, воспитал 10 призеров ЧП.",
-                trainer_krzysztof_spec: "Моторная подготовка / Баскетбол", trainer_krzysztof_desc: "Опытный тренер, руководил командой в 3-й Мазовецкой лиге. Отвечает за координацию движений.",
-                trainer_anna_spec: "Прыжки (длина/высота)", trainer_anna_desc: "Участница Олимпийских игр в Сиднее, педагог молодежи. 20 лет опыта.",
-                trainer_piotr_spec: "Метания / Многоборья", trainer_piotr_desc: "Бывший рекордсмен Польши в метании диска. Подготовил 5 призеров юниорских ЧЕ.",
-                trainer_aldona_spec: "Длинные дистанции / Кросс", trainer_aldona_desc: "Бывшая представительница Польши в кроссе, увлеченный тренер. Ведет группы выносливости.",
-                trainer_marek_spec: "Метания / Сила", trainer_marek_desc: "Специалист по силовой подготовке и метаниям. Его подопечные завоевали 8 медалей ЧП.",
-                records_title: "Рекорды клуба",
-                achievements_title: "Крупнейшие успехи", achiev_medals: "медалей чемпионатов Польши", achiev_represent: "представителей на ЧЕ и ЧМ", achiev_olympians: "олимпийцев",
-                funfacts_title: "А знаете ли вы...", fact_year: "год основания клуба", fact_disciplines: "легкоатлетических дисциплин", fact_continents: "континентов с нашими спортсменами",
-                ticker1: "Чемпионат Мазовии: 5 золотых медалей!", ticker2: "Кася Новицка вице-чемпионка Польши среди юниоров", ticker3: "Рекорд клуба в эстафете 4x100м – 41,2с", ticker4: "Новый набор – приглашаем!",
-                events_title: "Предстоящие события", event1_title: "Чемпионат юниоров в зале", event1_place: "Спала", event2_title: "Открытая тренировка для новичков", event2_place: "Стадион Турмонцка, 16:00", event3_title: "Международный митинг LOTTO", event3_place: "Вроцлав",
-                testimonials_title: "Что о нас говорят", testimonial1: "„Я тренируюсь в UKS Basket уже 10 лет. Это место дало мне не только спортивные успехи, но прежде всего друзей и страсть на всю жизнь.”", testimonial1_title: "чемпионка Польши в прыжках в длину", testimonial2: "„Профессиональный штаб, отличная атмосфера, современное оборудование. Моя дочь добилась огромного прогресса. Рекомендую всем!”", testimonial2_title: "родитель спортсменки", testimonial3: "„Лучшее решение – я привел сына на тренировку 5 лет назад. Сегодня он в юниорской сборной Польши!”", testimonial3_title: "отец спортсмена",
-                gallery_title: "Галерея",
-                video_title: "Смотрите нас в действии",
-                faq_title: "Часто задаваемые вопросы", faq_q1: "Как записать ребенка на тренировку?", faq_a1: "Просто придите на открытую тренировку (см. расписание) или свяжитесь с нами через форму.", faq_q2: "Сколько стоят тренировки?", faq_a2: "Первый месяц бесплатный. Затем членский взнос составляет 120 зл/мес.", faq_q3: "Могу ли я тренироваться любителем?", faq_a3: "Да! У нас есть группы для любителей и мастеров. Мы подстраиваем тренировки под уровень.",
-                newsletter_title: "Будьте в курсе", newsletter_desc: "Подпишитесь на рассылку и получайте информацию о тренировках, соревнованиях и лагерях.", newsletter_btn: "Подписаться",
-                news_title: "Последние новости", news1_title: "Два золота на чемпионате Мазовии в зале", news1_desc: "Наши юниоры победили в спринте и прыжках в длину. Поздравляем!", news2_title: "Начинается набор в детскую группу (7-10 лет)", news2_desc: "Приглашаем на бесплатную пробную тренировку 10 марта.", news3_title: "Спортивный лагерь в Спале – запись", news3_desc: "Выезд 20-30 июня. Ждем вас.", read_more: "Читать далее",
-                sponsors_title: "Партнеры",
-                contact_title: "Контакты", contact_name: "Имя и фамилия", contact_email: "Адрес эл. почты", contact_subject: "Тема", contact_message: "Сообщение", contact_send: "Отправить сообщение",
-                footer_desc: "Старейшая и самая титулованная легкоатлетическая секция в Варшаве. Тренируйся с нами!", footer_shortcuts: "Быстрые ссылки", footer_support: "Поддержка", footer_rules: "Правила", footer_privacy: "Политика конфиденциальности", footer_sponsors: "Спонсоры", footer_contact: "Контакты", footer_project: "Проект с огоньком!", back_top: "Вернуться наверх ↑",
-                event_ongoing: "Соревнование идет! 🎉"
-            },
-            uk: {
-                nav_home: "ГОЛОВНА", nav_about: "ПРО НАС", nav_disciplines: "ДИСЦИПЛІНИ", nav_schedule: "РОЗКЛАД", nav_trainers: "ТРЕНЕРИ", nav_records: "РЕКОРДИ", nav_gallery: "ГАЛЕРЕЯ", nav_video: "ВІДЕО", nav_faq: "ЧАП", nav_contact: "КОНТАКТИ", lang: "UA",
-                hero_title: "Легкоатлетична секція", hero_desc: "З 1987 року ми формуємо чемпіонів та пропагуємо здоровий спосіб життя", hero_btn1: "Приєднуйся", hero_btn2: "Дізнатися більше",
-                countdown: "До змагань: <span id='days'>00</span>д <span id='hours'>00</span>год <span id='minutes'>00</span>хв <span id='seconds'>00</span>с",
-                stat_medals: "медалей ЧП", stat_athletes: "спортсменів", stat_years: "років традицій", stat_disciplines: "дисциплін",
-                about_title: "Історія та цінності", about_p1: "<strong>UKS Basket Легкоатлетична секція</strong> – це не просто спорт, це спільнота людей, закоханих у легку атлетику. Наша секція була заснована в 1987 році групою ентузіастів.", about_quote: "Ми виховали олімпійців, чемпіонів Польщі, але перш за все – хороших людей.", about_p2: "Тренування проходять на сучасному об'єкті за адресою <strong>Турмонцька 2</strong> – у нас є тартанова доріжка, сектори для метань та стрибків, а також зал. Ми ведемо групи від 7 років до майстрів. Ми робимо ставку на індивідуальний підхід і радість від бігу.",
-                timeline1: "Заснування легкоатлетичної секції при UKS Basket", timeline2: "Перша медаль на чемпіонаті Польщі серед юніорів", timeline3: "Участь наших спортсменів в Олімпійських іграх в Афінах", timeline4: "Відкриття модернізованого стадіону на Турмонцькій", timeline5: "5 медалей на чемпіонаті Європи U23", timeline6: "Понад 120 медалей в країні та за кордоном",
-                coach_title: "🏆 Слово головного тренера", coach_text: "„В UKS Basket ми робимо ставку на розвиток кожного спортсмена – від найменших до чемпіонів. Моя мета – щоб кожен отримував радість від тренувань і досягав своїх життєвих рекордів. Запрошую до нашої родини!”", coach_sign: "— Адам Борон, головний тренер",
-                disciplines_title: "Ми тренуємо",
-                disc_sprint: "Спринт", disc_sprint_desc: "60–400 м, бар'єри", disc_jumps: "Стрибки", disc_jumps_desc: "у довжину, висоту, з жердиною, потрійний", disc_throws: "Метання", disc_throws_desc: "диск, спис, ядро, молот", disc_long: "Довгі дистанції", disc_long_desc: "800–5000 м, крос", disc_hurdles: "Бар'єрний біг", disc_hurdles_desc: "технічний", disc_relay: "Естафети", disc_relay_desc: "4x100, 4x400, шведська", disc_walk: "Спортивна ходьба", disc_walk_desc: "різні дистанції", disc_multi: "Багатоборства", disc_multi_desc: "десятиборство, семиборство",
-                schedule_title: "Розклад тренувань", tab_kids: "Діти (7-12 років)", tab_youth: "Юнаки (13-17 років)", tab_adults: "Дорослі / Просунуті", day: "День", time: "Час", place: "Місце", coach: "Тренер", monday: "Понеділок", wednesday: "Середа", friday: "П'ятниця", tuesday: "Вівторок", thursday: "Четвер", saturday: "Субота", hall: "Зал", stadium: "Стадіон", gym: "Тренажерний зал",
-                trainers_title: "Наш склад",
-                trainer_adam_spec: "Головний тренер / Спринт", trainer_adam_desc: "Колишній чемпіон Польщі, тренер національної збірної. В UKS Basket з 2010 року, виховав 10 призерів ЧП.",
-                trainer_krzysztof_spec: "Моторна підготовка / Баскетбол", trainer_krzysztof_desc: "Досвідчений тренер, керував командою в 3-й Мазовецькій лізі. Відповідає за координацію рухів.",
-                trainer_anna_spec: "Стрибки (довжина/висота)", trainer_anna_desc: "Учасниця Олімпійських ігор в Сіднеї, педагогиня молоді. 20 років досвіду.",
-                trainer_piotr_spec: "Метання / Багатоборства", trainer_piotr_desc: "Колишній рекордсмен Польщі в метанні диска. Підготував 5 призерів юніорських ЧЄ.",
-                trainer_aldona_spec: "Довгі дистанції / Крос", trainer_aldona_desc: "Колишня представниця Польщі в кросі, захоплена тренерка. Веде групи витривалості.",
-                trainer_marek_spec: "Метання / Сила", trainer_marek_desc: "Спеціаліст з силової підготовки та метань. Його підопічні здобули 8 медалей ЧП.",
-                records_title: "Рекорди клубу",
-                achievements_title: "Найбільші успіхи", achiev_medals: "медалей чемпіонатів Польщі", achiev_represent: "представників на ЧЄ та ЧС", achiev_olympians: "олімпійців",
-                funfacts_title: "А чи знаєте ви...", fact_year: "рік заснування клубу", fact_disciplines: "легкоатлетичних дисциплін", fact_continents: "континентів з нашими спортсменами",
-                ticker1: "Чемпіонат Мазовії: 5 золотих медалей!", ticker2: "Кася Новицька віце-чемпіонка Польщі серед юніорів", ticker3: "Рекорд клубу в естафеті 4x100м – 41,2с", ticker4: "Новий набір – запрошуємо!",
-                events_title: "Найближчі події", event1_title: "Чемпіонат юніорів у залі", event1_place: "Спала", event2_title: "Відкрите тренування для новачків", event2_place: "Стадіон Турмонцька, 16:00", event3_title: "Міжнародний мітинг LOTTO", event3_place: "Вроцлав",
-                testimonials_title: "Що про нас говорять", testimonial1: "„Я тренуюся в UKS Basket вже 10 років. Це місце дало мені не тільки спортивні успіхи, але передусім друзів і пристрасть на все життя.”", testimonial1_title: "чемпіонка Польщі зі стрибків у довжину", testimonial2: "„Професійний штаб, чудова атмосфера, сучасне обладнання. Моя донька досягла величезного прогресу. Рекомендую всім!”", testimonial2_title: "батько спортсменки", testimonial3: "„Найкраще рішення – я привів сина на тренування 5 років тому. Сьогодні він у юніорській збірній Польщі!”", testimonial3_title: "тато спортсмена",
-                gallery_title: "Галерея",
-                video_title: "Дивіться нас у дії",
-                faq_title: "Часті запитання", faq_q1: "Як записати дитину на тренування?", faq_a1: "Просто прийдіть на відкрите тренування (див. розклад) або зв'яжіться з нами через форму.", faq_q2: "Скільки коштують тренування?", faq_a2: "Перший місяць безкоштовний. Потім членський внесок становить 120 зл/міс.", faq_q3: "Чи можу я тренуватися аматором?", faq_a3: "Так! У нас є групи для аматорів та майстрів. Ми підлаштовуємо тренування під рівень.",
-                newsletter_title: "Будьте в курсі", newsletter_desc: "Підпишіться на розсилку та отримуйте інформацію про тренування, змагання та табори.", newsletter_btn: "Підписатися",
-                news_title: "Останні новини", news1_title: "Два золота на чемпіонаті Мазовії в залі", news1_desc: "Наші юніори перемогли в спринті та стрибках у довжину. Вітаємо!", news2_title: "Починається набір у дитячу групу (7-10 років)", news2_desc: "Запрошуємо на безкоштовне пробне тренування 10 березня.", news3_title: "Спортивний табір у Спалі – запис", news3_desc: "Виїзд 20-30 червня. Чекаємо на вас.", read_more: "Читати далі",
-                sponsors_title: "Партнери",
-                contact_title: "Контакти", contact_name: "Ім'я та прізвище", contact_email: "Адреса ел. пошти", contact_subject: "Тема", contact_message: "Повідомлення", contact_send: "Надіслати повідомлення",
-                footer_desc: "Найстаріша та найтитулованіша легкоатлетична секція у Варшаві. Тренуйся з нами!", footer_shortcuts: "Швидкі посилання", footer_support: "Підтримка", footer_rules: "Правила", footer_privacy: "Політика конфіденційності", footer_sponsors: "Спонсори", footer_contact: "Контакти", footer_project: "Проєкт з вогником!", back_top: "Повернутися нагору ↑",
-                event_ongoing: "Змагання тривають! 🎉"
-            },
-            cs: {
-                nav_home: "DOMŮ", nav_about: "O NÁS", nav_disciplines: "DISCIPLÍNY", nav_schedule: "PLÁN", nav_trainers: "TRENÉŘI", nav_records: "REKORDY", nav_gallery: "GALERIE", nav_video: "VIDEO", nav_faq: "FAQ", nav_contact: "KONTAKT", lang: "CS",
-                hero_title: "Atletická sekce", hero_desc: "Od roku 1987 formujeme mistry a podporujeme zdravý životní styl", hero_btn1: "Přidej se", hero_btn2: "Poznej nás",
-                countdown: "Do závodu: <span id='days'>00</span>d <span id='hours'>00</span>h <span id='minutes'>00</span>m <span id='seconds'>00</span>s",
-                stat_medals: "medailí MP", stat_athletes: "sportovců", stat_years: "let tradice", stat_disciplines: "disciplín",
-                about_title: "Historie a hodnoty", about_p1: "<strong>UKS Basket Atletická sekce</strong> není jen sport – je to komunita lidí zamilovaných do atletiky. Naše sekce byla založena v roce 1987 skupinou nadšenců.", about_quote: "Vychovali jsme olympioniky, polské mistry, ale především – dobré lidi.", about_p2: "Tréninky probíhají v moderním areálu na adrese <strong>Turmoncka 2</strong> – máme tartanovou dráhu, sektory pro hody a skoky a také halu. Vedeme skupiny od 7 let až po mistry. Zaměřujeme se na individuální přístup a radost z běhání.",
-                timeline1: "Založení atletické sekce při UKS Basket", timeline2: "První medaile na mistrovství Polska juniorů", timeline3: "Účast našich sportovců na olympijských hrách v Athénách", timeline4: "Otevření modernizovaného stadionu na Turmoncké", timeline5: "5 medailí na mistrovství Evropy do 23 let", timeline6: "Přes 120 medailí doma i v zahraničí",
-                coach_title: "🏆 Slovo hlavního trenéra", coach_text: "„V UKS Basket se zaměřujeme na rozvoj každého sportovce – od nejmladších po mistry. Mým cílem je, aby každý cítil radost z tréninku a dosahoval svých životních rekordů. Zvu vás do naší rodiny!”", coach_sign: "— Adam Boron, hlavní trenér",
-                disciplines_title: "Trénujeme",
-                disc_sprint: "Sprinter", disc_sprint_desc: "60–400 m, překážky", disc_jumps: "Skoky", disc_jumps_desc: "daleký, vysoký, tyč, trojskok", disc_throws: "Hody", disc_throws_desc: "disk, oštěp, koule, kladivo", disc_long: "Dlouhé tratě", disc_long_desc: "800–5000 m, přespolní běh", disc_hurdles: "Překážky", disc_hurdles_desc: "technické", disc_relay: "Štafety", disc_relay_desc: "4x100, 4x400, švédská", disc_walk: "Sportovní chůze", disc_walk_desc: "různé vzdálenosti", disc_multi: "Víceboje", disc_multi_desc: "desetiboj, sedmiboj",
-                schedule_title: "Tréninkový plán", tab_kids: "Děti (7-12 let)", tab_youth: "Mládež (13-17 let)", tab_adults: "Dospělí / Pokročilí", day: "Den", time: "Čas", place: "Místo", coach: "Trenér", monday: "Pondělí", wednesday: "Středa", friday: "Pátek", tuesday: "Úterý", thursday: "Čtvrtek", saturday: "Sobota", hall: "Hala", stadium: "Stadion", gym: "Posilovna",
-                trainers_title: "Náš tým",
-                trainer_adam_spec: "Hlavní trenér / Sprinty", trainer_adam_desc: "Bývalý polský mistr, trenér národního týmu. V UKS Basket od roku 2010, vychoval 10 medailistů MP.",
-                trainer_krzysztof_spec: "Motorická příprava / Basketbal", trainer_krzysztof_desc: "Zkušený trenér, vedl tým ve 3. Mazovské lize. Zodpovídá za koordinaci pohybu.",
-                trainer_anna_spec: "Skoky (daleký/vysoký)", trainer_anna_desc: "Olympionička ze Sydney, vychovatelka mládeže. 20 let zkušeností.",
-                trainer_piotr_spec: "Hody / Víceboje", trainer_piotr_desc: "Bývalý polský rekordman v hodu diskem. Vyškolil 5 medailistů MEJ.",
-                trainer_aldona_spec: "Dlouhé tratě / Cross", trainer_aldona_desc: "Bývalá reprezentantka Polska v přespolním běhu, trenérka s vášní. Vede vytrvalostní skupiny.",
-                trainer_marek_spec: "Hody / Síla", trainer_marek_desc: "Specialista na silový trénink a hody. Jeho svěřenci získali 8 medailí MP.",
-                records_title: "Klubové rekordy",
-                achievements_title: "Největší úspěchy", achiev_medals: "medailí mistrovství Polska", achiev_represent: "zástupců na ME a MS", achiev_olympians: "olympioniků",
-                funfacts_title: "Víte, že...", fact_year: "rok založení klubu", fact_disciplines: "atletických disciplín", fact_continents: "kontinentů s našimi sportovci",
-                ticker1: "Mazovské mistrovství: 5 zlatých medailí!", ticker2: "Kasia Nowicka vicemistryní Polska juniorů", ticker3: "Klubový rekord ve štafetě 4x100m – 41,2s", ticker4: "Nový nábor – zveme!",
-                events_title: "Nadcházející události", event1_title: "Halové mistrovství juniorů", event1_place: "Spała", event2_title: "Otevřený trénink pro nové", event2_place: "Stadion Turmoncka, 16:00", event3_title: "Mezinárodní mítink LOTTO", event3_place: "Vratislav",
-                testimonials_title: "Co o nás říkají", testimonial1: "„V UKS Basket trénuji 10 let. Toto místo mi dalo nejen sportovní úspěchy, ale především přátele a celoživotní vášeň.”", testimonial1_title: "mistryně Polska ve skoku dalekém", testimonial2: "„Profesionální tým, skvělá atmosféra, moderní vybavení. Moje dcera udělala obrovské pokroky. Doporučuji všem!”", testimonial2_title: "rodič sportovkyně", testimonial3: "„Nejlepší rozhodnutí – přivedl jsem syna na trénink před 5 lety. Dnes je v juniorské reprezentaci Polska!”", testimonial3_title: "tatínek sportovce",
-                gallery_title: "Galerie",
-                video_title: "Podívejte se na nás v akci",
-                faq_title: "Časté otázky", faq_q1: "Jak mohu přihlásit dítě na trénink?", faq_a1: "Stačí přijít na otevřený trénink (viz plán) nebo nás kontaktovat přes formulář.", faq_q2: "Jaká je cena tréninků?", faq_a2: "První měsíc je zdarma. Poté je členský příspěvek 120 zł/měs.", faq_q3: "Mohu trénovat amatérsky?", faq_a3: "Ano! Máme skupiny pro amatéry i mastery. Tréninky přizpůsobujeme úrovni.",
-                newsletter_title: "Buďte v obraze", newsletter_desc: "Přihlaste se k odběru newsletteru a dostávejte informace o trénincích, závodech a kempech.", newsletter_btn: "Přihlásit se",
-                news_title: "Poslední zprávy", news1_title: "Dvě zlata na halovém mistrovství Mazovska", news1_desc: "Naši junioři vyhráli v sprintech a skoku dalekém. Gratulujeme!", news2_title: "Začíná nábor do dětské skupiny (7-10 let)", news2_desc: "Zveme na bezplatný ukázkový trénink 10. března.", news3_title: "Sportovní kemp ve Spałe – přihlášky", news3_desc: "Odjezd 20.-30. června. Čekáme na vás.", read_more: "Číst dále",
-                sponsors_title: "Partneři",
-                contact_title: "Kontakt", contact_name: "Jméno a příjmení", contact_email: "E-mailová adresa", contact_subject: "Předmět", contact_message: "Zpráva", contact_send: "Odeslat zprávu",
-                footer_desc: "Nejstarší a nejúspěšnější atletická sekce ve Varšavě. Trénuj s námi!", footer_shortcuts: "Rychlé odkazy", footer_support: "Podpora", footer_rules: "Pravidla", footer_privacy: "Zásady ochrany soukromí", footer_sponsors: "Sponzoři", footer_contact: "Kontakt", footer_project: "Projekt s šarmem!", back_top: "Zpět nahoru ↑",
-                event_ongoing: "Událost probíhá! 🎉"
-            },
-            zh: {
-                nav_home: "首页", nav_about: "关于我们", nav_disciplines: "项目", nav_schedule: "时间表", nav_trainers: "教练", nav_records: "纪录", nav_gallery: "画廊", nav_video: "视频", nav_faq: "常见问题", nav_contact: "联系方式", lang: "中文",
-                hero_title: "田径部", hero_desc: "自1987年以来，我们培养冠军并提倡健康的生活方式", hero_btn1: "加入我们", hero_btn2: "了解更多",
-                countdown: "距比赛还有: <span id='days'>00</span>天 <span id='hours'>00</span>小时 <span id='minutes'>00</span>分 <span id='seconds'>00</span>秒",
-                stat_medals: "波兰锦标赛奖牌", stat_athletes: "运动员", stat_years: "传统年数", stat_disciplines: "项目",
-                about_title: "历史与价值观", about_p1: "<strong>UKS Basket 田径部</strong>不仅仅是运动 – 它是一个热爱田径的人们组成的社区。我们的部门由一群爱好者于1987年创立。", about_quote: "我们培养了奥运选手、波兰冠军，但最重要的是 – 优秀的人。", about_p2: "训练在现代化的场地进行，地址是 <strong>Turmoncka 2</strong> – 我们有塑胶跑道、投掷区、跳远区和体育馆。我们开设从7岁到大师级的团体。我们注重个性化方法和跑步的乐趣。",
-                timeline1: "UKS Basket 田径部成立", timeline2: "首枚波兰青少年锦标赛奖牌", timeline3: "我们的运动员参加雅典奥运会", timeline4: "Turmoncka 现代化体育场开幕", timeline5: "欧洲U23锦标赛5枚奖牌", timeline6: "国内外超过120枚奖牌",
-                coach_title: "🏆 主教练的话", coach_text: "„在 UKS Basket，我们专注于每个运动员的发展 – 从最小的到冠军。我的目标是让每个人都感受到训练的乐趣并实现他们的人生记录。我邀请你加入我们的大家庭！”", coach_sign: "— Adam Boron, 主教练",
-                disciplines_title: "我们训练",
-                disc_sprint: "短跑", disc_sprint_desc: "60–400米, 跨栏", disc_jumps: "跳跃", disc_jumps_desc: "跳远, 跳高, 撑杆跳, 三级跳", disc_throws: "投掷", disc_throws_desc: "铁饼, 标枪, 铅球, 链球", disc_long: "长跑", disc_long_desc: "800–5000米, 越野", disc_hurdles: "跨栏跑", disc_hurdles_desc: "技术性", disc_relay: "接力", disc_relay_desc: "4x100, 4x400, 瑞典式", disc_walk: "竞走", disc_walk_desc: "各种距离", disc_multi: "全能", disc_multi_desc: "十项全能, 七项全能",
-                schedule_title: "训练计划", tab_kids: "儿童 (7-12岁)", tab_youth: "青少年 (13-17岁)", tab_adults: "成人 / 进阶", day: "星期", time: "时间", place: "地点", coach: "教练", monday: "星期一", wednesday: "星期三", friday: "星期五", tuesday: "星期二", thursday: "星期四", saturday: "星期六", hall: "体育馆", stadium: "体育场", gym: "健身房",
-                trainers_title: "我们的团队",
-                trainer_adam_spec: "主教练 / 短跑", trainer_adam_desc: "前波兰冠军，国家队教练。自2010年起在UKS Basket工作，培养了10名波兰锦标赛奖牌得主。",
-                trainer_krzysztof_spec: "运动准备 / 篮球", trainer_krzysztof_desc: "经验丰富的教练，曾带领球队参加马佐夫舍第三联赛。负责运动协调。",
-                trainer_anna_spec: "跳跃 (跳远/跳高)", trainer_anna_desc: "悉尼奥运会选手，青少年教育者。20年经验。",
-                trainer_piotr_spec: "投掷 / 全能", trainer_piotr_desc: "前波兰铁饼纪录保持者。培养了5名欧洲青年锦标赛奖牌得主。",
-                trainer_aldona_spec: "长跑 / 越野", trainer_aldona_desc: "前波兰越野跑代表，充满激情的教练。领导耐力组。",
-                trainer_marek_spec: "投掷 / 力量", trainer_marek_desc: "力量训练和投掷专家。他的学生赢得了8枚波兰锦标赛奖牌。",
-                records_title: "俱乐部纪录",
-                achievements_title: "最大成就", achiev_medals: "波兰锦标赛奖牌", achiev_represent: "欧洲和世界锦标赛代表", achiev_olympians: "奥运选手",
-                funfacts_title: "你知道吗...", fact_year: "俱乐部成立年份", fact_disciplines: "田径项目", fact_continents: "有我们运动员的大洲",
-                ticker1: "马佐夫舍锦标赛: 5枚金牌!", ticker2: "Kasia Nowicka 波兰青少年锦标赛亚军", ticker3: "俱乐部4x100米接力纪录 – 41.2秒", ticker4: "新招募组 – 欢迎加入!",
-                events_title: "即将举行的活动", event1_title: "室内青少年锦标赛", event1_place: "斯帕拉", event2_title: "新人公开训练", event2_place: "Turmoncka 体育场, 16:00", event3_title: "国际LOTTO运动会", event3_place: "弗罗茨瓦夫",
-                testimonials_title: "他们这样评价我们", testimonial1: "„我在 UKS Basket 训练了10年。这个地方不仅给了我运动上的成功，更给了我朋友和终身的热情。”", testimonial1_title: "波兰跳远冠军", testimonial2: "„专业的团队，很棒的氛围，现代化的设施。我女儿取得了巨大进步。我推荐给大家！”", testimonial2_title: "运动员的家长", testimonial3: "„最好的决定 – 5年前我带儿子来训练。今天他是波兰青少年国家队的一员！”", testimonial3_title: "运动员的父亲",
-                gallery_title: "画廊",
-                video_title: "观看我们的行动",
-                faq_title: "常见问题", faq_q1: "我如何给孩子报名训练？", faq_a1: "只需参加公开训练（见时间表）或通过表格联系我们。", faq_q2: "训练费用是多少？", faq_a2: "第一个月免费。之后会员费为120兹罗提/月。", faq_q3: "我可以作为业余爱好者训练吗？", faq_a3: "可以！我们有业余爱好者和大师组。我们根据水平调整训练。",
-                newsletter_title: "保持最新", newsletter_desc: "订阅新闻通讯，接收有关训练、比赛和训练营的信息。", newsletter_btn: "订阅",
-                news_title: "最新消息", news1_title: "在马佐夫舍室内锦标赛上获得两枚金牌", news1_desc: "我们的青少年在短跑和跳远中获胜。祝贺他们！", news2_title: "儿童组 (7-10岁) 开始招募", news2_desc: "我们邀请您参加3月10日的免费试训。", news3_title: "斯帕拉运动营 – 报名", news3_desc: "出发时间6月20-30日。期待您的加入。", read_more: "阅读更多",
-                sponsors_title: "合作伙伴",
-                contact_title: "联系方式", contact_name: "姓名", contact_email: "电子邮件地址", contact_subject: "主题", contact_message: "留言", contact_send: "发送留言",
-                footer_desc: "华沙最古老、最成功的田径部门。和我们一起训练吧！", footer_shortcuts: "快捷链接", footer_support: "支持", footer_rules: "规定", footer_privacy: "隐私政策", footer_sponsors: "赞助商", footer_contact: "联系方式", footer_project: "充满活力的项目！", back_top: "回到顶部 ↑",
-                event_ongoing: "活动正在进行中！🎉"
-            },
-            es: {
-                nav_home: "INICIO", nav_about: "NOSOTROS", nav_disciplines: "DISCIPLINAS", nav_schedule: "HORARIO", nav_trainers: "ENTRENADORES", nav_records: "RÉCORDS", nav_gallery: "GALERÍA", nav_video: "VIDEO", nav_faq: "PREGUNTAS", nav_contact: "CONTACTO", lang: "ES",
-                hero_title: "Sección de Atletismo", hero_desc: "Desde 1987 formamos campeones y promovemos un estilo de vida saludable", hero_btn1: "Únete", hero_btn2: "Conócenos",
-                countdown: "Para la competencia: <span id='days'>00</span>d <span id='hours'>00</span>h <span id='minutes'>00</span>m <span id='seconds'>00</span>s",
-                stat_medals: "medallas MP", stat_athletes: "atletas", stat_years: "años de tradición", stat_disciplines: "disciplinas",
-                about_title: "Historia y valores", about_p1: "<strong>UKS Basket Sección de Atletismo</strong> no es solo deporte – es una comunidad de personas apasionadas por el atletismo. Nuestra sección fue fundada en 1987 por un grupo de entusiastas.", about_quote: "Hemos formado olímpicos, campeones de Polonia, pero sobre todo – buenas personas.", about_p2: "Los entrenamientos se realizan en las modernas instalaciones en <strong>Turmoncka 2</strong> – tenemos pista de tartán, zonas de lanzamiento, saltos y un pabellón. Dirigimos grupos desde 7 años hasta másters. Apostamos por el enfoque individual y la alegría de correr.",
-                timeline1: "Fundación de la sección de atletismo en UKS Basket", timeline2: "Primera medalla en el Campeonato de Polonia Junior", timeline3: "Participación de nuestros atletas en los Juegos Olímpicos de Atenas", timeline4: "Inauguración del estadio modernizado en Turmoncka", timeline5: "5 medallas en el Campeonato de Europa Sub-23", timeline6: "Más de 120 medallas en el país y en el extranjero",
-                coach_title: "🏆 Palabra del entrenador jefe", coach_text: "„En UKS Basket nos centramos en el desarrollo de cada atleta – desde los más pequeños hasta los campeones. Mi objetivo es que todos sientan la alegría del entrenamiento y alcancen sus récords personales. ¡Os invito a nuestra familia!”", coach_sign: "— Adam Boron, Entrenador Jefe",
-                disciplines_title: "Entrenamos",
-                disc_sprint: "Velocidad", disc_sprint_desc: "60–400m, vallas", disc_jumps: "Saltos", disc_jumps_desc: "longitud, altura, pértiga, triple", disc_throws: "Lanzamientos", disc_throws_desc: "disco, jabalina, peso, martillo", disc_long: "Fondo", disc_long_desc: "800–5000m, campo a través", disc_hurdles: "Vallas", disc_hurdles_desc: "técnico", disc_relay: "Relevos", disc_relay_desc: "4x100, 4x400, suecos", disc_walk: "Marcha", disc_walk_desc: "varias distancias", disc_multi: "Combinadas", disc_multi_desc: "decatlón, heptatlón",
-                schedule_title: "Horario de entrenamientos", tab_kids: "Niños (7-12 años)", tab_youth: "Jóvenes (13-17 años)", tab_adults: "Adultos / Avanzados", day: "Día", time: "Hora", place: "Lugar", coach: "Entrenador", monday: "Lunes", wednesday: "Miércoles", friday: "Viernes", tuesday: "Martes", thursday: "Jueves", saturday: "Sábado", hall: "Pabellón", stadium: "Estadio", gym: "Gimnasio",
-                trainers_title: "Nuestro equipo",
-                trainer_adam_spec: "Entrenador Jefe / Velocidad", trainer_adam_desc: "Ex campeón de Polonia, entrenador de la selección nacional. En UKS Basket desde 2010, ha formado a 10 medallistas MP.",
-                trainer_krzysztof_spec: "Preparación motriz / Baloncesto", trainer_krzysztof_desc: "Entrenador experimentado, dirigió un equipo en la 3ª Liga de Mazovia. Responsable de la coordinación motriz.",
-                trainer_anna_spec: "Saltos (longitud/altura)", trainer_anna_desc: "Olímpica en Sídney, educadora juvenil. 20 años de experiencia.",
-                trainer_piotr_spec: "Lanzamientos / Combinadas", trainer_piotr_desc: "Ex plusmarquista polaco en lanzamiento de disco. Ha entrenado a 5 medallistas del Campeonato de Europa Júnior.",
-                trainer_aldona_spec: "Fondo / Cross", trainer_aldona_desc: "Ex representante polaca en campo a través, entrenadora apasionada. Dirige grupos de resistencia.",
-                trainer_marek_spec: "Lanzamientos / Fuerza", trainer_marek_desc: "Especialista en entrenamiento de fuerza y lanzamientos. Sus pupilos han ganado 8 medallas del Campeonato de Polonia.",
-                records_title: "Récords del club",
-                achievements_title: "Mayores éxitos", achiev_medals: "medallas del Campeonato de Polonia", achiev_represent: "representantes en Europeos y Mundiales", achiev_olympians: "olímpicos",
-                funfacts_title: "¿Sabías que...", fact_year: "año de fundación del club", fact_disciplines: "disciplinas atléticas", fact_continents: "continentes con nuestros atletas",
-                ticker1: "Campeonato de Mazovia: ¡5 medallas de oro!", ticker2: "Kasia Nowicka subcampeona de Polonia júnior", ticker3: "Récord del club en relevos 4x100m – 41.2s", ticker4: "Nuevo grupo de captación – ¡os esperamos!",
-                events_title: "Próximos eventos", event1_title: "Campeonato Júnior en Pista Cubierta", event1_place: "Spała", event2_title: "Entrenamiento abierto para nuevos", event2_place: "Estadio Turmoncka, 16:00", event3_title: "Meeting Internacional LOTTO", event3_place: "Breslavia",
-                testimonials_title: "Lo que dicen de nosotros", testimonial1: "„Llevo 10 años entrenando en UKS Basket. Este lugar no solo me ha dado éxitos deportivos, sino sobre todo amigos y una pasión para toda la vida.”", testimonial1_title: "campeona de Polonia en salto de longitud", testimonial2: "„Equipo profesional, gran ambiente, instalaciones modernas. Mi hija ha progresado enormemente. ¡Se lo recomiendo a todo el mundo!”", testimonial2_title: "padre de atleta", testimonial3: "„La mejor decisión – traje a mi hijo a entrenar hace 5 años. ¡Hoy está en la selección júnior de Polonia!”", testimonial3_title: "padre de atleta",
-                gallery_title: "Galería",
-                video_title: "Vernos en acción",
-                faq_title: "Preguntas frecuentes", faq_q1: "¿Cómo puedo inscribir a mi hijo en el entrenamiento?", faq_a1: "Solo tienes que venir a un entrenamiento abierto (ver horario) o contactar con nosotros a través del formulario.", faq_q2: "¿Cuál es el coste de los entrenamientos?", faq_a2: "El primer mes es gratuito. Luego la cuota de socio es de 120 zł/mes.", faq_q3: "¿Puedo entrenar como aficionado?", faq_a3: "¡Sí! Tenemos grupos para aficionados y másters. Adaptamos los entrenamientos al nivel.",
-                newsletter_title: "Mantente informado", newsletter_desc: "Suscríbete a la newsletter y recibe información sobre entrenamientos, competiciones y campamentos.", newsletter_btn: "Suscribirse",
-                news_title: "Últimas noticias", news1_title: "Dos oros en el Campeonato de Mazovia en Pista Cubierta", news1_desc: "Nuestros júniores ganaron en velocidad y salto de longitud. ¡Enhorabuena!", news2_title: "Comienza la captación para el grupo infantil (7-10 años)", news2_desc: "Os invitamos a un entrenamiento de prueba gratuito el 10 de marzo.", news3_title: "Campamento deportivo en Spała – inscripciones", news3_desc: "Salida del 20 al 30 de junio. Os esperamos.", read_more: "Leer más",
-                sponsors_title: "Patrocinadores",
-                contact_title: "Contacto", contact_name: "Nombre y apellidos", contact_email: "Correo electrónico", contact_subject: "Asunto", contact_message: "Mensaje", contact_send: "Enviar mensaje",
-                footer_desc: "La sección de atletismo más antigua y laureada de Varsovia. ¡Entrena con nosotros!", footer_shortcuts: "Accesos directos", footer_support: "Apoyo", footer_rules: "Reglamento", footer_privacy: "Política de privacidad", footer_sponsors: "Patrocinadores", footer_contact: "Contacto", footer_project: "¡Proyecto con estilo!", back_top: "Volver arriba ↑",
-                event_ongoing: "¡Evento en curso! 🎉"
-            },
-            ar: {
-                nav_home: "الرئيسية", nav_about: "من نحن", nav_disciplines: "الاختصاصات", nav_schedule: "الجدول", nav_trainers: "المدربون", nav_records: "الأرقام القياسية", nav_gallery: "معرض الصور", nav_video: "فيديو", nav_faq: "الأسئلة الشائعة", nav_contact: "اتصل بنا", lang: "العربية",
-                hero_title: "قسم ألعاب القوى", hero_desc: "منذ عام 1987 نشكل الأبطال ونشجع أسلوب الحياة الصحي", hero_btn1: "انضم إلينا", hero_btn2: "اعرف المزيد",
-                countdown: "حتى المنافسة: <span id='days'>00</span>يوم <span id='hours'>00</span>ساعة <span id='minutes'>00</span>دقيقة <span id='seconds'>00</span>ثانية",
-                stat_medals: "ميدالية في البطولة البولندية", stat_athletes: "رياضي", stat_years: "عاماً من التقليد", stat_disciplines: "اختصاص",
-                about_title: "التاريخ والقيم", about_p1: "<strong>UKS Basket قسم ألعاب القوى</strong> ليس مجرد رياضة – إنه مجتمع من الناس المتحمسين لألعاب القوى. تأسس قسمنا في عام 1987 على يد مجموعة من المتحمسين.", about_quote: "لقد ربينا أولمبيين وأبطال بولندا، ولكن قبل كل شيء – أناساً صالحين.", about_p2: "تتم التدريبات في المنشأة الحديثة في <strong>Turmoncka 2</strong> – لدينا مضمار ترتان، ومناطق رمي وقفز، وصالة رياضية. ندير مجموعات من 7 سنوات حتى المحترفين. نركز على النهج الفردي والمتعة في الجري.",
-                timeline1: "تأسيس قسم ألعاب القوى في UKS Basket", timeline2: "أول ميدالية في بطولة بولندا للناشئين", timeline3: "مشاركة رياضيينا في الألعاب الأولمبية في أثينا", timeline4: "افتتاح الملعب المحدث في Turmoncka", timeline5: "5 ميداليات في بطولة أوروبا تحت 23 سنة", timeline6: "أكثر من 120 ميدالية في الداخل والخارج",
-                coach_title: "🏆 كلمة المدير الفني", coach_text: "„في UKS Basket نركز على تطوير كل رياضي – من الأصغر سناً إلى الأبطال. هدفي هو أن يشعر الجميع بفرحة التدريب ويحققوا أرقامهم القياسية الشخصية. أدعوكم إلى عائلتنا!”", coach_sign: "— Adam Boron, المدير الفني",
-                disciplines_title: "نتدرب على",
-                disc_sprint: "العدو السريع", disc_sprint_desc: "60–400 متر, حواجز", disc_jumps: "القفز", disc_jumps_desc: "طويل, عالي, بالزانة, ثلاثي", disc_throws: "الرمي", disc_throws_desc: "قرص, رمح, كرة حديد, مطرقة", disc_long: "المسافات الطويلة", disc_long_desc: "800–5000 متر, اختراق ضاحية", disc_hurdles: "سباق الحواجز", disc_hurdles_desc: "تقني", disc_relay: "التتابع", disc_relay_desc: "4x100, 4x400, سويدي", disc_walk: "المشي الرياضي", disc_walk_desc: "مسافات مختلفة", disc_multi: "المركبات", disc_multi_desc: "العشاري, السباعي",
-                schedule_title: "جدول التدريب", tab_kids: "الأطفال (7-12 سنة)", tab_youth: "الشباب (13-17 سنة)", tab_adults: "الكبار / المتقدمون", day: "اليوم", time: "الوقت", place: "المكان", coach: "المدرب", monday: "الاثنين", wednesday: "الأربعاء", friday: "الجمعة", tuesday: "الثلاثاء", thursday: "الخميس", saturday: "السبت", hall: "صالة", stadium: "ملعب", gym: "صالة ألعاب رياضية",
-                trainers_title: "فريقنا",
-                trainer_adam_spec: "المدير الفني / العدو", trainer_adam_desc: "بطل بولندا السابق، مدرب المنتخب الوطني. في UKS Basket منذ 2010، درب 10 من الحاصلين على ميداليات في البطولة البولندية.",
-                trainer_krzysztof_spec: "الإعداد الحركي / كرة السلة", trainer_krzysztof_desc: "مدرب متمرس، قاد فريقاً في الدوري المازوفي الثالث. مسؤول عن التنسيق الحركي.",
-                trainer_anna_spec: "القفز (طويل/عالي)", trainer_anna_desc: "أولمبية من سيدني، معلمة شباب. 20 عاماً من الخبرة.",
-                trainer_piotr_spec: "الرمي / المركبات", trainer_piotr_desc: "حامل الرقم القياسي البولندي السابق في رمي القرص. درب 5 من الحاصلين على ميداليات في بطولة أوروبا للناشئين.",
-                trainer_aldona_spec: "المسافات الطويلة / اختراق ضاحية", trainer_aldona_desc: "ممثلة بولندا السابقة في اختراق الضاحية، مدربة متحمسة. تقود مجموعات التحمل.",
-                trainer_marek_spec: "الرمي / القوة", trainer_marek_desc: "متخصص في تدريب القوة والرمي. فاز تلاميذه بـ 8 ميداليات في البطولة البولندية.",
-                records_title: "الأرقام القياسية للنادي",
-                achievements_title: "أكبر النجاحات", achiev_medals: "ميدالية في بطولة بولندا", achiev_represent: "ممثل في بطولات أوروبا والعالم", achiev_olympians: "أولمبي",
-                funfacts_title: "هل تعلم...", fact_year: "عام تأسيس النادي", fact_disciplines: "اختصاص ألعاب قوى", fact_continents: "قارات مع رياضيينا",
-                ticker1: "بطولة مازوفيا: 5 ميداليات ذهبية!", ticker2: "Kasia Nowicka وصيفة بطلة بولندا للناشئين", ticker3: "رقم قياسي للنادي في تتابع 4x100م – 41.2 ثانية", ticker4: "مجموعة استقطاب جديدة – ندعوكم!",
-                events_title: "الأحداث القادمة", event1_title: "بطولة الناشئين داخل الصالات", event1_place: "Spała", event2_title: "تدريب مفتوح للجدد", event2_place: "ملعب Turmoncka، الساعة 16:00", event3_title: "لقاء LOTTO الدولي", event3_place: "فروتسواف",
-                testimonials_title: "ماذا يقولون عنا", testimonial1: "„أتدرب في UKS Basket منذ 10 سنوات. هذا المكان لم يمنحني النجاح الرياضي فحسب، بل قبل كل شيء الأصدقاء والشغف مدى الحياة.”", testimonial1_title: "بطلة بولندا في القفز الطويل", testimonial2: "„فريق محترف، جو رائع، منشأة حديثة. ابنتي أحرزت تقدماً هائلاً. أوصي به للجميع!”", testimonial2_title: "والد رياضية", testimonial3: "„أفضل قرار – أحضرت ابني للتدريب قبل 5 سنوات. اليوم هو في المنتخب البولندي للناشئين!”", testimonial3_title: "والد رياضي",
-                gallery_title: "معرض الصور",
-                video_title: "شاهدنا أثناء التمرين",
-                faq_title: "أسئلة شائعة", faq_q1: "كيف يمكنني تسجيل طفلي في التدريب؟", faq_a1: "ما عليك سوى القدوم إلى تدريب مفتوح (انظر الجدول) أو الاتصال بنا عبر النموذج.", faq_q2: "ما هي تكلفة التدريبات؟", faq_a2: "الشهر الأول مجاني. ثم تكون رسوم العضوية 120 زلوتي/شهر.", faq_q3: "هل يمكنني التدريب كهواة؟", faq_a3: "نعم! لدينا مجموعات للهواة والمحترفين. نقوم بتكييف التدريبات حسب المستوى.",
-                newsletter_title: "ابق على اطلاع", newsletter_desc: "اشترك في النشرة الإخبارية لتلقي معلومات عن التدريبات والمسابقات والمعسكرات.", newsletter_btn: "اشتراك",
-                news_title: "آخر الأخبار", news1_title: "ذهبيتان في بطولة مازوفيا داخل الصالات", news1_desc: "فاز ناشئونا في سباقات السرعة والقفز الطويل. مبروك!", news2_title: "يبدأ استقطاب المجموعة الأطفال (7-10 سنوات)", news2_desc: "ندعوكم إلى تدريب تجريبي مجاني في 10 مارس.", news3_title: "معسكر رياضي في Spała – التسجيل", news3_desc: "المغادرة 20-30 يونيو. ننتظركم.", read_more: "اقرأ المزيد",
-                sponsors_title: "الشركاء",
-                contact_title: "اتصل بنا", contact_name: "الاسم واللقب", contact_email: "البريد الإلكتروني", contact_subject: "الموضوع", contact_message: "الرسالة", contact_send: "إرسال الرسالة",
-                footer_desc: "أقدم وأنجح قسم لألعاب القوى في وارسو. تدرب معنا!", footer_shortcuts: "اختصارات", footer_support: "الدعم", footer_rules: "اللوائح", footer_privacy: "سياسة الخصوصية", footer_sponsors: "الرعاة", footer_contact: "الاتصال", footer_project: "مشروع مفعم بالحيوية!", back_top: "العودة إلى الأعلى ↑",
-                event_ongoing: "الحدث جار! 🎉"
-            },
-            sk: {
-                nav_home: "DOMOV", nav_about: "O NÁS", nav_disciplines: "DISCIPLÍNY", nav_schedule: "PLÁN", nav_trainers: "TRENÉRI", nav_records: "REKORDY", nav_gallery: "GALÉRIA", nav_video: "VIDEO", nav_faq: "FAQ", nav_contact: "KONTAKT", lang: "SK",
-                hero_title: "Atletická sekcia", hero_desc: "Od roku 1987 formujeme majstrov a podporujeme zdravý životný štýl", hero_btn1: "Pridaj sa", hero_btn2: "Spoznaj nás",
-                countdown: "Do súťaže: <span id='days'>00</span>d <span id='hours'>00</span>h <span id='minutes'>00</span>m <span id='seconds'>00</span>s",
-                stat_medals: "medailí MP", stat_athletes: "športovcov", stat_years: "rokov tradície", stat_disciplines: "disciplín",
-                about_title: "História a hodnoty", about_p1: "<strong>UKS Basket Atletická sekcia</strong> nie je len šport – je to komunita ľudí zamilovaných do atletiky. Naša sekcia bola založená v roku 1987 skupinou nadšencov.", about_quote: "Vychovali sme olympionikov, poľských majstrov, ale predovšetkým – dobrých ľudí.", about_p2: "Tréningy prebiehajú v modernom areáli na adrese <strong>Turmoncka 2</strong> – máme tartanovú dráhu, sektory na hody a skoky a tiež halu. Vedieme skupiny od 7 rokov až po majstrov. Zameriavame sa na individuálny prístup a radosť z behania.",
-                timeline1: "Založenie atletickej sekcie pri UKS Basket", timeline2: "Prvá medaila na majstrovstvách Poľska juniorov", timeline3: "Účasť našich športovcov na olympijských hrách v Aténach", timeline4: "Otvorenie modernizovaného štadióna na Turmonckej", timeline5: "5 medailí na majstrovstvách Európy do 23 rokov", timeline6: "Viac ako 120 medailí doma i v zahraničí",
-                coach_title: "🏆 Slovo hlavného trénera", coach_text: "„V UKS Basket sa zameriavame na rozvoj každého športovca – od najmladších po majstrov. Mojím cieľom je, aby každý cítil radosť z tréningu a dosahoval svoje životné rekordy. Pozývam vás do našej rodiny!”", coach_sign: "— Adam Boron, hlavný tréner",
-                disciplines_title: "Trénujeme",
-                disc_sprint: "Šprinty", disc_sprint_desc: "60–400 m, prekážky", disc_jumps: "Skoky", disc_jumps_desc: "diaľka, výška, žrď, trojskok", disc_throws: "Hody", disc_throws_desc: "disk, oštep, guľa, kladivo", disc_long: "Dlhé trate", disc_long_desc: "800–5000 m, cezpoľný beh", disc_hurdles: "Prekážky", disc_hurdles_desc: "technické", disc_relay: "Štafety", disc_relay_desc: "4x100, 4x400, švédska", disc_walk: "Športová chôdza", disc_walk_desc: "rôzne vzdialenosti", disc_multi: "Viacboje", disc_multi_desc: "desaťboj, sedemboj",
-                schedule_title: "Tréningový plán", tab_kids: "Deti (7-12 rokov)", tab_youth: "Mládež (13-17 rokov)", tab_adults: "Dospelí / Pokročilí", day: "Deň", time: "Čas", place: "Miesto", coach: "Tréner", monday: "Pondelok", wednesday: "Streda", friday: "Piatok", tuesday: "Utorok", thursday: "Štvrtok", saturday: "Sobota", hall: "Hala", stadium: "Štadión", gym: "Posilňovňa",
-                trainers_title: "Náš tím",
-                trainer_adam_spec: "Hlavný tréner / Šprinty", trainer_adam_desc: "Bývalý poľský majster, tréner národného tímu. V UKS Basket od roku 2010, vychoval 10 medailistov MP.",
-                trainer_krzysztof_spec: "Motorická príprava / Basketbal", trainer_krzysztof_desc: "Skúsený tréner, viedol tím v 3. Mazovskej lige. Zodpovedá za koordináciu pohybu.",
-                trainer_anna_spec: "Skoky (diaľka/výška)", trainer_anna_desc: "Olympionička zo Sydney, vychovávateľka mládeže. 20 rokov skúseností.",
-                trainer_piotr_spec: "Hody / Viacboje", trainer_piotr_desc: "Bývalý poľský rekordér v hode diskom. Vyškolil 5 medailistov MEJ.",
-                trainer_aldona_spec: "Dlhé trate / Cross", trainer_aldona_desc: "Bývalá reprezentantka Poľska v cezpoľnom behu, trénerka s vášňou. Vedie vytrvalostné skupiny.",
-                trainer_marek_spec: "Hody / Sila", trainer_marek_desc: "Špecialista na silový tréning a hody. Jeho zverenci získali 8 medailí MP.",
-                records_title: "Klubové rekordy",
-                achievements_title: "Najväčšie úspechy", achiev_medals: "medailí majstrovstiev Poľska", achiev_represent: "zástupcov na ME a MS", achiev_olympians: "olympionikov",
-                funfacts_title: "Viete, že...", fact_year: "rok založenia klubu", fact_disciplines: "atletických disciplín", fact_continents: "kontinentov s našimi športovcami",
-                ticker1: "Mazovské majstrovstvá: 5 zlatých medailí!", ticker2: "Kasia Nowicka vicemajsterka Poľska juniorov", ticker3: "Klubový rekord v štafete 4x100m – 41,2s", ticker4: "Nový nábor – pozývame!",
-                events_title: "Nasledujúce udalosti", event1_title: "Halové majstrovstvá juniorov", event1_place: "Spała", event2_title: "Otvorený tréning pre nových", event2_place: "Štadión Turmoncka, 16:00", event3_title: "Medzinárodný míting LOTTO", event3_place: "Vroclav",
-                testimonials_title: "Čo o nás hovoria", testimonial1: "„V UKS Basket trénujem 10 rokov. Toto miesto mi dalo nielen športové úspechy, ale predovšetkým priateľov a celoživotnú vášeň.”", testimonial1_title: "majsterka Poľska v skoku do diaľky", testimonial2: "„Profesionálny tím, skvelá atmosféra, moderné vybavenie. Moja dcéra urobila obrovské pokroky. Odporúčam každému!”", testimonial2_title: "rodič športovkyne", testimonial3: "„Najlepšie rozhodnutie – priviedol som syna na tréning pred 5 rokmi. Dnes je v juniorskej reprezentácii Poľska!”", testimonial3_title: "otec športovca",
-                gallery_title: "Galéria",
-                video_title: "Pozrite sa na nás v akcii",
-                faq_title: "Časté otázky", faq_q1: "Ako môžem prihlásiť dieťa na tréning?", faq_a1: "Stačí prísť na otvorený tréning (pozri plán) alebo nás kontaktovať cez formulár.", faq_q2: "Aká je cena tréningov?", faq_a2: "Prvý mesiac je zadarmo. Potom je členský príspevok 120 zł/mes.", faq_q3: "Môžem trénovať amatérsky?", faq_a3: "Áno! Máme skupiny pre amatérov a majstrov. Tréningy prispôsobujeme úrovni.",
-                newsletter_title: "Buďte v obraze", newsletter_desc: "Prihláste sa na odber newslettera a dostávajte informácie o tréningoch, súťažiach a kempoch.", newsletter_btn: "Prihlásiť sa",
-                news_title: "Posledné správy", news1_title: "Dve zlatá na halovom majstrovstve Mazovska", news1_desc: "Naši juniori vyhrali v šprintoch a skoku do diaľky. Gratulujeme!", news2_title: "Začína nábor do detskej skupiny (7-10 rokov)", news2_desc: "Pozývame na bezplatný ukážkový tréning 10. marca.", news3_title: "Športový kemp v Spale – prihlášky", news3_desc: "Odchod 20.-30. júna. Čakáme na vás.", read_more: "Čítať ďalej",
-                sponsors_title: "Partneri",
-                contact_title: "Kontakt", contact_name: "Meno a priezvisko", contact_email: "E-mailová adresa", contact_subject: "Predmet", contact_message: "Správa", contact_send: "Odoslať správu",
-                footer_desc: "Najstaršia a najúspešnejšia atletická sekcia vo Varšave. Trénuj s nami!", footer_shortcuts: "Skratky", footer_support: "Podpora", footer_rules: "Pravidlá", footer_privacy: "Zásady ochrany súkromia", footer_sponsors: "Sponzori", footer_contact: "Kontakt", footer_project: "Projekt s šarmom!", back_top: "Späť hore ↑",
-                event_ongoing: "Udalosť práve prebieha! 🎉"
-            }
-        };
-
-        function setLanguage(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = translations[lang][key];
-                    } else {
-                        el.innerHTML = translations[lang][key];
-                    }
-                }
-            });
-            // Also update placeholder attributes
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-            // Update language button text
-            const langBtnSpan = document.querySelector('.lang-btn span');
-            if (langBtnSpan && translations[lang] && translations[lang].lang) {
-                langBtnSpan.textContent = translations[lang].lang;
-            }
-        }
-
-        // Add event listeners to language dropdown links
-        document.querySelectorAll('.lang-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = link.getAttribute('data-lang');
-                setLanguage(lang);
-            });
         });
     </script>
 </body>
