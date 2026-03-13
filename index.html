@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKS Basket Sekcja Lekkoatletyczna – mistrzowska energia</title>
-    <!-- Font Awesome 6, Google Fonts, AOS, Lightbox2, Swiper -->
+    <title>UKS Basket Sekcja Lekkoatletyczna – energia, pasja, mistrzowie</title>
+    <!-- Font Awesome 6, Google Fonts, AOS, Lightbox2, Swiper, Particles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
+        /* ===== RESET I ZMIENNE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -54,7 +56,7 @@
             padding: 0 30px;
         }
 
-        /* ===== NAVBAR (ulepszony) ===== */
+        /* ===== NAVBAR ===== */
         .navbar {
             background: rgba(255,255,255,0.9);
             backdrop-filter: blur(15px);
@@ -131,7 +133,7 @@
             cursor: pointer;
         }
 
-        /* ===== HERO Z PARALAKSĄ ===== */
+        /* ===== HERO Z PARTICLE.JS ===== */
         .hero {
             background: linear-gradient(95deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 100%), 
                         url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
@@ -142,26 +144,18 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        #particles-js {
             position: absolute;
-            top: -30%;
-            left: -20%;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 60%);
-            animation: rotateSlow 50s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes rotateSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 10;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -225,7 +219,6 @@
             box-shadow: 0 25px 35px -8px #f97316;
         }
 
-        /* Rotating quote */
         .rotating-quote {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(5px);
@@ -238,7 +231,6 @@
             transition: opacity 0.5s;
         }
 
-        /* Countdown */
         .countdown {
             background: rgba(0,0,0,0.3);
             padding: 15px 25px;
@@ -259,7 +251,7 @@
             margin-left: 8px;
         }
 
-        /* ===== SEKCJE ===== */
+        /* ===== SEKCJE OGÓLNE ===== */
         section {
             padding: 110px 0;
             position: relative;
@@ -289,7 +281,7 @@
             border-radius: 10px;
         }
 
-        /* ===== STATYSTYKI (na hover) ===== */
+        /* ===== STATYSTYKI ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -411,6 +403,33 @@
             display: block;
         }
 
+        /* ===== SŁOWO OD TRENERA ===== */
+        .coach-message {
+            background: var(--gradient);
+            border-radius: 70px;
+            padding: 60px;
+            color: white;
+            margin: 50px 0;
+            box-shadow: var(--shadow-xl);
+        }
+        .coach-message h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .coach-message p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        .coach-signature {
+            margin-top: 30px;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
         /* ===== TRENERZY ===== */
         .trainers-grid {
             display: grid;
@@ -428,17 +447,23 @@
             position: relative;
             overflow: hidden;
         }
-        .trainer-card::after {
-            content: '';
+        .trainer-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+        .trainer-card.featured::before {
+            content: '🏆 TRENER GŁÓWNY';
             position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            opacity: 0.05;
-            border-radius: 50%;
-            transform: translate(20px, 20px);
+            top: 20px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+            z-index: 2;
         }
         .trainer-card:hover {
             transform: translateY(-12px) scale(1.02);
@@ -493,7 +518,7 @@
             color: white;
         }
 
-        /* ===== DYSCYPLINY (karty) ===== */
+        /* ===== DYSCYPLINY ===== */
         .disciplines-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -542,6 +567,114 @@
             margin-bottom: 10px;
         }
 
+        /* ===== PLAN TRENINGOWY (TABS) ===== */
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .tab-pane {
+            display: none;
+            background: white;
+            border-radius: 50px;
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .schedule-table th {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ===== REKORDY KLUBU ===== */
+        .records-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        .record-card {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            text-align: center;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+        .record-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: var(--shadow-hover);
+        }
+        .record-card h4 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        .record-card .result {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        /* ===== FAQ (ACCORDION) ===== */
+        .faq-item {
+            background: white;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-question {
+            padding: 25px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-answer.show {
+            padding: 0 30px 25px;
+            max-height: 200px;
+        }
+
         /* ===== OSIĄGNIĘCIA ===== */
         .achievements-grid {
             display: grid;
@@ -572,7 +705,7 @@
             margin: 10px 0 5px;
         }
 
-        /* ===== TESTIMONIALS (karuzela Swiper) ===== */
+        /* ===== TESTIMONIALS (Swiper) ===== */
         .testimonials {
             background: var(--light-bg);
             border-radius: 80px 80px 0 0;
@@ -649,6 +782,104 @@
         }
         .gallery-item:hover .overlay {
             opacity: 1;
+        }
+
+        /* ===== GALERIA WIDEO ===== */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .video-item {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            aspect-ratio: 16/9;
+        }
+        .video-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== FUN FACTS ===== */
+        .fun-facts {
+            background: var(--secondary);
+            color: white;
+            border-radius: 80px;
+            padding: 60px;
+            margin: 50px 0;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+        .fact-item i {
+            font-size: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        .fact-item h4 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .fact-item p {
+            opacity: 0.8;
+        }
+
+        /* ===== RESULTS TICKER ===== */
+        .ticker-wrap {
+            background: var(--gradient);
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            margin: 40px 0;
+            border-radius: 60px;
+        }
+        .ticker {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .ticker-item i {
+            margin-right: 10px;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== UPCOMING EVENTS (Swiper) ===== */
+        .events-swiper {
+            margin-top: 40px;
+        }
+        .event-card {
+            background: white;
+            border-radius: 40px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+        .event-date {
+            background: var(--gradient);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
         /* ===== NEWSLETTER ===== */
@@ -862,8 +1093,14 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
 
-        /* ===== FAB (Facebook) i BACK TO TOP ===== */
+        /* ===== FAB i BACK TO TOP ===== */
         .fab {
             position: fixed;
             bottom: 40px;
@@ -915,6 +1152,29 @@
             opacity: 1;
         }
 
+        /* ===== SHARE BUTTON ===== */
+        .share-btn {
+            position: fixed;
+            bottom: 130px;
+            right: 40px;
+            background: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 998;
+            transition: 0.3s;
+        }
+        .share-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
         /* ===== STOPKA ===== */
         footer {
             background: var(--secondary);
@@ -956,6 +1216,9 @@
             .news-grid { grid-template-columns: repeat(2,1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .hero h1 { font-size: 4rem; }
+            .video-grid { grid-template-columns: 1fr; }
+            .facts-grid { grid-template-columns: 1fr; }
+            .records-grid { grid-template-columns: repeat(2,1fr); }
         }
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
@@ -981,6 +1244,8 @@
             .achievements-grid { grid-template-columns: 1fr; }
             .back-to-top { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
             .fab { bottom: 20px; right: 20px; width: 60px; height: 60px; font-size: 2rem; }
+            .share-btn { bottom: 100px; right: 20px; width: 45px; height: 45px; font-size: 1.2rem; }
+            .records-grid { grid-template-columns: 1fr; }
         }
         @media screen and (max-width: 480px) {
             .hero h1 { font-size: 2.4rem; }
@@ -998,10 +1263,12 @@
                 <li><a href="#home">START</a></li>
                 <li><a href="#about">O NAS</a></li>
                 <li><a href="#disciplines">DYSCYPLINY</a></li>
+                <li><a href="#schedule">PLAN</a></li>
                 <li><a href="#trainers">TRENERZY</a></li>
-                <li><a href="#achievements">OSIĄGNIĘCIA</a></li>
+                <li><a href="#records">REKORDY</a></li>
                 <li><a href="#gallery">GALERIA</a></li>
-                <li><a href="#news">AKTUALNOŚCI</a></li>
+                <li><a href="#video">WIDEO</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">KONTAKT</a></li>
             </ul>
         </div>
@@ -1010,9 +1277,11 @@
     <!-- FLOATING BUTTONS -->
     <a href="https://www.facebook.com/ukslabasketwarszawa" target="_blank" class="fab" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
     <a href="#" class="back-to-top" aria-label="Do góry"><i class="fas fa-arrow-up"></i></a>
+    <a href="#" class="share-btn" aria-label="Udostępnij" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href), '_blank'); return false;"><i class="fas fa-share-alt"></i></a>
 
-    <!-- HERO -->
+    <!-- HERO z particle.js -->
     <section id="home" class="hero">
+        <div id="particles-js"></div>
         <div class="hero-content" data-aos="fade-down">
             <div class="rotating-quote" id="rotatingQuote">⚡ Szybkość, siła, precyzja ⚡</div>
             <h1><span class="highlight">UKS Basket</span> Sekcja Lekkoatletyczna</h1>
@@ -1064,6 +1333,15 @@
         </div>
     </section>
 
+    <!-- SŁOWO OD TRENERA -->
+    <div class="container">
+        <div class="coach-message" data-aos="zoom-in">
+            <h3>🏆 Słowo od trenera głównego</h3>
+            <p>„W UKS Basket stawiamy na rozwój każdego zawodnika – od najmłodszych po mistrzów. Moim celem jest, aby każdy czuł radość z treningu i osiągał swoje życiowe rekordy. Zapraszam do naszej rodziny!”</p>
+            <div class="coach-signature">— Adam Boron, Trener Główny</div>
+        </div>
+    </div>
+
     <!-- DYSCYPLINY -->
     <section id="disciplines" style="background: var(--light-bg);">
         <div class="container">
@@ -1081,49 +1359,89 @@
         </div>
     </section>
 
-    <!-- TRENERZY -->
+    <!-- PLAN TRENINGOWY (TABS) -->
+    <section id="schedule">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up"><span>📅</span> Plan treningowy</h2>
+            <div class="schedule-tabs">
+                <button class="tab-btn active" data-tab="dzieci">Dzieci (7-12 lat)</button>
+                <button class="tab-btn" data-tab="mlodziez">Młodzież (13-17 lat)</button>
+                <button class="tab-btn" data-tab="dorośli">Dorośli / Zaawansowani</button>
+            </div>
+            <div class="tab-pane active" id="dzieci">
+                <table class="schedule-table">
+                    <tr><th>Dzień</th><th>Godzina</th><th>Miejsce</th><th>Trener</th></tr>
+                    <tr><td>Poniedziałek</td><td>16:30-18:00</td><td>Hala / stadion</td><td>Anna Nowak</td></tr>
+                    <tr><td>Środa</td><td>16:30-18:00</td><td>Stadion</td><td>Krzysztof Lubaszka</td></tr>
+                    <tr><td>Piątek</td><td>16:00-17:30</td><td>Hala</td><td>Anna Nowak</td></tr>
+                </table>
+            </div>
+            <div class="tab-pane" id="mlodziez">
+                <table class="schedule-table">
+                    <tr><th>Dzień</th><th>Godzina</th><th>Miejsce</th><th>Trener</th></tr>
+                    <tr><td>Poniedziałek</td><td>18:00-20:00</td><td>Stadion</td><td>Adam Boron</td></tr>
+                    <tr><td>Wtorek</td><td>17:00-19:00</td><td>Siłownia</td><td>Krzysztof Lubaszka</td></tr>
+                    <tr><td>Czwartek</td><td>18:00-20:00</td><td>Stadion</td><td>Adam Boron</td></tr>
+                </table>
+            </div>
+            <div class="tab-pane" id="dorośli">
+                <table class="schedule-table">
+                    <tr><th>Dzień</th><th>Godzina</th><th>Miejsce</th><th>Trener</th></tr>
+                    <tr><td>Wtorek</td><td>19:00-21:00</td><td>Stadion</td><td>Piotr Wiśniewski</td></tr>
+                    <tr><td>Czwartek</td><td>19:00-21:00</td><td>Hala</td><td>Piotr Wiśniewski</td></tr>
+                    <tr><td>Sobota</td><td>10:00-12:00</td><td>Stadion</td><td>Adam Boron</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRENERZY (z Adamem Boron) -->
     <section id="trainers">
         <div class="container">
             <h2 class="section-title" data-aos="fade-left"><span>👥</span> Nasza kadra</h2>
             <div class="trainers-grid">
-                <div class="trainer-card" data-aos="zoom-in-up">
-                    <div class="trainer-avatar"><i class="fas fa-user-tie"></i></div>
-                    <h3>Jan Kowalski</h3>
-                    <div class="specialty">sprinty/płotki</div>
-                    <p>Mistrz Polski, trener kadry wojewódzkiej. W UKS od 2005.</p>
+                <!-- Adam Boron – trener główny -->
+                <div class="trainer-card featured" data-aos="zoom-in-up">
+                    <div class="trainer-avatar"><i class="fas fa-user-crown"></i></div>
+                    <h3>Adam Boron</h3>
+                    <div class="specialty">Trener Główny / Sprinty</div>
+                    <p>Były mistrz Polski, trener kadry narodowej. W UKS Basket od 2010 roku, wychował 10 medalistów MP.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                <!-- Krzysztof Lubaszka -->
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="100">
                     <div class="trainer-avatar"><i class="fas fa-user-nurse"></i></div>
-                    <h3>Anna Nowak</h3>
-                    <div class="specialty">skoki (w dal/wzwyż)</div>
-                    <p>Olimpijka z Sydney, wychowawczyni młodzieży. 20 lat doświadczenia.</p>
+                    <h3>Krzysztof Lubaszka</h3>
+                    <div class="specialty">Przygotowanie motoryczne / Koszykówka</div>
+                    <p>Doświadczony trener, prowadził zespół w 3 Lidze Mazowieckiej. Odpowiada za koordynację ruchową.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
+                <!-- Anna Nowak -->
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="200">
                     <div class="trainer-avatar"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Piotr Wiśniewski</h3>
-                    <div class="specialty">rzuty/wieloboje</div>
-                    <p>Były rekordzista Polski w rzucie dyskiem. Wyszkolił 5 medalistów MEJ.</p>
+                    <h3>Anna Nowak</h3>
+                    <div class="specialty">Skoki (w dal/wzwyż)</div>
+                    <p>Olimpijka z Sydney, wychowawczyni młodzieży. 20 lat doświadczenia.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
+                <!-- Piotr Wiśniewski -->
                 <div class="trainer-card" data-aos="zoom-in-up" data-aos-delay="300">
                     <div class="trainer-avatar"><i class="fas fa-user-doctor"></i></div>
-                    <h3>Maria Zalewska</h3>
-                    <div class="specialty">biegi długie</div>
-                    <p>Fizjolog, trenerka biegaczy. Jej podopieczni zdobywają medale w przełajach.</p>
+                    <h3>Piotr Wiśniewski</h3>
+                    <div class="specialty">Rzuty / Wieloboje</div>
+                    <p>Były rekordzista Polski w rzucie dyskiem. Wyszkolił 5 medalistów MEJ.</p>
                     <div class="trainer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1134,14 +1452,85 @@
         </div>
     </section>
 
+    <!-- REKORDY KLUBU -->
+    <section id="records" style="background: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right"><span>📊</span> Rekordy klubu</h2>
+            <div class="records-grid">
+                <div class="record-card" data-aos="flip-up"><h4>100m mężczyzn</h4><div class="result">10.45</div><p>Adam Boron (2015)</p></div>
+                <div class="record-card" data-aos="flip-up" data-aos-delay="50"><h4>100m kobiet</h4><div class="result">11.82</div><p>Katarzyna Nowicka (2023)</p></div>
+                <div class="record-card" data-aos="flip-up" data-aos-delay="100"><h4>Skok w dal</h4><div class="result">7.82m</div><p>Tomasz Jankowski (2022)</p></div>
+                <div class="record-card" data-aos="flip-up" data-aos-delay="150"><h4>Rzut oszczepem</h4><div class="result">78.34m</div><p>Piotr Wiśniewski (2019)</p></div>
+            </div>
+        </div>
+    </section>
+
     <!-- OSIĄGNIĘCIA -->
-    <section id="achievements" style="background: var(--light-bg);">
+    <section id="achievements">
         <div class="container">
             <h2 class="section-title" data-aos="fade-right"><span>🏅</span> Największe sukcesy</h2>
             <div class="achievements-grid">
                 <div class="achievement-item" data-aos="flip-up"><i class="fas fa-medal"></i><h4>126</h4><p>medali Mistrzostw Polski</p></div>
                 <div class="achievement-item" data-aos="flip-up" data-aos-delay="100"><i class="fas fa-globe-europe"></i><h4>12</h4><p>reprezentantów na ME i MŚ</p></div>
                 <div class="achievement-item" data-aos="flip-up" data-aos-delay="200"><i class="fas fa-crown"></i><h4>3</h4><p>olimpijczyków</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUN FACTS -->
+    <div class="container">
+        <div class="fun-facts" data-aos="fade-up">
+            <h2 class="section-title" style="color: white; margin-bottom: 40px;"><span>🔍</span> Czy wiesz, że...</h2>
+            <div class="facts-grid">
+                <div class="fact-item"><i class="fas fa-trophy"></i><h4>1987</h4><p>rok założenia klubu</p></div>
+                <div class="fact-item"><i class="fas fa-running"></i><h4>14</h4><p>dyscyplin lekkoatletycznych</p></div>
+                <div class="fact-item"><i class="fas fa-globe"></i><h4>3</h4><p>kontynenty z naszymi zawodnikami</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULTS TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="ticker-item"><i class="fas fa-medal"></i> Mistrzostwa Mazowsza: 5 złotych medali!</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Kasia Nowicka wicemistrzynią Polski juniorów</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Rekord klubu w sztafecie 4x100m – 41.2s</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Nowa grupa naborowa – zapraszamy!</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Mistrzostwa Mazowsza: 5 złotych medali!</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Kasia Nowicka wicemistrzynią Polski juniorów</span>
+            <span class="ticker-item"><i class="fas fa-medal"></i> Rekord klubu w sztafecie 4x100m – 41.2s</span>
+        </div>
+    </div>
+
+    <!-- NADCHODZĄCE WYDARZENIA (Swiper) -->
+    <section class="events">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up"><span>📆</span> Nadchodzące wydarzenia</h2>
+            <div class="swiper eventsSwiper events-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="event-card">
+                            <div class="event-date">12-13 KWI 2025</div>
+                            <h4>Halowe Mistrzostwa Juniorów</h4>
+                            <p>Spała</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="event-card">
+                            <div class="event-date">20 KWI 2025</div>
+                            <h4>Trening otwarty dla nowych</h4>
+                            <p>Stadion Turmoncka, 16:00</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="event-card">
+                            <div class="event-date">1 MAJ 2025</div>
+                            <h4>Międzynarodowy miting LOTTO</h4>
+                            <p>Wrocław</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -1182,43 +1571,94 @@
         </div>
     </section>
 
-    <!-- GALERIA Z LIGHTBOXEM (oryginalne linki FB) -->
+    <!-- GALERIA Z LIGHTBOXEM (LOKALNE ZDJĘCIA) -->
     <section id="gallery">
         <div class="container">
             <h2 class="section-title" data-aos="zoom-in"><span>📷</span> Galeria</h2>
             <div class="gallery-grid">
-                <a href="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/629768482_1361594695771205_3276005269079255540_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=KzLC8F3qPcAQ7kNvwFEApos&_nc_oc=AdkgK3_aoNI1Zq4P3GaCUS0aPctO8WviINc_GkFtiIV6WkQjaRxOIPuvuwVqcH1mLzo&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=1iRtnbLSKPAaqpGiA4kOwQ&_nc_ss=8&oh=00_AfwHhha4AM5NMUNi5RbN7_ASnNJZltCRbRixycAWviKXtw&oe=69ABBA3D" data-lightbox="gallery" data-title="Sochacka Wrocław 2025" class="gallery-item" data-aos="fade-up">
-                    <img src="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/629768482_1361594695771205_3276005269079255540_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=KzLC8F3qPcAQ7kNvwFEApos&_nc_oc=AdkgK3_aoNI1Zq4P3GaCUS0aPctO8WviINc_GkFtiIV6WkQjaRxOIPuvuwVqcH1mLzo&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=1iRtnbLSKPAaqpGiA4kOwQ&_nc_ss=8&oh=00_AfwHhha4AM5NMUNi5RbN7_ASnNJZltCRbRixycAWviKXtw&oe=69ABBA3D" alt="Sochacka Wrocław 2025">
+                <a href="Screenshot 2026-03-11 223959.png" data-lightbox="gallery" data-title="Sochacka Wrocław 2025" class="gallery-item" data-aos="fade-up">
+                    <img src="Screenshot 2026-03-11 223959.png" alt="Sochacka Wrocław 2025">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
-                <a href="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/627763253_1360679425862732_2806130096502850860_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=KSW-_lxSyNoQ7kNvwGO_I1F&_nc_oc=Adlu-2v01EV7Yq9nTZclmAqpVMSfTQ99p1h-FNCRA9Jr9Bt0iBOSQZEnUXFvxeY5jng&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=CEaugbKqfAhPCWlY9CI8lg&_nc_ss=8&oh=00_AfwvkYu4dTwxqU2fdL3YmleiZ__-Sz2gsJSCGzL9Az1M3w&oe=69ABBA0D" data-lightbox="gallery" data-title="Skok w dal" class="gallery-item" data-aos="fade-up" data-aos-delay="50">
-                    <img src="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/627763253_1360679425862732_2806130096502850860_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=KSW-_lxSyNoQ7kNvwGO_I1F&_nc_oc=Adlu-2v01EV7Yq9nTZclmAqpVMSfTQ99p1h-FNCRA9Jr9Bt0iBOSQZEnUXFvxeY5jng&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=CEaugbKqfAhPCWlY9CI8lg&_nc_ss=8&oh=00_AfwvkYu4dTwxqU2fdL3YmleiZ__-Sz2gsJSCGzL9Az1M3w&oe=69ABBA0D" alt="Skok">
+                <a href="Screenshot 2026-03-11 224357.png" data-lightbox="gallery" data-title="Skok w dal" class="gallery-item" data-aos="fade-up" data-aos-delay="50">
+                    <img src="Screenshot 2026-03-11 224357.png" alt="Skok">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
-                <a href="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/628709128_1360460552551286_7606566601183928390_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=f5e7xES0z_MQ7kNvwHj9tNr&_nc_oc=AdkISAgC6-AuiJj0Qzel7b1EhG49qAcTer1v5fryqoq_CZXB28L91nczc8vtCYr4yes&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=CEaugbKqfAhPCWlY9CI8lg&_nc_ss=8&oh=00_Afzc8qAkRpcMKgmnmEp-Tnf5VGbOuthCudgZjsuLyvFSMQ&oe=69ABA892" data-lightbox="gallery" data-title="Rzut oszczepem" class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/628709128_1360460552551286_7606566601183928390_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=f5e7xES0z_MQ7kNvwHj9tNr&_nc_oc=AdkISAgC6-AuiJj0Qzel7b1EhG49qAcTer1v5fryqoq_CZXB28L91nczc8vtCYr4yes&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=CEaugbKqfAhPCWlY9CI8lg&_nc_ss=8&oh=00_Afzc8qAkRpcMKgmnmEp-Tnf5VGbOuthCudgZjsuLyvFSMQ&oe=69ABA892" alt="Oszczep">
+                <a href="Screenshot 2026-03-11 224408.png" data-lightbox="gallery" data-title="Rzut oszczepem" class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="Screenshot 2026-03-11 224408.png" alt="Oszczep">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
-                <a href="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/616765140_908330805088436_7507708157849024799_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=vWj6OCsPt_MQ7kNvwFSODKK&_nc_oc=AdlkUkw0IEfTSLDp8-fL-p1Up8TvJVw09Mexv7a_CAxjcWVfQ7wfFFXwQhhh1WSoDm0&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=Z8CHiAVifXIvYTqoGbOh0g&_nc_ss=8&oh=00_Afx9OA_5_20GUuWLe-NTCdQdID4cN7p3rDKUm4nUrLi6rw&oe=69ABC462" data-lightbox="gallery" data-title="Bieg" class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                    <img src="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/616765140_908330805088436_7507708157849024799_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=vWj6OCsPt_MQ7kNvwFSODKK&_nc_oc=AdlkUkw0IEfTSLDp8-fL-p1Up8TvJVw09Mexv7a_CAxjcWVfQ7wfFFXwQhhh1WSoDm0&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=Z8CHiAVifXIvYTqoGbOh0g&_nc_ss=8&oh=00_Afx9OA_5_20GUuWLe-NTCdQdID4cN7p3rDKUm4nUrLi6rw&oe=69ABC462" alt="Bieg">
+                <a href="Screenshot 2026-03-11 224422.png" data-lightbox="gallery" data-title="Bieg" class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="Screenshot 2026-03-11 224422.png" alt="Bieg">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
-                <a href="https://scontent-mad1-1.xx.fbcdn.net/v/t39.30808-6/618317977_1343313814265960_6322045118068164475_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=vH2jgWlKRDgQ7kNvwGyjQzK&_nc_oc=AdkvGsRBFN_pHY2H41j0DM9vA_oz5_sYiEF4-K4b3z-0kntWgknNxN4ccSLtgNaM4WM&_nc_zt=23&_nc_ht=scontent-mad1-1.xx&_nc_gid=qnn2oPKMAQfs3v3yJ1_Vnw&_nc_ss=8&oh=00_Afx3d-EqOcuzdXPvFFd8ZPLtSszEhIgTjdx1bRtMc6ku7g&oe=69ABB598" data-lightbox="gallery" data-title="Stadion" class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://scontent-mad1-1.xx.fbcdn.net/v/t39.30808-6/618317977_1343313814265960_6322045118068164475_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=vH2jgWlKRDgQ7kNvwGyjQzK&_nc_oc=AdkvGsRBFN_pHY2H41j0DM9vA_oz5_sYiEF4-K4b3z-0kntWgknNxN4ccSLtgNaM4WM&_nc_zt=23&_nc_ht=scontent-mad1-1.xx&_nc_gid=qnn2oPKMAQfs3v3yJ1_Vnw&_nc_ss=8&oh=00_Afx3d-EqOcuzdXPvFFd8ZPLtSszEhIgTjdx1bRtMc6ku7g&oe=69ABB598" alt="Stadion">
+                <a href="Screenshot 2026-03-11 224437.png" data-lightbox="gallery" data-title="Stadion" class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="Screenshot 2026-03-11 224437.png" alt="Stadion">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
-                <a href="https://scontent-mad1-1.xx.fbcdn.net/v/t39.30808-6/614383890_1339683541295654_3975382491309187555_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=8IZyiff4Y9MQ7kNvwHdxWAh&_nc_oc=AdmCkkJG9K3UdZnjizAgReybZX4aHoC2FNki-RcuoQ55-INHWN88yigajhB4-ciO48M&_nc_zt=23&_nc_ht=scontent-mad1-1.xx&_nc_gid=-ZEeDXWzumk-FjQ3yYqzEA&_nc_ss=8&oh=00_Afz_hKfQKbAr6z3jgt5YLOVL3qSHXSmm_1IU99or0JwLTQ&oe=69ABDB2B" data-lightbox="gallery" data-title="Rzut młotem" class="gallery-item" data-aos="fade-up" data-aos-delay="250">
-                    <img src="https://scontent-mad1-1.xx.fbcdn.net/v/t39.30808-6/614383890_1339683541295654_3975382491309187555_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=8IZyiff4Y9MQ7kNvwHdxWAh&_nc_oc=AdmCkkJG9K3UdZnjizAgReybZX4aHoC2FNki-RcuoQ55-INHWN88yigajhB4-ciO48M&_nc_zt=23&_nc_ht=scontent-mad1-1.xx&_nc_gid=-ZEeDXWzumk-FjQ3yYqzEA&_nc_ss=8&oh=00_Afz_hKfQKbAr6z3jgt5YLOVL3qSHXSmm_1IU99or0JwLTQ&oe=69ABDB2B" alt="Młot">
+                <a href="Screenshot 2026-03-11 224446.png" data-lightbox="gallery" data-title="Rzut młotem" class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="Screenshot 2026-03-11 224446.png" alt="Młot">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
-                <a href="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/547905810_1244275554169787_5159624379480265897_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=chBP8EhkTn8Q7kNvwFN0oKh&_nc_oc=AdlwIKh-YK-oVnFmJaA4HZzu9Qg7h5UMULTykH-VX70pty_PuJyA_U49xPoA3W_UUSA&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=FjsGos95r0EUi-daZSkYKA&_nc_ss=8&oh=00_AfzlX2PXC0EqMd7uyhIx0eAzSecHmtO7SJAt1ezduwaj8w&oe=69ABC082" data-lightbox="gallery" data-title="Meta" class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/547905810_1244275554169787_5159624379480265897_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=chBP8EhkTn8Q7kNvwFN0oKh&_nc_oc=AdlwIKh-YK-oVnFmJaA4HZzu9Qg7h5UMULTykH-VX70pty_PuJyA_U49xPoA3W_UUSA&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=FjsGos95r0EUi-daZSkYKA&_nc_ss=8&oh=00_AfzlX2PXC0EqMd7uyhIx0eAzSecHmtO7SJAt1ezduwaj8w&oe=69ABC082" alt="Meta">
+                <a href="Screenshot 2026-03-11 224458.png" data-lightbox="gallery" data-title="Meta" class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="Screenshot 2026-03-11 224458.png" alt="Meta">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
-                <a href="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/519976516_1302137081914856_5060460536840408787_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=hmu6V_W1jgcQ7kNvwGoS5RG&_nc_oc=AdmiyUOXdDedt7wML0imPqeVnStvfxQTUUFFLpBZT_grAu1ztnqGokrY1bW6l_60Inw&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=hxMJeQONsgHXa5q9FTJTeA&_nc_ss=8&oh=00_AfzBv6bAshL41_tg8hrajyx7nx6lAApZbPMSbYfAlwbyfg&oe=69ABCCDA" data-lightbox="gallery" data-title="Dzieci na treningu" class="gallery-item" data-aos="fade-up" data-aos-delay="350">
-                    <img src="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/519976516_1302137081914856_5060460536840408787_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=hmu6V_W1jgcQ7kNvwGoS5RG&_nc_oc=AdmiyUOXdDedt7wML0imPqeVnStvfxQTUUFFLpBZT_grAu1ztnqGokrY1bW6l_60Inw&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=hxMJeQONsgHXa5q9FTJTeA&_nc_ss=8&oh=00_AfzBv6bAshL41_tg8hrajyx7nx6lAApZbPMSbYfAlwbyfg&oe=69ABCCDA" alt="Dzieci">
+                <a href="Screenshot 2026-03-11 224507.png" data-lightbox="gallery" data-title="Dzieci na treningu" class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="Screenshot 2026-03-11 224507.png" alt="Dzieci">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA WIDEO -->
+    <section id="video" style="background: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title" data-aos="zoom-in"><span>🎥</span> Zobacz nas w akcji</h2>
+            <div class="video-grid">
+                <div class="video-item" data-aos="fade-right">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Motywacja" allowfullscreen></iframe>
+                </div>
+                <div class="video-item" data-aos="fade-left">
+                    <iframe src="https://www.youtube.com/embed/3tmd-ClpJxA" title="Trening" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (ACCORDION) -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right"><span>❓</span> Częste pytania</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Jak mogę zapisać dziecko na trening?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Wystarczy przyjść na trening otwarty (zobacz harmonogram) lub skontaktować się z nami przez formularz.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Jaki jest koszt treningów?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Pierwszy miesiąc jest bezpłatny. Następnie składka członkowska wynosi 120 zł/mies.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Czy mogę trenować amatorsko?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Tak! Mamy grupy dla amatorów i mastersów. Treningi dostosowujemy do poziomu.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1246,6 +1686,7 @@
                         <div class="news-date">15 lutego 2025</div>
                         <h4>Dwa złota na Halowych Mistrzostwach Mazowsza</h4>
                         <p>Nasi juniorzy wygrali w sprintach i skoku w dal. Gratulujemy!</p>
+                        <a href="#" class="read-more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="news-card" data-aos="fade-up">
@@ -1254,6 +1695,7 @@
                         <div class="news-date">1 marca 2025</div>
                         <h4>Rusza nabór do grupy dziecięcej (7-10 lat)</h4>
                         <p>Zapraszamy na bezpłatny trening pokazowy 10 marca.</p>
+                        <a href="#" class="read-more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="news-card" data-aos="fade-left">
@@ -1262,6 +1704,7 @@
                         <div class="news-date">10 marca 2025</div>
                         <h4>Obóz sportowy w Spale – zapisy</h4>
                         <p>Wyjazd w terminie 20-30 czerwca. Czekamy na chętnych.</p>
+                        <a href="#" class="read-more">Czytaj więcej <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1354,6 +1797,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         AOS.init({ duration: 900, once: true, offset: 80 });
 
@@ -1405,6 +1849,24 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
+        // Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // FAQ Accordion
+        window.toggleFaq = function(element) {
+            element.classList.toggle('active');
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('show');
+        };
+
         // Swiper testimonials
         new Swiper('.testimonialSwiper', {
             loop: true,
@@ -1416,11 +1878,41 @@
             }
         });
 
+        // Swiper events
+        new Swiper('.eventsSwiper', {
+            loop: true,
+            autoplay: { delay: 4000 },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            spaceBetween: 30,
+            slidesPerView: 1,
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+
         // Lightbox options
         lightbox.option({
             'resizeDuration': 200,
             'wrapAround': true,
             'albumLabel': 'Zdjęcie %1 z %2'
+        });
+
+        // Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#f97316' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#f97316', opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: true }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } }
+            }
         });
     </script>
 </body>
