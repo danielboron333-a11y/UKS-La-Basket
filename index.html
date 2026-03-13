@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -923,7 +922,7 @@
             background: black;
         }
 
-        /* ===== SPONSORZY ===== */
+        /* ===== SPONSORZY – ZWIĘKSZONE ZDJĘCIA ===== */
         .sponsors {
             background: white;
             padding: 60px 0;
@@ -931,7 +930,7 @@
         .sponsor-track {
             display: flex;
             gap: 60px;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
             align-items: center;
             filter: grayscale(1);
@@ -943,7 +942,13 @@
             opacity: 1;
         }
         .sponsor-track img {
-            max-height: 60px;
+            max-height: 120px;  /* Zwiększone z 60px na 120px */
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .sponsor-track img:hover {
+            transform: scale(1.1);
         }
 
         /* ===== KONTAKT ===== */
@@ -1208,7 +1213,7 @@
             color: var(--primary);
         }
 
-        /* ===== RESPONSYWNOŚĆ ===== */
+        /* ===== RESPONSYWNOŚĆ – DOSTOSOWANIE SPONSORÓW ===== */
         @media screen and (max-width: 1024px) {
             .stats-grid { grid-template-columns: repeat(2,1fr); }
             .about-wrapper { grid-template-columns: 1fr; }
@@ -1219,6 +1224,9 @@
             .video-grid { grid-template-columns: 1fr; }
             .facts-grid { grid-template-columns: 1fr; }
             .records-grid { grid-template-columns: repeat(2,1fr); }
+            .sponsor-track img {
+                max-height: 100px; /* Nieco mniejsze na tabletach */
+            }
         }
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
@@ -1246,10 +1254,19 @@
             .fab { bottom: 20px; right: 20px; width: 60px; height: 60px; font-size: 2rem; }
             .share-btn { bottom: 100px; right: 20px; width: 45px; height: 45px; font-size: 1.2rem; }
             .records-grid { grid-template-columns: 1fr; }
+            .sponsor-track img {
+                max-height: 80px; /* Mniejsze na telefonach */
+            }
         }
         @media screen and (max-width: 480px) {
             .hero h1 { font-size: 2.4rem; }
             .stats-grid { grid-template-columns: 1fr; }
+            .sponsor-track {
+                gap: 30px;
+            }
+            .sponsor-track img {
+                max-height: 70px;
+            }
         }
     </style>
 </head>
@@ -1577,35 +1594,35 @@
             <h2 class="section-title" data-aos="zoom-in"><span>📷</span> Galeria</h2>
             <div class="gallery-grid">
                 <a href="Screenshot 2026-03-11 223959.png" data-lightbox="gallery" data-title="Sochacka Wrocław 2025" class="gallery-item" data-aos="fade-up">
-                    <img src="Screenshot 2026-03-11 223959.png" alt="Sochacka Wrocław 2025">
+                    <img src="Screenshot 2026-03-11 223959.png" alt="Sochacka Wrocław 2025" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
                 <a href="Screenshot 2026-03-11 224357.png" data-lightbox="gallery" data-title="Skok w dal" class="gallery-item" data-aos="fade-up" data-aos-delay="50">
-                    <img src="Screenshot 2026-03-11 224357.png" alt="Skok">
+                    <img src="Screenshot 2026-03-11 224357.png" alt="Skok" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
                 <a href="Screenshot 2026-03-11 224408.png" data-lightbox="gallery" data-title="Rzut oszczepem" class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="Screenshot 2026-03-11 224408.png" alt="Oszczep">
+                    <img src="Screenshot 2026-03-11 224408.png" alt="Oszczep" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
                 <a href="Screenshot 2026-03-11 224422.png" data-lightbox="gallery" data-title="Bieg" class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                    <img src="Screenshot 2026-03-11 224422.png" alt="Bieg">
+                    <img src="Screenshot 2026-03-11 224422.png" alt="Bieg" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
                 <a href="Screenshot 2026-03-11 224437.png" data-lightbox="gallery" data-title="Stadion" class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="Screenshot 2026-03-11 224437.png" alt="Stadion">
+                    <img src="Screenshot 2026-03-11 224437.png" alt="Stadion" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
                 <a href="Screenshot 2026-03-11 224446.png" data-lightbox="gallery" data-title="Rzut młotem" class="gallery-item" data-aos="fade-up" data-aos-delay="250">
-                    <img src="Screenshot 2026-03-11 224446.png" alt="Młot">
+                    <img src="Screenshot 2026-03-11 224446.png" alt="Młot" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
                 <a href="Screenshot 2026-03-11 224458.png" data-lightbox="gallery" data-title="Meta" class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="Screenshot 2026-03-11 224458.png" alt="Meta">
+                    <img src="Screenshot 2026-03-11 224458.png" alt="Meta" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
                 <a href="Screenshot 2026-03-11 224507.png" data-lightbox="gallery" data-title="Dzieci na treningu" class="gallery-item" data-aos="fade-up" data-aos-delay="350">
-                    <img src="Screenshot 2026-03-11 224507.png" alt="Dzieci">
+                    <img src="Screenshot 2026-03-11 224507.png" alt="Dzieci" loading="lazy">
                     <div class="overlay"><i class="fas fa-search-plus"></i></div>
                 </a>
             </div>
@@ -1618,10 +1635,10 @@
             <h2 class="section-title" data-aos="zoom-in"><span>🎥</span> Zobacz nas w akcji</h2>
             <div class="video-grid">
                 <div class="video-item" data-aos="fade-right">
-                    <iframe src="https://www.youtube.com/embed/AzitGNsa-3Q" title="Motywacja" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/AzitGNsa-3Q" title="Motywacja" allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="video-item" data-aos="fade-left">
-                    <iframe src="https://www.youtube.com/embed/AccWFkawuPQ" title="Trening" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/AccWFkawuPQ" title="Trening" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -1681,7 +1698,7 @@
             <h2 class="section-title" data-aos="fade-left"><span>📰</span> Ostatnie wieści</h2>
             <div class="news-grid">
                 <div class="news-card" data-aos="fade-right">
-                    <div class="news-img"><img src="https://images.unsplash.com/photo-1532387484008-9e6652abb2c4?q=80&w=1974&auto=format&fit=crop" alt="zawody"></div>
+                    <div class="news-img"><img src="https://images.unsplash.com/photo-1532387484008-9e6652abb2c4?q=80&w=1974&auto=format&fit=crop" alt="zawody" loading="lazy"></div>
                     <div class="news-content">
                         <div class="news-date">15 lutego 2025</div>
                         <h4>Dwa złota na Halowych Mistrzostwach Mazowsza</h4>
@@ -1690,7 +1707,7 @@
                     </div>
                 </div>
                 <div class="news-card" data-aos="fade-up">
-                    <div class="news-img"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop" alt="nabór"></div>
+                    <div class="news-img"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop" alt="nabór" loading="lazy"></div>
                     <div class="news-content">
                         <div class="news-date">1 marca 2025</div>
                         <h4>Rusza nabór do grupy dziecięcej (7-10 lat)</h4>
@@ -1699,7 +1716,7 @@
                     </div>
                 </div>
                 <div class="news-card" data-aos="fade-left">
-                    <div class="news-img"><img src="https://images.unsplash.com/photo-1579126038974-437b4686a9b5?q=80&w=1974&auto=format&fit=crop" alt="obóz"></div>
+                    <div class="news-img"><img src="https://images.unsplash.com/photo-1579126038974-437b4686a9b5?q=80&w=1974&auto=format&fit=crop" alt="obóz" loading="lazy"></div>
                     <div class="news-content">
                         <div class="news-date">10 marca 2025</div>
                         <h4>Obóz sportowy w Spale – zapisy</h4>
@@ -1711,15 +1728,15 @@
         </div>
     </section>
 
-    <!-- SPONSORZY -->
+    <!-- SPONSORZY – ZWIĘKSZONE ZDJĘCIA (bez zmian nazw plików) -->
     <section class="sponsors">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up"><span>🤝</span> Partnerzy</h2>
             <div class="sponsor-track">
-                <img src="Screenshot 2026-03-13 222945.png" alt="sponsor">
-                <img src="Screenshot 2026-03-13 223145.png" alt="sponsor">
-                <img src="Screenshot 2026-03-13 223331.png" alt="sponsor">
-                <img src="Screenshot 2026-03-13 223454.png" alt="sponsor">
+                <img src="Screenshot 2026-03-13 222945.png" alt="sponsor" loading="lazy">
+                <img src="Screenshot 2026-03-13 223145.png" alt="sponsor" loading="lazy">
+                <img src="Screenshot 2026-03-13 223331.png" alt="sponsor" loading="lazy">
+                <img src="Screenshot 2026-03-13 223454.png" alt="sponsor" loading="lazy">
             </div>
         </div>
     </section>
