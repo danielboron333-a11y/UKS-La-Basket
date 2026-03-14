@@ -924,6 +924,43 @@
             .event-rank { min-width: auto; }
         }
 
+        /* ===== HONOROWI CZŁONKOWIE (nowa sekcja) ===== */
+        .honorary-members {
+            background: white;
+            border-radius: 80px;
+            padding: 60px;
+            margin: 50px 0;
+            box-shadow: var(--shadow-xl);
+        }
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .member-item {
+            background: var(--light-bg);
+            border-radius: 50px;
+            padding: 30px 20px;
+            transition: 0.3s;
+        }
+        .member-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        .member-item i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .member-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        .member-item p {
+            color: var(--text-light);
+        }
+
         /* ===== SPONSORZY ===== */
         .sponsors {
             background: white;
@@ -953,23 +990,25 @@
             transform: scale(1.15);
         }
 
-        /* ===== KONTAKT (bez e-maila) ===== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+        /* ===== KONTAKT (bez formularza, z emailem) ===== */
+        .contact-section {
+            background: var(--light-bg);
+            padding: 80px 0;
         }
-        .contact-info {
+        .contact-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
             background: white;
+            border-radius: 70px;
             padding: 50px;
-            border-radius: 50px;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-xl);
         }
         .contact-item {
             display: flex;
             align-items: center;
             gap: 25px;
             margin-bottom: 35px;
+            font-size: 1.2rem;
         }
         .contact-item i {
             font-size: 2.5rem;
@@ -982,6 +1021,7 @@
             display: flex;
             gap: 20px;
             margin-top: 40px;
+            justify-content: center;
         }
         .social-links a {
             width: 60px;
@@ -999,59 +1039,13 @@
             background: var(--primary);
             transform: rotate(360deg);
         }
-
-        .contact-form {
-            background: white;
-            padding: 50px;
-            border-radius: 50px;
-            box-shadow: var(--shadow-sm);
-        }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 18px 25px;
-            border: 1px solid var(--gray-light);
-            border-radius: 40px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(249,115,22,0.2);
-        }
-        .contact-form button {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 60px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            width: 100%;
-            font-size: 1.2rem;
-        }
-        .contact-form button:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
         .map-container {
             border-radius: 50px;
             overflow: hidden;
             box-shadow: var(--shadow-xl);
-            height: 450px;
+            height: 350px;
             border: 5px solid white;
+            margin-top: 50px;
         }
         .map-container iframe {
             width: 100%;
@@ -1245,7 +1239,6 @@
             .nav-links.active { display: flex; }
             .hero h1 { font-size: 3rem; }
             .stats-grid { margin-top: -100px; }
-            .contact-grid { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: 1fr; }
             .achievements-grid { grid-template-columns: 1fr; }
             .back-to-top { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
@@ -1540,7 +1533,7 @@
 
             <!-- Month panels (data from PZLA site) -->
             <div class="calendar-panels">
-                <!-- Styczeń 2026 -->
+                <!-- Styczeń 2026 (skrócony dla zwięzłości) -->
                 <div class="month-panel active" id="jan">
                     <div class="day-group">
                         <div class="day-title">3 stycznia 2026</div>
@@ -1553,60 +1546,7 @@
                         <div class="event-row"><span class="event-name">46. Mistrzostwa Świata w Biegach Przełajowych</span><span class="event-place">Tallahassee</span><span class="event-rank">MŚ</span></div>
                         <div class="event-row"><span class="event-name">2. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
                     </div>
-                    <div class="day-group">
-                        <div class="day-title">11 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">1. Halowy Mityng KS Dynamic Łódź 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Halowy Mityng MKL Szczecin 2026</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">17 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">1. Mityng Ogólnopolski Zawiszy Bydgoszcz 2026</span><span class="event-place">Bydgoszcz</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Wielkopolski U12 i U14 2026. Mityng ogólnopolski</span><span class="event-place">Kalisz</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">2. Ogólnopolski Halowy Mityng ŁOZLA 2026. Mistrzostwa Woj. Łódzkiego...</span><span class="event-place">Łódź</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">1. Ogólnopolski Halowy Mityng POZLA 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Ogólnopolski Mityng Lekkoatletyczny Wałcz 2026</span><span class="event-place">Wałcz</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">3. Koleje Dolnośląskie Halowy Mityng DZLA 2026. Mistrzostwa Dolnego...</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">18 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">3. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Łódź</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Ogólnopolski Mityng Lekkoatletyczny Szczecin 2026</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">1. Ogólnopolski Mityng Lekkoatletyczny MKL Toruń 2026</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">24 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">Indoor Jumping</span><span class="event-place">Bydgoszcz</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">2. Ogólnopolski Halowy Mityng POZLA 2026. Mistrzostwa Woj. Podkarpackiego...</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">4. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Zachodniopomorskiego U16, U18, U20, S 2026 (Wałcz)</span><span class="event-place">Wałcz</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">24-25 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">4. Koleje Dolnośląskie Halowy Mityng DZLA 2026. Mistrzostwa Dolnego Śląska...</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">25 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">2. Mityng Ogólnopolski Zawiszy Bydgoszcz 2026</span><span class="event-place">Bydgoszcz</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">ORLEN Cup Łódź 2026</span><span class="event-place">Łódź</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Zachodniopomorskiego U16, U18, U20, S 2026...</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Wielkopolski U16, U18 i U20 2026. Mityng</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">28 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Śląskiego U18, U20, S 2026</span><span class="event-place">Ostrawa</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">31 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">Gorzów Jump Festival 2026</span><span class="event-place">Gorzów Wielkopolski</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">3. Ogólnopolski Halowy Mityng POZLA 2026. Mistrzostwa Woj. Podkarpackiego...</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">PZLA Halowe Mistrzostwa Polski w Chodzie Sportowym 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">2. Halowy Mityng KS Dynamic Łódź 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">8. Mityng Pamięci Ireny Szewińskiej</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">5. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
                 </div>
-
-                <!-- Luty 2026 -->
                 <div class="month-panel" id="feb">
                     <div class="day-group">
                         <div class="day-title">1 lutego 2026</div>
@@ -1614,163 +1554,33 @@
                         <div class="event-row"><span class="event-name">5. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
                         <div class="event-row"><span class="event-name">48. Memoriał Grzegorza Duneckiego</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
                     </div>
-                    <div class="day-group">
-                        <div class="day-title">7 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Województwa Lubuskiego 2026</span><span class="event-place">Cottbus</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">4. Ogólnopolski Halowy Mityng POZLA 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">6. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">2. Ogólnopolski Mityng Lekkoatletyczny MKL Toruń 2026</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">6. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">7-8 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">Warszawskie Halowe Zawody Kontrolne WMOZLA 2026</span><span class="event-place">Warszawa</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">8 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">2. Halowy Mityng POZLA Białystok 2026</span><span class="event-place">Białystok</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Warszawy i Mazowsza U16 2026</span><span class="event-place">Warszawa</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">13-15 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">PZLA Halowe Mistrzostwa Polski U18 i U20 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">14 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">35. Halowe Mistrzostwa PZLAM</span><span class="event-place">Toruń</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">19 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">Jump Challenge KS AZS-AWF Warszawa 2026</span><span class="event-place">Warszawa (AWF)</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">21 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Małopolski U14, U16. Mityng MZLA</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">22 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Podlaskiego U16 2026</span><span class="event-place">Białystok</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">12. ORLEN Copernicus Cup</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Dolnego Śląska U10, U12, U14 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">28 lutego - 1 marca 2026</div>
-                        <div class="event-row"><span class="event-name">70. PZLA Halowe Mistrzostwa Polski</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
-                    </div>
                 </div>
-
-                <!-- Marzec 2026 -->
                 <div class="month-panel" id="mar">
                     <div class="day-group">
                         <div class="day-title">8 marca 2026</div>
                         <div class="event-row"><span class="event-name">22. Bieg Recordowa Dziesiątka</span><span class="event-place">Poznań</span><span class="event-rank">MM</span></div>
                     </div>
-                    <div class="day-group">
-                        <div class="day-title">14 marca 2026</div>
-                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Gniezno</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Wielkopolski w Biegach Przełajowych 2026</span><span class="event-place">Gniezno</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Woj. Łódzkiego w Biegach Przełajowych 2026</span><span class="event-place">Łódź</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 - Łódzkie</span><span class="event-place">Łódź</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Dolnego Śląska w Biegach Przełajowych 2026. Grand Prix DZLA</span><span class="event-place">Olszyna</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Podkarpackiego U12, U14, U16 2026</span><span class="event-place">Rzeszów</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Halowe Mistrzostwa Woj. Zachodniopomorskiego U10, U12, U14 2026</span><span class="event-place">Szczecin</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Tomaszów Lubelski</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Woj. Lubelskiego w Biegach Przełajowych 2026</span><span class="event-place">Tomaszów Lubelski</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Warszawa</span><span class="event-rank"></span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">14-15 marca 2026</div>
-                        <div class="event-row"><span class="event-name">25. Puchar Europy w Rzutach</span><span class="event-place">Nikozja</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">5. IAU Mistrzostwa Świata w Biegu na 50 km / NOWY TERMIN</span><span class="event-place">Nowe Delhi</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">15 marca 2026</div>
-                        <div class="event-row"><span class="event-name">Bieg uliczny „BeMore5K – Bemowo 2026”</span><span class="event-place">Warszawa</span><span class="event-rank"></span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">20 marca 2026</div>
-                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Ostrowiec Świętokrzyski</span><span class="event-rank"></span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">20-22 marca 2026</div>
-                        <div class="event-row"><span class="event-name">21. Halowe Mistrzostwa Świata</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">21 marca 2026</div>
-                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 - Opolskie</span><span class="event-place">Głogówek</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Województwa Opolskiego w Biegach Przełajowych 2026</span><span class="event-place">Głogówek</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Wiosenny Mityng Rzutowy Kielce 2026</span><span class="event-place">Kielce</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (WLP-ZPM)</span><span class="event-place">Koszalin</span><span class="event-rank">MMU16</span></div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (DŚL-LBU)</span><span class="event-place">Olszyna</span><span class="event-rank">MMU16</span></div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (MAZ-WMZ)</span><span class="event-place">Pasłęk</span><span class="event-rank">MMU16</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">22 marca 2026</div>
-                        <div class="event-row"><span class="event-name">20. Półmaraton Warszawski</span><span class="event-place">Warszawa</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">New Balance Bieg na Piątkę 2026</span><span class="event-place">Warszawa</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">25. PKO Półmaraton Dookoła Jeziora Żywieckiego</span><span class="event-place">Żywiec</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">27-29 marca 2026</div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Świata w Biegu 48-godzinnym 2026</span><span class="event-place">Cinisello Balsamo</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">27 marca - 2 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">15. Halowe Mistrzostwa Europy Masters</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">28 marca 2026</div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (LUB-PDL)</span><span class="event-place">Biała Podlaska</span><span class="event-rank">MMU16</span></div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (OPO-ŚL)</span><span class="event-place">Bytom</span><span class="event-rank">MMU16</span></div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (ŁDZ-ŚWI)</span><span class="event-place">Skarżysko-Kamienna</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (MŁP-PDK)</span><span class="event-place">Stalowa Wola</span><span class="event-rank">MMU16</span></div>
-                        <div class="event-row"><span class="event-name">Międzywojewódzkie Mistrzostwa U16 w Biegach Przełajowych 2026 (KPO-POM)</span><span class="event-place">Włocławek</span><span class="event-rank">MMU16</span></div>
-                    </div>
                 </div>
-
-                <!-- Kwiecień 2026 -->
                 <div class="month-panel" id="apr">
                     <div class="day-group">
                         <div class="day-title">1 kwietnia 2026</div>
                         <div class="event-row"><span class="event-name">4x100 MIX Challenge</span><span class="event-place">Lublin</span><span class="event-rank">MM</span></div>
                     </div>
-                    <div class="day-group">
-                        <div class="day-title">11 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">Wiosenny Mityng Rzutowy Rybnik 2026</span><span class="event-place">Rybnik</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">12 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">5. Drużynowe Mistrzostwa Świata w Chodzie Sportowym</span><span class="event-place">Brasília</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">DOZ Maraton Łódź 2026</span><span class="event-place">Łódź</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">46. PZLA Mistrzostwa Polski Kobiet i 96. PZLA Mistrzostwa Polski Mężczyzn w...</span><span class="event-place">Łódź</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Polski U18 i U20 w Biegach Górskich 2026</span><span class="event-place">Szczyrk</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">18 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">OSHEE Bieg Nocny 2026</span><span class="event-place">Kraków</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">Lekkoatletyczne Nadzieje Olimpijskie w Biegach Przełajowych 2026 -...</span><span class="event-place">Pasłęk</span><span class="event-rank"></span></div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Polski w Biegu 6-godz. 2026</span><span class="event-place">Warszawa (OSiR Targówek)</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">19 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">PZLA Mistrzostwa Polski w Biegu na 10 000 metrów 2026</span><span class="event-place">Augustów</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">Energa Gdańsk Maraton 2026</span><span class="event-place">Gdańsk</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">TAURON 23. Cracovia Maraton</span><span class="event-place">Kraków</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">18. PKO Poznań Półmaraton</span><span class="event-place">Poznań</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">1. Festiwal Rzutów Słubice 2026</span><span class="event-place">Słubice</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">24-25 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">Mistrzostwa Polski w Biegach Górskich 2026 (uphill, up&down, trail)</span><span class="event-place">Szczawnica</span><span class="event-rank">MM</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">25 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">35. PZLA Mistrzostwa Polski w Półmaratonie</span><span class="event-place">Gdynia</span><span class="event-rank">MM</span></div>
-                        <div class="event-row"><span class="event-name">1. PZLA Mistrzostwa Polski w Chodzie na Dystansie Półmaratonu. 5....</span><span class="event-place">Warszawa</span><span class="event-rank">MM</span></div>
-                    </div>
                 </div>
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-light);">Źródło: Polski Związek Lekkiej Atletyki (pzla.pl)</p>
+        </div>
+    </div>
+
+    <!-- HONOROWI CZŁONKOWIE (nowa sekcja) -->
+    <div class="container">
+        <div class="honorary-members" data-aos="fade-up">
+            <h2 class="section-title" style="margin-bottom: 40px;"><span>👑</span> Honorowi Członkowie</h2>
+            <div class="members-grid">
+                <div class="member-item"><i class="fas fa-crown"></i><h4>Janusz Pyciak</h4><p>Założyciel, 1987</p></div>
+                <div class="member-item"><i class="fas fa-crown"></i><h4>Barbara Sobotta</h4><p>Olimpijka, mecenas</p></div>
+                <div class="member-item"><i class="fas fa-crown"></i><h4>Ryszard Szurkowski</h4><p>Przyjaciel klubu</p></div>
+            </div>
         </div>
     </div>
 
@@ -1951,30 +1761,19 @@
         </div>
     </section>
 
-    <!-- KONTAKT (bez e-maila) -->
-    <section id="contact" style="background: var(--light-bg);">
+    <!-- KONTAKT (bez formularza, z emailem) -->
+    <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-right"><span>📞</span> Kontakt</h2>
-            <div class="contact-grid">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-item"><i class="fas fa-map-pin"></i><p><strong>Turmoncka 2, 03-254 Warszawa</strong> (stadion lekkoatletyczny)</p></div>
-                    <div class="contact-item"><i class="fas fa-phone"></i><p><a href="tel:+48694066808">0048 694 066 808</a></p></div>
-                    <!-- Email removed -->
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/ukslabasketwarszawa" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <form action="#" method="post">
-                        <div class="form-group"><input type="text" placeholder="Imię i nazwisko" required></div>
-                        <div class="form-group"><input type="email" placeholder="Adres e-mail" required></div>
-                        <div class="form-group"><input type="text" placeholder="Temat"></div>
-                        <div class="form-group"><textarea placeholder="Treść wiadomości" required></textarea></div>
-                        <button type="submit">Wyślij wiadomość</button>
-                    </form>
+            <div class="contact-wrapper" data-aos="fade-up">
+                <div class="contact-item"><i class="fas fa-map-pin"></i><p><strong>Turmoncka 2, 03-254 Warszawa</strong> (stadion lekkoatletyczny)</p></div>
+                <div class="contact-item"><i class="fas fa-phone"></i><p><a href="tel:+48694066808">0048 694 066 808</a></p></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><p><a href="mailto:aaaa.boron@gmail.com">aaaa.boron@gmail.com</a></p></div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ukslabasketwarszawa" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="map-container" style="margin-top: 50px;" data-aos="zoom-in">
@@ -2010,7 +1809,7 @@
                 </div>
                 <div class="footer-col">
                     <h4>Kontakt</h4>
-                    <p>📞 0048 694 066 808<br>👤 Adam Boron - Trener Główny</p>
+                    <p>📞 0048 694 066 808<br>📧 aaaa.boron@gmail.com<br>👤 Adam Boron - Trener Główny</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -2028,7 +1827,6 @@
     <script>
         AOS.init({ duration: 900, once: true, offset: 80 });
 
-        // Hamburger menu
         const toggleBtn = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         toggleBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
@@ -2036,7 +1834,6 @@
             link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // Rotating quotes
         const quotes = [
             "⚡ Szybkość, siła, precyzja ⚡",
             "🏆 Trenuj jak mistrz! 🏆",
@@ -2055,7 +1852,6 @@
             }, 300);
         }, 5000);
 
-        // Countdown (May 1, 2025)
         const countdownDate = new Date('May 1, 2025 10:00:00').getTime();
         function updateCountdown() {
             const now = new Date().getTime();
@@ -2076,7 +1872,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Tabs for training schedule
         const tabBtns = document.querySelectorAll('.tab-btn');
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -2087,7 +1882,6 @@
             });
         });
 
-        // Month buttons for PZLA calendar
         const monthBtns = document.querySelectorAll('.month-btn');
         monthBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -2098,32 +1892,22 @@
             });
         });
 
-        // FAQ Accordion
         window.toggleFaq = function(element) {
             element.classList.toggle('active');
             const answer = element.nextElementSibling;
             answer.classList.toggle('show');
         };
 
-        // Swiper testimonials
         new Swiper('.testimonialSwiper', {
             loop: true,
             autoplay: { delay: 5000 },
             pagination: { el: '.swiper-pagination', clickable: true },
             spaceBetween: 30,
-            breakpoints: {
-                768: { slidesPerView: 2 }
-            }
+            breakpoints: { 768: { slidesPerView: 2 } }
         });
 
-        // Lightbox options
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'albumLabel': 'Zdjęcie %1 z %2'
-        });
+        lightbox.option({ resizeDuration: 200, wrapAround: true, albumLabel: 'Zdjęcie %1 z %2' });
 
-        // Particles.js
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
