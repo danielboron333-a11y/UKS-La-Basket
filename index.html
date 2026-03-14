@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKS Basket – Kalendarz Imprez PZLA</title>
-    <!-- Font Awesome, Google Fonts, AOS, Lightbox2, Swiper, Particles (kept for consistency) -->
+    <title>UKS Basket Sekcja Lekkoatletyczna – energia, pasja, mistrzowie</title>
+    <!-- Font Awesome 6, Google Fonts, AOS, Lightbox2, Swiper, Particles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -809,35 +809,6 @@
             border: none;
         }
 
-        /* ===== FUN FACTS ===== */
-        .fun-facts {
-            background: var(--secondary);
-            color: white;
-            border-radius: 80px;
-            padding: 60px;
-            margin: 50px 0;
-        }
-        .facts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-        .fact-item i {
-            font-size: 3rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
-        .fact-item h4 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .fact-item p {
-            opacity: 0.8;
-        }
-
         /* ===== RESULTS TICKER ===== */
         .ticker-wrap {
             background: var(--gradient);
@@ -867,7 +838,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ===== NOWY KALENDARZ IMPREZ (MONTH ACCORDION) ===== */
+        /* ===== KALENDARZ IMPREZ PZLA ===== */
         .events-calendar {
             background: var(--light-bg);
             border-radius: 80px;
@@ -982,7 +953,7 @@
             transform: scale(1.15);
         }
 
-        /* ===== KONTAKT ===== */
+        /* ===== KONTAKT (bez e-maila) ===== */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1211,7 +1182,7 @@
             transform: scale(1.1);
         }
 
-        /* ===== STOPKA ===== */
+        /* ===== STOPKA (z Adamem Boron) ===== */
         footer {
             background: var(--secondary);
             color: #cbd5e1;
@@ -1253,7 +1224,6 @@
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .hero h1 { font-size: 4rem; }
             .video-grid { grid-template-columns: 1fr; }
-            .facts-grid { grid-template-columns: 1fr; }
             .records-grid { grid-template-columns: repeat(2,1fr); }
             .sponsor-track img { max-height: 140px; }
         }
@@ -1276,7 +1246,6 @@
             .hero h1 { font-size: 3rem; }
             .stats-grid { margin-top: -100px; }
             .contact-grid { grid-template-columns: 1fr; }
-            .newsletter-form { flex-direction: column; }
             .gallery-grid { grid-template-columns: 1fr; }
             .achievements-grid { grid-template-columns: 1fr; }
             .back-to-top { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
@@ -1294,7 +1263,7 @@
     </style>
 </head>
 <body>
-    <!-- NAVIGATION (language switcher removed) -->
+    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">UKS BASKET <span>sekcja lekkoatletyczna</span></div>
@@ -1543,18 +1512,6 @@
         </div>
     </section>
 
-    <!-- FUN FACTS -->
-    <div class="container">
-        <div class="fun-facts" data-aos="fade-up">
-            <h2 class="section-title" style="color: white; margin-bottom: 40px;"><span>🔍</span> Czy wiesz, że...</h2>
-            <div class="facts-grid">
-                <div class="fact-item"><i class="fas fa-trophy"></i><h4>1987</h4><p>rok założenia klubu</p></div>
-                <div class="fact-item"><i class="fas fa-running"></i><h4>14</h4><p>dyscyplin lekkoatletycznych</p></div>
-                <div class="fact-item"><i class="fas fa-globe"></i><h4>3</h4><p>kontynenty z naszymi zawodnikami</p></div>
-            </div>
-        </div>
-    </div>
-
     <!-- RESULTS TICKER -->
     <div class="ticker-wrap">
         <div class="ticker">
@@ -1568,7 +1525,7 @@
         </div>
     </div>
 
-    <!-- ===== NOWY KALENDARZ IMPREZ PZLA (MONTH ACCORDION) ===== -->
+    <!-- KALENDARZ IMPREZ PZLA -->
     <div class="container">
         <div class="events-calendar" data-aos="fade-up">
             <h2 class="section-title" style="margin-bottom: 40px;"><span>📆</span> Kalendarz Imprez PZLA 2026</h2>
@@ -1945,18 +1902,6 @@
         </div>
     </section>
 
-    <!-- NEWSLETTER -->
-    <div class="container">
-        <div class="newsletter" data-aos="flip-up">
-            <h3>Bądź na bieżąco</h3>
-            <p>Zapisz się do newslettera i otrzymuj informacje o treningach, zawodach i obozach.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Twój e-mail" required>
-                <button type="submit">Zapisz się</button>
-            </form>
-        </div>
-    </div>
-
     <!-- AKTUALNOŚCI -->
     <section id="news" style="margin-top: 80px;">
         <div class="container">
@@ -2006,7 +1951,7 @@
         </div>
     </section>
 
-    <!-- KONTAKT -->
+    <!-- KONTAKT (bez e-maila) -->
     <section id="contact" style="background: var(--light-bg);">
         <div class="container">
             <h2 class="section-title" data-aos="fade-right"><span>📞</span> Kontakt</h2>
@@ -2014,7 +1959,7 @@
                 <div class="contact-info" data-aos="fade-right">
                     <div class="contact-item"><i class="fas fa-map-pin"></i><p><strong>Turmoncka 2, 03-254 Warszawa</strong> (stadion lekkoatletyczny)</p></div>
                     <div class="contact-item"><i class="fas fa-phone"></i><p><a href="tel:+48694066808">0048 694 066 808</a></p></div>
-                    <div class="contact-item"><i class="fas fa-envelope"></i><p><a href="mailto:aaaa.boron@gmail.com">aaaa.boron@gmail.com</a></p></div>
+                    <!-- Email removed -->
                     <div class="social-links">
                         <a href="https://www.facebook.com/ukslabasketwarszawa" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -2038,7 +1983,7 @@
         </div>
     </section>
 
-    <!-- STOPKA -->
+    <!-- STOPKA (z Adamem Boron) -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -2065,7 +2010,7 @@
                 </div>
                 <div class="footer-col">
                     <h4>Kontakt</h4>
-                    <p>📞 0048 694 066 808<br>📧 aaaa.boron@gmail.com</p>
+                    <p>📞 0048 694 066 808<br>👤 Adam Boron - Trener Główny</p>
                 </div>
             </div>
             <div class="footer-bottom">
