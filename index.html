@@ -711,6 +711,90 @@
             margin: 10px 0 5px;
         }
 
+        /* ===== ZAWODNIK MIESIĄCA (NOWA SEKCJA) ===== */
+        .athlete-month {
+            background: var(--light-bg);
+            border-radius: 80px;
+            padding: 60px;
+            margin: 50px 0;
+        }
+        .athlete-card {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: white;
+            border-radius: 60px;
+            padding: 40px;
+            box-shadow: var(--shadow-xl);
+        }
+        .athlete-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary);
+            box-shadow: 0 20px 30px -10px #f97316;
+        }
+        .athlete-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .athlete-info h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        .athlete-info .discipline {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .athlete-info .achievement-list {
+            list-style: none;
+        }
+        .athlete-info .achievement-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .athlete-info .achievement-list i {
+            color: gold;
+        }
+        @media screen and (max-width: 768px) {
+            .athlete-card { flex-direction: column; text-align: center; }
+        }
+
+        /* ===== OSTATNIE WYNIKI (NOWA SEKCJA) ===== */
+        .results-table {
+            background: white;
+            border-radius: 60px;
+            padding: 40px;
+            box-shadow: var(--shadow-xl);
+            margin: 50px 0;
+        }
+        .results-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .results-table th {
+            color: var(--primary);
+            font-weight: 700;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid var(--primary);
+        }
+        .results-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .results-table tr:hover {
+            background: var(--light-bg);
+        }
+
         /* ===== TESTIMONIALS (Swiper) ===== */
         .testimonials {
             background: var(--light-bg);
@@ -924,7 +1008,7 @@
             .event-rank { min-width: auto; }
         }
 
-        /* ===== HONOROWI CZŁONKOWIE (nowa sekcja) ===== */
+        /* ===== HONOROWI CZŁONKOWIE ===== */
         .honorary-members {
             background: white;
             border-radius: 80px;
@@ -990,7 +1074,7 @@
             transform: scale(1.15);
         }
 
-        /* ===== KONTAKT (bez formularza, z emailem) ===== */
+        /* ===== KONTAKT ===== */
         .contact-section {
             background: var(--light-bg);
             padding: 80px 0;
@@ -1176,7 +1260,7 @@
             transform: scale(1.1);
         }
 
-        /* ===== STOPKA (z Adamem Boron) ===== */
+        /* ===== STOPKA ===== */
         footer {
             background: var(--secondary);
             color: #cbd5e1;
@@ -1518,61 +1602,76 @@
         </div>
     </div>
 
-    <!-- KALENDARZ IMPREZ PZLA -->
+    <!-- ===== NOWA SEKCJA: ZAWODNIK MIESIĄCA ===== -->
+    <div class="container">
+        <div class="athlete-month" data-aos="fade-up">
+            <h2 class="section-title" style="margin-bottom: 40px;"><span>⭐</span> Zawodnik miesiąca – marzec 2026</h2>
+            <div class="athlete-card">
+                <div class="athlete-photo">
+                    <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=2070&auto=format&fit=crop" alt="Julia Wiśniewska">
+                </div>
+                <div class="athlete-info">
+                    <h3>Julia Wiśniewska</h3>
+                    <div class="discipline">Skok w dal, sprinty</div>
+                    <ul class="achievement-list">
+                        <li><i class="fas fa-medal"></i> Złoty medal Halowych Mistrzostw Mazowsza U18 (6.12m)</li>
+                        <li><i class="fas fa-medal"></i> Srebro w sztafecie 4x200m na Ogólnopolskiej Olimpiadzie Młodzieży</li>
+                        <li><i class="fas fa-trophy"></i> Powołanie do Kadry Narodowej Juniorów</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NOWA SEKCJA: OSTATNIE WYNIKI ===== -->
+    <div class="container">
+        <div class="results-table" data-aos="fade-up">
+            <h2 class="section-title" style="margin-bottom: 40px;"><span>📋</span> Ostatnie wyniki</h2>
+            <table>
+                <thead>
+                    <tr><th>Data</th><th>Zawody</th><th>Zawodnik</th><th>Konkurencja</th><th>Wynik</th><th>Miejsce</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>2026-03-14</td><td>Halowe Mistrzostwa Mazowsza</td><td>Julia Wiśniewska</td><td>skok w dal</td><td>6.12m</td><td>1.</td></tr>
+                    <tr><td>2026-03-14</td><td>Halowe Mistrzostwa Mazowsza</td><td>Kamil Nowak</td><td>60m</td><td>6.89s</td><td>2.</td></tr>
+                    <tr><td>2026-03-07</td><td>Mityng w Spałe</td><td>Anna Kwiatkowska</td><td>800m</td><td>2:12.45</td><td>3.</td></tr>
+                    <tr><td>2026-02-28</td><td>70. PZLA HMP</td><td>Piotr Zając</td><td>skok wzwyż</td><td>2.12m</td><td>5.</td></tr>
+                    <tr><td>2026-02-22</td><td>ORLEN Copernicus Cup</td><td>Adam Boron</td><td>60m</td><td>6.78s</td><td>4.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- KALENDARZ IMPREZ PZLA (skrócony) -->
     <div class="container">
         <div class="events-calendar" data-aos="fade-up">
             <h2 class="section-title" style="margin-bottom: 40px;"><span>📆</span> Kalendarz Imprez PZLA 2026</h2>
-            
-            <!-- Month buttons -->
             <div class="calendar-months">
                 <button class="month-btn active" data-month="jan">Styczeń</button>
                 <button class="month-btn" data-month="feb">Luty</button>
                 <button class="month-btn" data-month="mar">Marzec</button>
                 <button class="month-btn" data-month="apr">Kwiecień</button>
             </div>
-
-            <!-- Month panels (data from PZLA site) -->
             <div class="calendar-panels">
-                <!-- Styczeń 2026 (skrócony dla zwięzłości) -->
                 <div class="month-panel active" id="jan">
-                    <div class="day-group">
-                        <div class="day-title">3 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">1. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
-                    <div class="day-group">
-                        <div class="day-title">10 stycznia 2026</div>
-                        <div class="event-row"><span class="event-name">1. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Łódź</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">4. Halowy Memoriał Piotra Surowca</span><span class="event-place">Mielec</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">46. Mistrzostwa Świata w Biegach Przełajowych</span><span class="event-place">Tallahassee</span><span class="event-rank">MŚ</span></div>
-                        <div class="event-row"><span class="event-name">2. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div>
-                    </div>
+                    <div class="day-group"><div class="day-title">3 stycznia 2026</div><div class="event-row"><span class="event-name">1. Koleje Dolnośląskie Halowy Mityng DZLA 2026</span><span class="event-place">Wrocław</span><span class="event-rank">I</span></div></div>
+                    <div class="day-group"><div class="day-title">10 stycznia 2026</div><div class="event-row"><span class="event-name">1. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Łódź</span><span class="event-rank">I</span></div></div>
                 </div>
                 <div class="month-panel" id="feb">
-                    <div class="day-group">
-                        <div class="day-title">1 lutego 2026</div>
-                        <div class="event-row"><span class="event-name">1. Halowy Mityng POZLA Białystok 2026</span><span class="event-place">Białystok</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">5. Ogólnopolski Halowy Mityng ŁOZLA 2026</span><span class="event-place">Spała</span><span class="event-rank">I</span></div>
-                        <div class="event-row"><span class="event-name">48. Memoriał Grzegorza Duneckiego</span><span class="event-place">Toruń</span><span class="event-rank">MM</span></div>
-                    </div>
+                    <div class="day-group"><div class="day-title">1 lutego 2026</div><div class="event-row"><span class="event-name">1. Halowy Mityng POZLA Białystok 2026</span><span class="event-place">Białystok</span><span class="event-rank">I</span></div></div>
                 </div>
                 <div class="month-panel" id="mar">
-                    <div class="day-group">
-                        <div class="day-title">8 marca 2026</div>
-                        <div class="event-row"><span class="event-name">22. Bieg Recordowa Dziesiątka</span><span class="event-place">Poznań</span><span class="event-rank">MM</span></div>
-                    </div>
+                    <div class="day-group"><div class="day-title">8 marca 2026</div><div class="event-row"><span class="event-name">22. Bieg Recordowa Dziesiątka</span><span class="event-place">Poznań</span><span class="event-rank">MM</span></div></div>
                 </div>
                 <div class="month-panel" id="apr">
-                    <div class="day-group">
-                        <div class="day-title">1 kwietnia 2026</div>
-                        <div class="event-row"><span class="event-name">4x100 MIX Challenge</span><span class="event-place">Lublin</span><span class="event-rank">MM</span></div>
-                    </div>
+                    <div class="day-group"><div class="day-title">1 kwietnia 2026</div><div class="event-row"><span class="event-name">4x100 MIX Challenge</span><span class="event-place">Lublin</span><span class="event-rank">MM</span></div></div>
                 </div>
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-light);">Źródło: Polski Związek Lekkiej Atletyki (pzla.pl)</p>
         </div>
     </div>
 
-    <!-- HONOROWI CZŁONKOWIE (nowa sekcja) -->
+    <!-- HONOROWI CZŁONKOWIE -->
     <div class="container">
         <div class="honorary-members" data-aos="fade-up">
             <h2 class="section-title" style="margin-bottom: 40px;"><span>👑</span> Honorowi Członkowie</h2>
